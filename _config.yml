@@ -1,4 +1,6 @@
 title: Reciprocal Space Station
 
-port: 4499
+plugins:
+  - jekyll-font-awesome-sass
 
+port: 4500
