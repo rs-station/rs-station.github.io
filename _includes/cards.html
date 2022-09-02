@@ -6,7 +6,7 @@
         <div class="card h-100">
             <div class="card-body">
                 <h2 class="card-title">{{ card.name }}</h2>
-                <p class="card-text">{{ card.desc }}</p>
+                <p class="card-text">{{ card.desc | markdownify }}</p>
             </div>
             <div class="card-footer">
                 <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
