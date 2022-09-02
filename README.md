@@ -1,3 +1,3 @@
 # Reciprocal Space Station Website
 
-Organization website
+Organization website for Reciprocal Space Station
