@@ -2,8 +2,11 @@
   link: https://github.com/Hekstra-Lab/reciprocalspaceship
   desc: Tools for exploring reciprocal space. This package provides a crystallographically-aware extension of `pandas` and other useful reciprocal-space tools
 - name: careless
-  link: https://github.com/Hekstra-Lab/careless
+  link: https://github.com/rs-station/careless
   desc: Applying variational inference to the scaling and merging of crystallographic data
 - name: rs-booster
   link: https://github.com/rs-station/rs-booster
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
+- name: careless examples
+  link: https://github.com/rs-station/careless-examples
+  desc: Examples of [`careless`](https://github.com/rs-station/careless) usage
