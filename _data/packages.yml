@@ -1,5 +1,6 @@
 - name: reciprocalspaceship
-  link: https://github.com/Hekstra-Lab/reciprocalspaceship
+  link: https://github.com/rs-station/reciprocalspaceship
+  docs: https://rs-station.github.io/reciprocalspaceship/
   desc: Tools for exploring reciprocal space. This package provides a crystallographically-aware extension of `pandas` and other useful reciprocal-space tools
 - name: careless
   link: https://github.com/rs-station/careless
@@ -9,4 +10,4 @@
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
 - name: careless examples
   link: https://github.com/rs-station/careless-examples
-  desc: Examples of [`careless`](https://github.com/rs-station/careless) usage
+  desc: Examples of `careless` usage

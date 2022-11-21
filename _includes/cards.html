@@ -9,9 +9,15 @@
                 <p class="card-text">{{ card.desc | markdownify }}</p>
             </div>
             <div class="card-footer">
+                {% if card.docs %}
+                <a class="btn btn-secondary btn-sm" href="{{ card.docs }}" >
+                    View Documentation
+                </a>
+                {% endif %}
                 <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
                     View on GitHub
                 </a>
+
             </div>
         </div>
     </div>
