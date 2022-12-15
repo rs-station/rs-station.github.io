@@ -1,7 +1,7 @@
-- title: "Careless: A Variational Bayesian Model for Merging X-ray Diffraction Data"
+- title: "A unifying Bayesian framework for merging X-ray diffraction data"
   authors: "**Dalton, KM** and Jack B. Greisman, Doeke R. Hekstra"
-  url: https://www.biorxiv.org/content/10.1101/2021.01.05.425510v1
-  info: Preprint
+  url: https://www.nature.com/articles/s41467-022-35280-8
+  info: Nature Communications, 2022
 - title: Native SAD phasing at room temperature
   authors: "**Greisman, JB** and Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S2059798322006799
