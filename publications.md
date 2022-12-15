@@ -10,6 +10,20 @@ The following publications make use of RSS packages. If there's a paper we're mi
  - [{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
 
-## Citing RSS packages
+## How to cite
+If you're making use of any RSS packages, amazing! Please cite them as follows:
 
-Information about citing RSS packages coming soon! In the mean time, if you're using an RSS package in your work, please [reach out to us directly](/contact.html)
+### ReciprocalSpaceship
+{% assign rspub = site.data.publications | where: "nickname", "rs" %}
+{% for pub in rspub %}
+[{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
+{% endfor %}
+
+### Careless
+{% assign clpub = site.data.publications | where: "nickname", "careless" %}
+{% for pub in clpub %}
+[{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
+{% endfor %}
+
+### RS-booster
+[Cite GitHub directly](https://github.com/rs-station/rs-booster)
