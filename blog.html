@@ -1,0 +1,16 @@
+---
+layout: content_page
+title: Blog
+---
+
+<h1> Reciprocal Space Station Blog </h1>
+A place for explanations and elaborations from the RS-station astronauts.
+
+<hr>
+
+{% for post in site.posts %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+{{ post.subtitle }}
+<br>
+<br>
+{% endfor %}

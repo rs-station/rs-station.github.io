@@ -9,7 +9,7 @@ The following publications make use of RSS packages. If there's a paper we're mi
 {% for pub in site.data.publications %}
  - [{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
-
+---
 ## How to cite
 If you're making use of any RSS packages, amazing! Please cite them as follows:
 
