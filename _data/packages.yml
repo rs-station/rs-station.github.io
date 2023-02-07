@@ -7,6 +7,7 @@
   desc: Applying variational inference to the scaling and merging of crystallographic data
 - name: rs-booster
   link: https://github.com/rs-station/rs-booster
+  docs: https://rs-station.github.io/rs-booster/
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
 - name: careless examples
   link: https://github.com/rs-station/careless-examples
