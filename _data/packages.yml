@@ -12,9 +12,9 @@
 - name: laue-dials
   link: https://github.com/rs-station/laue-dials
   desc: Extending `DIALS` for polychromatic "pink beam" data collected at Laue X-ray sources
-- name: abismal
-  link: https://github.com/rs-station/abismal
-  desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
+#- name: abismal
+#  link: https://github.com/rs-station/abismal
+#  desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
 - name: rs-booster
   link: https://github.com/rs-station/rs-booster
   docs: https://rs-station.github.io/rs-booster/
