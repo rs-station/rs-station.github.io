@@ -11,6 +11,7 @@
   desc: Make difference maps between near-isomorphous or non-isomorphous datasets
 - name: laue-dials
   link: https://github.com/rs-station/laue-dials
+  docs: https://rs-station.github.io/laue-dials/
   desc: Extending `DIALS` for polychromatic "pink beam" data collected at Laue X-ray sources
 #- name: abismal
 #  link: https://github.com/rs-station/abismal
