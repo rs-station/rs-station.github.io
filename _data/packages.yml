@@ -7,6 +7,7 @@
   desc: Applying variational inference to the scaling and merging of crystallographic data
 - name: laue-dials
   link: https://github.com/rs-station/laue-dials
+  docs: https://rs-station.github.io/laue-dials/
   desc: Extending `DIALS` for polychromatic "pink beam" data collected at Laue X-ray sources
 - name: abismal
   link: https://github.com/rs-station/abismal
