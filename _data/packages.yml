@@ -5,13 +5,17 @@
 - name: careless
   link: https://github.com/rs-station/careless
   desc: Applying variational inference to the scaling and merging of crystallographic data
+- name: matchmaps
+  link: https://github.com/rs-station/matchmaps
+  docs: https://rs-station.github.io/matchmaps/
+  desc: Make difference maps between near-isomorphous or non-isomorphous datasets
 - name: laue-dials
   link: https://github.com/rs-station/laue-dials
   docs: https://rs-station.github.io/laue-dials/
   desc: Extending `DIALS` for polychromatic "pink beam" data collected at Laue X-ray sources
-- name: abismal
-  link: https://github.com/rs-station/abismal
-  desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
+#- name: abismal
+#  link: https://github.com/rs-station/abismal
+#  desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
 - name: rs-booster
   link: https://github.com/rs-station/rs-booster
   docs: https://rs-station.github.io/rs-booster/
