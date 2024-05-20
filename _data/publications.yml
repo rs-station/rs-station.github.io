@@ -1,15 +1,40 @@
+- nickname: jackdhfr
+  title: "Perturbative diffraction methods resolve a conformational switch that facilitates a two-step enzymatic mechanism"
+  authors: "**Greisman, Jack B.** and Kevin M. Dalton, Dennis E. Brookner, Margaret A. Klureza, Candice J. Sheehan, In-Sik Kim, Robert W. Henning, Silvia Russi, Doeke R. Hekstra"
+  url: https://www.pnas.org/doi/abs/10.1073/pnas.2313192121
+  info: PNAS, 2024
+- nickname: matchmaps
+  title: "MatchMaps: non-isomorphous difference maps for X-ray crystallography"
+  authors: "**Brookner, Dennis E.** and Doeke R, Hekstra"
+  url: https://journals.iucr.org/j/issues/2024/03/00/ei5112/index.html
+  info: Journal of Applied Crystallography, 2024
+- nickname: trxreview
+  title: "Emerging Time-Resolved X-Ray Diffraction Approaches for Protein Dynamics"
+  authors: "**Hekstra, Doeke R.**"
+  url: https://www.annualreviews.org/content/journals/10.1146/annurev-biophys-111622-091155
+  info: Annu. Rev. Biophys., 2023
+- nickname: scaling
+  title: "Correcting systematic errors in diffraction data with modern scaling algorithms"
+  authors: "**Aldama, Luis A** and Kevin M. Dalton, Doeke R. Hekstra"
+  url: https://journals.iucr.org/d/issues/2023/09/00/qi5002/index.html
+  info: Acta Crystallographica D, 2023
+- nickname: neurips2022
+  title: "Online Inference of Structure Factor Amplitudes for Serial X-ray Crystallography"
+  authors: "**Dalton, Kevin M.** and Doeke R. Hekstra"
+  url: https://www.mlsb.io/papers_2022/Online_Inference_of_Structure_Factor_Amplitudes_for_Serial_X_ray_Crystallography.pdf
+  info: Machine Learning for Structural Biology Workshop, NeurIPS 2022
 - nickname: careless
   title: "A unifying Bayesian framework for merging X-ray diffraction data"
-  authors: "**Dalton, KM** and Jack B. Greisman, Doeke R. Hekstra"
+  authors: "**Dalton, Kevin M.** and Jack B. Greisman, Doeke R. Hekstra"
   url: https://www.nature.com/articles/s41467-022-35280-8
   info: Nature Communications, 2022
 - nickname: rtsad
   title: Native SAD phasing at room temperature
-  authors: "**Greisman, JB** and Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
+  authors: "**Greisman, Jack B.** and Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S2059798322006799
   info: Acta Crystallographica D, 2022
 - nickname: rs
   title: "*reciprocalspaceship*: a Python library for crystallographic data analysis"
-  authors: "**Greisman, JB** and Kevin M. Dalton, Doeke R. Hekstra"
+  authors: "**Greisman, Jack B.** and Kevin M. Dalton, Doeke R. Hekstra"
   url: https://scripts.iucr.org/cgi-bin/paper?S160057672100755X
   info: Journal of Applied Crystallography, 2021
