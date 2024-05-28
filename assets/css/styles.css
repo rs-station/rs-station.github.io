@@ -310,6 +310,8 @@ pre code {
   font-size: inherit;
   color: inherit;
   word-break: normal;
+  display: block;
+  margin-left: 12px;
 }
 
 code {
