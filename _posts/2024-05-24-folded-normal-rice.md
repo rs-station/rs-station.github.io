@@ -1,3 +1,10 @@
+---
+layout: post
+title: Crystallographic distributions 
+subtitle: PyTorch implementations of folded normal and Rice distributions
+usemathjax: true
+---
+
 ### Introduction
 Two of the most important distributions in X-ray crystallography are the folded normal and Rice distributions. These are used to model centric and acentric structure factors respectively. In order to further crystallographic computing, we in the `rs-station` org desired learnable implementations of these distributions which could be trained by gradient descent. We have now implemented such distributions in PyTorch in the `rs-distributions` package ([`FoldedNormal`](https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.FoldedNormal) & [`Rice`](https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.Rice)). The remainder of this post will focus on the details of these implementations alongside some context about the recent history of variational inference. 
 
