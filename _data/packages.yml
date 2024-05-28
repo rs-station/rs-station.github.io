@@ -5,6 +5,7 @@
 - name: careless
   link: https://github.com/rs-station/careless
   desc: Applying variational inference to the scaling and merging of crystallographic data
+  examples: https://github.com/rs-station/careless-examples
 - name: matchmaps
   link: https://github.com/rs-station/matchmaps
   docs: https://rs-station.github.io/matchmaps/
@@ -20,6 +21,3 @@
   link: https://github.com/rs-station/rs-booster
   docs: https://rs-station.github.io/rs-booster/
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
-- name: careless examples
-  link: https://github.com/rs-station/careless-examples
-  desc: Examples of `careless` usage
