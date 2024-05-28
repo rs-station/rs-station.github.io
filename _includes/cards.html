@@ -17,6 +17,11 @@
                 <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
                     View on GitHub
                 </a>
+                {% if card.examples %}
+                <a class="btn btn-secondary btn-sm" href="{{ card.docs }}" >
+                    Examples
+                </a>
+                {% endif %}
 
             </div>
         </div>
