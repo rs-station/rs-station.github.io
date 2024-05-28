@@ -2,6 +2,7 @@
 layout: post
 title: Crystallographic distributions 
 subtitle: PyTorch implementations of folded normal and Rice distributions
+author: Kevin M. Dalton
 usemathjax: true
 ---
 
