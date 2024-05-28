@@ -9,7 +9,6 @@ usemathjax: true
 ### Introduction
 Two of the most important distributions in X-ray crystallography are the folded normal and Rice distributions. These are used to model centric and acentric structure factors respectively. In order to further crystallographic computing, we in the `rs-station` org desired learnable implementations of these distributions which could be trained by gradient descent. We have now implemented such distributions in PyTorch in the `rs-distributions` package ([`FoldedNormal`](https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.FoldedNormal) & [`Rice`](https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.Rice)). The remainder of this post will focus on the details of these implementations alongside some context about the recent history of variational inference. 
 
-
 ### Reparameterization
 Reparameterization refers to several methods which render **sampling** from a distribution **as a differentiable operation** with respect to the distribution's parameters. The utility of the method is that **expectations** over distributions can be **learned by gradient descent** in a flexible manner. The concept was introduced in the seminal [paper](https://arxiv.org/abs/1312.6114) by Kingma and Welling. Their approach is simple and applies to any distribution which can be phrased as an invertible transform of a random variable with some standard distribution. 
 
