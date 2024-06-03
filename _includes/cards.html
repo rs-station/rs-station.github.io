@@ -14,14 +14,15 @@
                     View Documentation
                 </a>
                 {% endif %}
-                <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
-                    View on GitHub
-                </a>
+
                 {% if card.examples %}
-                <a class="btn btn-secondary btn-sm" href="{{ card.docs }}" >
+                <a class="btn btn-secondary btn-sm" href="{{ card.examples }}" >
                     Examples
                 </a>
                 {% endif %}
+                <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
+                    View on GitHub
+                </a>
 
             </div>
         </div>
