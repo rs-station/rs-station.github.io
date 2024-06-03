@@ -10,6 +10,8 @@ A place for explanations and elaborations from the RS-station astronauts.
 
 {% for post in site.posts %}
 <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+{{ post.date | date: "%b %d, %Y" }}
+<br>
 {{ post.subtitle }}
 <br>
 <br>
