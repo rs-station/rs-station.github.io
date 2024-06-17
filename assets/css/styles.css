@@ -5326,6 +5326,16 @@ fieldset:disabled .btn {
   padding: 1rem 1rem;
 }
 
+.blog {
+  background-color: #cbe0fe ;
+}
+
+.blog-footer {
+  padding: 0.5rem 1rem;
+  background-color:  #c4dbfe;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
 .card-title {
   margin-bottom: 0.5rem;
 }
@@ -5360,7 +5370,7 @@ fieldset:disabled .btn {
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
-.card-footer:last-child {
+.card-footer:last-child,.blog-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
 
