@@ -50,5 +50,5 @@ Zielinski and Dolamore et al. (2) applied the Multivariate Wilson prior to DJ-1,
 ### Variational Inference Best Practices
 Finally, Zielinski et al (3), details the application of Careless to time-resolved data using DJ-1 as an example. This manuscript offers helpful guidance to users seeking to get the most of their time-resolved diffraction data. Furthermore, it contains a thorough ablation study which demonstrates the impact of many components of the model. 
 
-![DJ-1 merging ablation study](/assets/posts/2024-08-01-multivariate-wilson/dj1_ablation_study.png){: style="width: 100%"}
+![DJ-1 merging ablation study](/assets/posts/2024-07-31-multivariate-wilson/dj1_ablation_study.png){: style="width: 100%"}
 *[Zielinski et al.](https://doi.org/10.1101/2024.07.30.605871) studied the importance of careless model components by conducting ablation studies. Among other important observations, they showed the multivariate Wilson prior accounts for a nearly 10 sigma increase in time-resolved difference signal. [(CC-BY-NC license)](https://creativecommons.org/licenses/by-nc/4.0/)*
