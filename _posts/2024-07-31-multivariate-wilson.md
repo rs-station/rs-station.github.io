@@ -24,12 +24,10 @@ To address the problem of systematic errors in diffraction data, we built [carel
  3. [Scaling and Merging Time-Resolved Laue Data with Variational Inference](https://doi.org/10.1101/2024.07.30.605871)
 
 ### Multivariate Wilson Prior
-In modern structural biology, we are often more interested in the small differences between related structures rather than the structures themselves. There are many applications of this concept in the domain of comparative crystallography. For instance, equilibrium biophysical perturbations such as multitemperature crystallography, non-equilibrium perturbations like electric-field or temperature jumps, drug fragment screening, and of course anomalous diffraction all fall under the umbrella of comparative crystallography. While comparative data have been successfully analyzed using conventional tools, the fidelity of experiments are often challenged by the magnitude of systematic errors present in diffraction data. These can be many hundreds of times larger than the true differences we seek. 
-
 ![Applications of the multivariate Wilson prior](/assets/posts/2024-07-31-multivariate-wilson/comparative_xtal_graphs.png){: image}
 *Applications of the multivariate Wilson prior from [Hekstra et al.](https://doi.org/10.1101/2024.07.22.604476) [(CC-BY-NC license)](https://creativecommons.org/licenses/by-nc/4.0/)*{: caption}
 
-Hekstra et al. (1) derive a mathematical formalism for comparative crystallography. The key insight in their approach is to add some structure into the Bayesian prior distribution used for merging data in careless. Specifically, the default implementation in careless treats related structures as statistically *independent*. By allowing users to specify that subsequent time-points should be statistically *dependent*, this work is able to tease much more signal out of diffraction data. Specific applications demonstrated in the manuscript include
+Hekstra et al. (1) derive a mathematical formalism for comparative crystallography. The key insight in their approach is to add some structure into the Bayesian prior distribution used for merging data in Careless. Specifically, the default implementation in careless treats related structures as statistically *independent*. By allowing users to specify that subsequent time-points should be statistically *dependent*, this work is able to tease much more signal out of diffraction data. Specific applications demonstrated in the manuscript include
  - polychromatic anomalous diffraction
  - time-resolved polychromatic diffraction
  - anomalous diffraction at an X-ray free electron laser (XFEL)
@@ -48,7 +46,10 @@ Zielinski and Dolamore et al. (2) applied the Multivariate Wilson prior to DJ-1,
 *[Zielinski and Dolamore et al.](https://doi.org/10.1101/2024.07.19.604369) show evidence of long-range allostery between the active site and Cystein-53. [(CC-BY-NC-ND license)](https://creativecommons.org/licenses/by-nc-nd/4.0/)*{: caption}
 
 ### Variational Inference Best Practices
-Finally, Zielinski et al (3), details the application of Careless to time-resolved data using DJ-1 as an example. This manuscript offers helpful guidance to users seeking to get the most of their time-resolved diffraction data. Furthermore, it contains a thorough ablation study which demonstrates the impact of many components of the model. 
+Finally, Zielinski et al (3), details the application of Careless to time-resolved data using DJ-1 as an example. This manuscript offers helpful guidance to users seeking to get the most of their time-resolved diffraction data. Furthermore, it contains a thorough ablation study which demonstrates the impact of many components of the model. As judged from the ablation, the multivariate Wilson prior was extremely important for maximizing time-resolved signal. In our estimation, the prior contributes a nearly 10 sigma boost in signal to noise!
 
 ![DJ-1 merging ablation study](/assets/posts/2024-07-31-multivariate-wilson/dj1_ablation_study.png){: style="width: 100%"}
 *[Zielinski et al.](https://doi.org/10.1101/2024.07.30.605871) studied the importance of careless model components by conducting ablation studies. Among other important observations, they showed the multivariate Wilson prior accounts for a nearly 10 sigma increase in time-resolved difference signal. [(CC-BY-NC license)](https://creativecommons.org/licenses/by-nc/4.0/)*
+
+### The Future of Variational Inference in Crystallography
+Together, these pre-prints highlight the flexibility of variational inference as a framework for modeling crystallographic data. New insights like the multivariate prior are easy to incorporate and test. Furthermore, they translate to meaningful biological results! The rs-station devs are looking forward to continuing advancing the state of the art as we support and develop this important technology. 
