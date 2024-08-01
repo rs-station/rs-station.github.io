@@ -4,7 +4,7 @@ Organization website for Reciprocal Space Station
 
 
 ### Writing Blog Posts
-Reciprocal Space Station encourages developers to contribute [blog posts](rs-station.github.io/blog). We're flexible on the formatting, but we suggest following these *guidelines*
+Reciprocal Space Station encourages developers to contribute [blog posts](rs-station.github.io/blog). We're flexible on the formatting, but we suggest following these __guidelines__
  - Blog posts are markdown files in the format `rs-station.github.io/_posts/YYYY-MM-DD-post-title.md`. 
  - Posts begin with a YAML front matter block such as
 
