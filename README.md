@@ -7,6 +7,7 @@ Organization website for Reciprocal Space Station
 Reciprocal Space Station encourages developers to contribute [blog posts](rs-station.github.io/blog). We're flexible on the formatting, but we suggest following these *guidelines*
  - Blog posts are markdown files in the format `rs-station.github.io/_posts/YYYY-MM-DD-post-title.md`. 
  - Posts begin with a YAML front matter block such as
+
         ---
         layout: post
         title: A Short Title
@@ -16,6 +17,7 @@ Reciprocal Space Station encourages developers to contribute [blog posts](rs-sta
         ---
  - If the post contains media such as images, those should be located in `rs-station-github.io/assets/posts/YYYY-MM-DD-post-title`.
  - Use the `blog-image`, `blog-caption` or `blog-image-wide`, `blog-caption-wide` attributes to format images. For example,
+
         ![Systematic errors in rotation data](/assets/posts/2024-07-31-multivariate-wilson/systematic_error.png){: .blog-image} 
         Example of systematic errors in conventional diffraction data from [Dalton et al](https://doi.org/10.1038/s41467-022-35280-8). [(CC-BY license)](https://creativecommons.org/licenses/by/4.0/)
         {: .blog-caption}
