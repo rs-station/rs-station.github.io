@@ -93,9 +93,9 @@ body {
 /* custom things should go here */
 
 .blog-image {
-  margin-right: 25%;
-  margin-left: 25%;
-  width: 50%;
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
 }
 
 .blog-image-wide {
@@ -104,7 +104,13 @@ body {
 
 .blog-caption {
   display: inline-block;
+  font-style: italic;
   padding: 0 15%;
+}
+
+.blog-caption-wide {
+  display: inline-block;
+  font-style: italic;
 }
 
 /* end custom things */
