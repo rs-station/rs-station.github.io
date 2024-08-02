@@ -15,6 +15,9 @@ Reciprocal Space Station encourages developers to contribute [blog posts](rs-sta
         author: Your Name
         usemathjax: true
         ---
+ - You may enable latex rendering through mathjax by adding the following line to your post's front matter,
+
+        usemathjax: true
  - If the post contains media such as images, those should be located in `rs-station-github.io/assets/posts/YYYY-MM-DD-post-title`.
  - Use the `blog-image`, `blog-caption` or `blog-image-wide`, `blog-caption-wide` attributes to format images. For example,
 

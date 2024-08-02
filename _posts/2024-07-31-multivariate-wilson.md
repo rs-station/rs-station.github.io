@@ -3,7 +3,6 @@ layout: post
 title: Multivariate Wilson Priors
 subtitle: Pre-prints Demonstrate Multivariate Priors for Time-Resolved Crystallography
 author: Kevin Dalton
-usemathjax: true
 ---
 
 ### Comparative Crystallography and Careless
