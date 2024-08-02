@@ -26,9 +26,10 @@ Reciprocal Space Station encourages developers to contribute [blog posts](rs-sta
         {: .blog-caption}
  - Inlude the licenses of images from papers or preprints.
 
-For simple posts without figures or equations, you might not need a preview. For more complicated posts, you can run [Jekyll](https://jekyllrb.com/) locally to get a live preview. Follow these instructions to serve the rs-station page locally for writing or development. 
+For simple posts without figures or equations, you might not need a preview. For more complicated posts, you can run [Jekyll](https://jekyllrb.com/) locally to get a live preview. Follow these instructions to serve the rs-station page locally for from the command line for writing or development. 
  1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the  Jekyll docs
  2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass github-pages`
  3. To start serving the site, run `bundle exec jekyll serve --livereload` in your local `rs-station.github.io` git repository
  4. Navigate to the "Server address" listed in your terminal window. The preview will live update after you make any changes. 
 
+Alternatively, if you use VSCode, you may replace steps 3. and 4. above with the help of the following VSCode extension: [Jekyll Run](https://marketplace.visualstudio.com/items?itemName=Dedsec727.jekyll-run)
