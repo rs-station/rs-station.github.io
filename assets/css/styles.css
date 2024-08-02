@@ -90,6 +90,31 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* custom things should go here */
+
+.blog-image {
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.blog-image-wide {
+  width: 100%;
+}
+
+.blog-caption {
+  display: inline-block;
+  font-style: italic;
+  padding: 0 15%;
+}
+
+.blog-caption-wide {
+  display: inline-block;
+  font-style: italic;
+}
+
+/* end custom things */
+
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
