@@ -27,14 +27,17 @@ If you're making use of any RSS packages, amazing! Please cite them as follows:
 [{{ pub.title }}]({{ pub.url}}). **{{ pub.first_author }}**{{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
 
+### laue-dials
+{% assign ldpub = site.data.publications | where: "nickname", "lauedials" %}
+{% for pub in ldpub %}
+[{{ pub.title }}]({{ pub.url}}). **{{ pub.first_author }}**{{ pub.authors }}. *{{ pub.info }}*
+{% endfor %}
+
 ### matchmaps
 {% assign mmpub = site.data.publications | where: "nickname", "matchmaps" %}
 {% for pub in mmpub %}
 [{{ pub.title }}]({{ pub.url}}). **{{ pub.first_author }}**{{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
-
-### laue-dials
-[Cite GitHub directly](https://github.com/rs-station/laue-dials)
 
 ### abismal
 [Cite GitHub directly](https://github.com/rs-station/abismal)
