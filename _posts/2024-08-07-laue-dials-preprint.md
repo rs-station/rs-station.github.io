@@ -13,7 +13,7 @@ Crystallography has often been limited to monochromatic light sources because of
 {:caption: style="display: inline-block;padding: 0 15%;"}
 
 ![Reciprocal lattice points in the Laue case](/assets/posts/2024-08-07-laue-dials-preprint.md/laue_rlp.png){: image}
-*Full reflections from Laue pink-beam crystallography vs monochromatic stills and rotations from [Hewitt et al](https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1). [(CC-BY license)](https://creativecommons.org/licenses/by/4.0/)*{: caption}
+*Full reflections from Laue pink-beam crystallography vs monochromatic stills and rotations from [Hewitt et al](https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1). [(CC-BY-NC license)](https://creativecommons.org/licenses/by/4.0/)*{: caption}
 
 Laue-DIALS is currently able to handle single-crystal fixed-target datasets, with development to extend to serial crystallography rapidly underway! Installing Laue-DIALS just requires a [DIALS installation](https://dials.github.io/installation.html) and then running `pip install laue-dials`. All of the analyses in the preprint were performed using `DIALS v3.17.0` and `Laue-DIALS v0.4`. 
 
@@ -24,7 +24,7 @@ Laue-DIALS has a variety of tutorial notebooks. Each analysis in the preprint wa
 {:caption: style="display: inline-block;padding: 0 15%;"}
 
 ![Laue-DIALS Pipeline](/assets/posts/2024-08-07-laue-dials-preprint.md/laue-dials-pipeline.png){: image}
-*Basic Laue-DIALS analysis pipeline from [Hewitt et al](https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1). [(CC-BY license)](https://creativecommons.org/licenses/by/4.0/)*{: caption}
+*Basic Laue-DIALS analysis pipeline from [Hewitt et al](https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1). [(CC-BY-NC license)](https://creativecommons.org/licenses/by/4.0/)*{: caption}
 
 There are also useful command-line utilities like `laue.plot_wavelengths` and `laue.compute_rmsds`, which are particularly useful as benchmark tools for quality after geometric refinement. The full Laue-DIALS command-line interface is described with all arguments [in our online documentation](https://rs-station.github.io/laue-dials/cli/functions.html). The nature of these programs also make them easy to apply to several passes of data via bash scripting (as seen in the deposition tutorials). 
 
