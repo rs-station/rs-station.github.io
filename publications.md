@@ -3,16 +3,7 @@ title: Publications
 layout: content_page
 ---
 
-# Publications
-The following publications make use of RSS packages. If there's a paper we're missing, or you've recently published a paper using an RSS package, please [let us know!](/contact.html)
-
-{% for pub in site.data.publications %}
- - [{{ pub.title }}]({{ pub.url}}), {{ pub.first_author }} et. al. *{{ pub.info }}*
-{% endfor %}
-
----
-
-## How to cite
+# Citing Reciprocal Space Station packages
 If you're making use of any RSS packages, amazing! Please cite them as follows:
 
 ### reciprocalspaceship
@@ -44,3 +35,15 @@ If you're making use of any RSS packages, amazing! Please cite them as follows:
 
 ### rs-booster
 [Cite GitHub directly](https://github.com/rs-station/rs-booster)
+
+
+# RSS in other publications 
+The following publications explore, expand upon, or apply RSS packages. If there's a paper we're missing, or you've recently published a paper using an RSS package, please [let us know!](/contact.html)
+
+{% for pub in site.data.publications %}
+{% if pub.section == "pubs" %}
+ - [{{ pub.title }}]({{ pub.url}}), {{ pub.first_author }} et. al. *{{ pub.info }}*
+{% endif %}
+{% endfor %}
+
+---

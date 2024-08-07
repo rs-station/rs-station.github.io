@@ -1,70 +1,82 @@
 - nickname: dj1
+  section: pubs
   title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
   first_author: "Zielinski"
   authors: "**, Kara A.** and Cole Dolamore, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
   url: https://www.biorxiv.org/content/10.1101/2024.07.19.604369v1
   info: bioRxiv (preprint)
 - nickname: trxvaritional
+  section: pubs
   title: "Scaling and merging time-resolved Laue data with variational inference"
   first_author: "Zielinski"
   authors: "**, Kara A.** and Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
   url: https://www.biorxiv.org/content/10.1101/2024.07.30.605871v1
   info: bioRxiv (preprint)
 - nickname: doublewilson
+  section: pubs
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
   first_author: "Hekstra"
   authors: "**, Doeke R.** and Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://www.biorxiv.org/content/10.1101/2024.07.22.604476v1
   info: bioRxiv (preprint)
 - nickname: lauedials
+  section: cite
   title: "Laue-DIALS: open-source software for polychromatic X-ray diffraction data"
   first_author: "Hewitt"
   authors: "**, Rick A.** and Kevin M. Dalton, Derek Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
   url: https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1
   info: bioRxiv (preprint)
 - nickname: jackdhfr
+  section: pubs
   title: "Perturbative diffraction methods resolve a conformational switch that facilitates a two-step enzymatic mechanism"
   first_author: "Greisman"
   authors: "**, Jack B.** and Kevin M. Dalton, Dennis E. Brookner, Margaret A. Klureza, Candice J. Sheehan, In-Sik Kim, Robert W. Henning, Silvia Russi, Doeke R. Hekstra"
   url: https://www.pnas.org/doi/abs/10.1073/pnas.2313192121
   info: PNAS, 2024
 - nickname: matchmaps
+  section: cite
   title: "MatchMaps: non-isomorphous difference maps for X-ray crystallography"
   first_author: "Brookner"
   authors: "**, Dennis E.** and Doeke R. Hekstra"
   url: https://journals.iucr.org/j/issues/2024/03/00/ei5112/index.html
   info: Journal of Applied Crystallography, 2024
 - nickname: trxreview
+  section: pubs
   title: "Emerging Time-Resolved X-Ray Diffraction Approaches for Protein Dynamics"
   first_author: "Hekstra"
   authors: "**, Doeke R.**"
   url: https://www.annualreviews.org/content/journals/10.1146/annurev-biophys-111622-091155
   info: Annu. Rev. Biophys., 2023
 - nickname: scaling
+  section: pubs
   title: "Correcting systematic errors in diffraction data with modern scaling algorithms"
   first_author: "Aldama"
   authors: "**, Luis A** and Kevin M. Dalton, Doeke R. Hekstra"
   url: https://journals.iucr.org/d/issues/2023/09/00/qi5002/index.html
   info: Acta Crystallographica D, 2023
 - nickname: neurips2022
+  section: pubs
   title: "Online Inference of Structure Factor Amplitudes for Serial X-ray Crystallography"
   first_author: "Dalton"
   authors: "**, Kevin M.** and Doeke R. Hekstra"
   url: https://www.mlsb.io/papers_2022/Online_Inference_of_Structure_Factor_Amplitudes_for_Serial_X_ray_Crystallography.pdf
   info: Machine Learning for Structural Biology Workshop, NeurIPS 2022
 - nickname: careless
+  section: cite
   title: "A unifying Bayesian framework for merging X-ray diffraction data"
   first_author: "Dalton"
   authors: "**, Kevin M.** and Jack B. Greisman, Doeke R. Hekstra"
   url: https://www.nature.com/articles/s41467-022-35280-8
   info: Nature Communications, 2022
 - nickname: rtsad
+  section: pubs
   title: Native SAD phasing at room temperature
   first_author: "Greisman"
   authors: "**, Jack B.** and Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S2059798322006799
   info: Acta Crystallographica D, 2022
 - nickname: rs
+  section: cite
   title: "*reciprocalspaceship*: a Python library for crystallographic data analysis"
   first_author: "Greisman"
   authors: "**, Jack B.** and Kevin M. Dalton, Doeke R. Hekstra"
