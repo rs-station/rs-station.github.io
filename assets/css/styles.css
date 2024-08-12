@@ -98,6 +98,12 @@ body {
   width: 80%;
 }
 
+.blog-image-narrow {
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%;
+}
+
 .blog-image-wide {
   width: 100%;
 }
