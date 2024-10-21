@@ -17,33 +17,50 @@
     </div>
 
     {% for card in site.data.packages %}
+        {% if card.type == 'production' %} 
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">{{ card.name }}</h2>
+                    <p class="card-text">{{ card.desc | markdownify }}</p>
+                </div>
+                <div class="card-footer">
+                    {% if card.docs %}
+                    <a class="btn btn-secondary btn-sm" href="{{ card.docs }}" >
+                        View Documentation
+                    </a>
+                    {% endif %}
+
+                    {% if card.examples %}
+                    <a class="btn btn-secondary btn-sm" href="{{ card.examples }}" >
+                        Examples
+                    </a>
+                    {% endif %}
+                    <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
+                        View on GitHub
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+    {% endfor %}
 
     <div class="col-md-4 mb-5">
         <div class="card h-100">
             <div class="card-body">
-                <h2 class="card-title">{{ card.name }}</h2>
-                <p class="card-text">{{ card.desc | markdownify }}</p>
+                <h2 class="card-title">Development zone</h2>
+                <p class="card-text">More RSS packages, still under active development; use at your own risk!</p>
             </div>
-            <div class="card-footer">
-                {% if card.docs %}
-                <a class="btn btn-secondary btn-sm" href="{{ card.docs }}" >
-                    View Documentation
-                </a>
-                {% endif %}
+            <div class="blog-footer">
 
-                {% if card.examples %}
-                <a class="btn btn-secondary btn-sm" href="{{ card.examples }}" >
-                    Examples
-                </a>
-                {% endif %}
-                <a class="btn btn-primary btn-sm" href="{{ card.link }}" >
-                    View on GitHub
+                <a class="btn btn-primary btn-sm" href="/development.html" >
+                    See packages
                 </a>
 
             </div>
         </div>
     </div>
-
-    {% endfor %}
 
 </div>
