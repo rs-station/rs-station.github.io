@@ -27,3 +27,7 @@
   type: development
   link: https://github.com/rs-station/abismal
   desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
+- name: meteor
+  type: development
+  link: https://github.com/rs-station/meteor
+  desc: "Make your best isomorphous difference maps."
