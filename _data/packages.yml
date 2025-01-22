@@ -1,4 +1,4 @@
-- name: reciprocalspaceship
+- name: reciprocal​spaceship
   type: production
   link: https://github.com/rs-station/reciprocalspaceship
   docs: https://rs-station.github.io/reciprocalspaceship/
@@ -27,3 +27,7 @@
   type: development
   link: https://github.com/rs-station/abismal
   desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
+- name: ☄️ METEOR
+  type: development
+  link: https://github.com/rs-station/meteor
+  desc: "**M**ap **E**nhancement **T**ools for **E**phemeral **O**ccupancy **R**efinement is a tool for computing crystallographic difference maps."
