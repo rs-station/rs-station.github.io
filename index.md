@@ -18,9 +18,6 @@ layout: base_page
         <a class="btn btn-primary btn-sm" href="https://github.com/orgs/rs-station" >
                     View on GitHub
         </a>
-        <a class="btn btn-primary btn-sm" href="https://discourse.rs-station.org" >
-                    View our forum
-        </a>
     </div>
     <div class="col-md-2"></div>
 </div>
