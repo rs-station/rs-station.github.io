@@ -17,7 +17,7 @@ X-ray crystallography and Cryo-electron microscopy are important techniques to d
 
 Electron density maps often have low resolutions, making it difficult to extract information of fine structural details.
 <p align="center">
-  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png?raw=true)" width="500">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png" width="500">
 </p>
 
 
@@ -67,7 +67,7 @@ obtain a high-resolution target map.
 In essence, the diffusion model first gradually adds noise in the forward pass, and then gradually learns to "undo" the noise, recovering the ground truth map. Figure 2 below gives an illustration of this process.
 
 <p align="center">
-  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion Framework.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion%20Framework.png?raw=true)" width="500">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion Framework.png" width="500">
 </p>
 
 <p align="center"><i>Figure 2: Framework for Diffusion Model.</i></p>
@@ -77,7 +77,7 @@ In essence, the diffusion model first gradually adds noise in the forward pass, 
 To formalize the process described above, we show some summmaries of the training and sampling algorithms we used:
 
 <p align="center">
-  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png?raw=true)" width="700">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png" width="700">
 </p>
 
 <p align="center"><i>Figure 3: Diffusion Model Algorithms.</i></p>
@@ -95,8 +95,8 @@ where $f_\theta$ is our denoising function conditional on an upscaled input $x$ 
 So far, we have successfully implemented the diffusion model and begun training. Initially, we tested a smaller version of the model using 2,000 samples and 200 timesteps over 50 epochs. This training completed smoothly in about two hours. We then moved on to training the full model with 20,000 samples and 1,000 timesteps— a setting recommended in the literature for optimal performance. However, these runs stalled after just a few epochs, likely due to the high memory demands of the 3D diffusion process, particularly with the self-attention blocks used in the denoising step.
 
 <p align="center">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-full.png" width="30%", style="margin-right: 20px;">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-small.png" width="30%">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-full.png" width="30%", style="margin-right: 20px;">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-small.png" width="30%">
 </p>
 
 <p align="center"><i>Figure 4: Learning Curves of Model.</i></p>
@@ -115,7 +115,7 @@ The timing results within the diffusion model shows that setting new noise sched
 We then used psutil to log memory usage. The figure below shows the values recorded in a standard run for about 1 hr, where training starts at timestamp 13:22:38.
 
 <p align="center">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/memory.png" width="700">
+  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/memory.png" width="700">
 </p>
 
 <p align="center"><i>Figure 4: Memory Usage.</i></p>
@@ -132,19 +132,19 @@ Since our full-sized model was not trained extensively, we primarily tried infer
 
 <div style="display: flex; justify-content: center; gap: 5px; text-align: center;">
   <div>
-    <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="80%">
+    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="80%">
     <p>Input (4.0Å)</p>
   </div>
   <div>
-    <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="80%">
+    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="80%">
     <p>Output (4.0Å)</p>
   </div>
   <div>
-    <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="80%">
+    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="80%">
     <p>Output (3.0Å)</p>
   </div>
   <div>
-    <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="80%">
+    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="80%">
     <p>Output (2.0Å)</p>
   </div>
 </div>
