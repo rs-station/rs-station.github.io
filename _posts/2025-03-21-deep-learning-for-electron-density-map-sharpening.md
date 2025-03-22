@@ -4,7 +4,7 @@ layout: post
 title: Deep learning for Electron Density Map Sharpening 
 subtitle: Project Report of using diffusion model for super-resolution
 author: Daisy Liu   
-usemathjax: true
+susemathjax: true
 ----
 ```
 
@@ -41,21 +41,20 @@ We used a conditional denoising diffusion model originally proposed in [Ho et al
 Following the DDPM framework, we first define a forward diffusion process to gradually add Gaussian noise 
 $\epsilon \sim \mathcal{N}(0,\,\mathbf{I})$ into a higher-resolution map $y_0$. At each time step, the distribution evolves as:
 
-\\[
+$$
 q(\mathbf{y}_t \mid \mathbf{y}_{t-1}) = \mathcal{N}(\mathbf{y}_t;\sqrt{\beta_t} \mathbf{y}_{t-1}, (1 - \beta_t) \mathbf{I})
-\\]
+$$
 
 where $\beta_t \in (0, 1)$ defines the noise schedule of the process. Using the Markov property and re-parameterizing with:
-
-\\[
+$$
 \alpha_t = 1 - \beta_t, \quad \bar{\alpha}_t = \prod_{i=1}^{t} \alpha_i
-\\]
+$$
 
 the distribution at an arbitrary time step can be calculated as:
 
-\\[
+$$
 q(\mathbf{y}_t \mid \mathbf{y}_0) = \mathcal{N}(\mathbf{y}_t ; \sqrt{\bar{\alpha}_t} \mathbf{y}_0, (1 - \bar{\alpha}_t) \mathbf{I})
-\\]
+$$
 
 
 This enables us to employ a random sampling of time step 
