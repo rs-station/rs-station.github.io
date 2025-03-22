@@ -17,7 +17,7 @@ X-ray crystallography and Cryo-electron microscopy are important techniques to d
 
 Electron density maps often have low resolutions, making it difficult to extract information of fine structural details.
 <p align="center">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png" width="500">
+  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png?raw=true)" width="500">
 </p>
 
 
@@ -66,14 +66,18 @@ obtain a high-resolution target map.
 
 In essence, the diffusion model first gradually adds noise in the forward pass, and then gradually learns to "undo" the noise, recovering the ground truth map. Figure 2 below gives an illustration of this process.
 
-![Diffusion Framework](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion%20Framework.png?raw=true)
+<p align="center">
+  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion Framework.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion%20Framework.png?raw=true)" width="500">
+</p>
+
+<p align="center"><i>Figure 2: Framework for Diffusion Model.</i></p>
 
 ### Algorithms
 
 To formalize the process described above, we show some summmaries of the training and sampling algorithms we used:
 
 <p align="center">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png" width="700">
+  <img src="[assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png?raw=true)" width="700">
 </p>
 
 <p align="center"><i>Figure 3: Diffusion Model Algorithms.</i></p>
