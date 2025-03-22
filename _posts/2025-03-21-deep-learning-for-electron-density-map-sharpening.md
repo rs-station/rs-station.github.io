@@ -132,10 +132,10 @@ Since our full-sized model was not trained extensively, we primarily tried infer
 
 <table>
   <tr>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="20%"><br>Input (4.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="20%"><br>Output (4.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="20%"><br>Output (3.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="20%"><br>Output (2.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="80%"><br>Input (4.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="80%"><br>Output (4.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="80%"><br>Output (3.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="80%"><br>Output (2.0Å)</td>
   </tr>
 </table>
 
