@@ -38,14 +38,16 @@ Overall, we considered three models:  an initial baseline taken from existing re
 
 We used a conditional denoising diffusion model originally proposed in [Ho et al., 2020](https://arxiv.org/abs/2006.11239). The model is designed to enhance electron density maps by progressively refining noisy inputs into sharper, high-resolution representations. Unlike single-step generative models, diffusion models learn a structured noise-removal process over a large amount of timesteps and is expected to have better performance because of this gradual denoisng process.
 
-Following the DDPM framework, we first define a forward diffusion process to gradually add Gaussian noise 
-$\epsilon \sim \mathcal{N}(0,\,\mathbf{I})$ into a higher-resolution map $y_0$. At each time step, the distribution evolves as:
+Following the DDPM framework, we first define a forward diffusion process by injecting Gaussian noise:
+\\( \epsilon \sim \mathcal{N}(0,\,\mathbf{I}) \\)
+into a higher-resolution map \\( y_0 \\). At each time step, the distribution evolves as:
 
-$$
-q(\mathbf{y}_t \mid \mathbf{y}_{t-1}) = \mathcal{N}(\mathbf{y}_t;\sqrt{\beta_t} \mathbf{y}_{t-1}, (1 - \beta_t) \mathbf{I})
-$$
+\\[
+q(\mathbf{y}_t \mid \mathbf{y}_{t-1}) = \mathcal{N}(\mathbf{y}_t,\, \sqrt{\beta_t} \mathbf{y}_{t-1},\, (1 - \beta_t) \mathbf{I})
+\\]
 
 where $\beta_t \in (0, 1)$ defines the noise schedule of the process. Using the Markov property and re-parameterizing with:
+
 $$
 \alpha_t = 1 - \beta_t, \quad \bar{\alpha}_t = \prod_{i=1}^{t} \alpha_i
 $$
