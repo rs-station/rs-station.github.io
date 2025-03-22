@@ -1,5 +1,12 @@
-
-
+```yaml
+---
+layout: post
+title: Deep learning for Electron Density Map Sharpening 
+subtitle: Project Report of using diffusion model for super-resolution
+author: Daisy Liu   
+susemathjax: true
+---
+```
 ## Project Problem Statement and Motivation
 
 ### What are Electron Density Maps?
@@ -59,11 +66,7 @@ obtain a high-resolution target map.
 
 In essence, the diffusion model first gradually adds noise in the forward pass, and then gradually learns to "undo" the noise, recovering the ground truth map. Figure 2 below gives an illustration of this process.
 
-<p align="center">
-  <img src="assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion Framework.png" width="500">
-</p>
-
-<p align="center"><i>Figure 2: Framework for Diffusion Model.</i></p>
+![Diffusion Framework](https://github.com/Daisylbh/rs-station.github.io/blob/daisyliu-DiffusionModel/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion%20Framework.png?raw=true)
 
 ### Algorithms
 
