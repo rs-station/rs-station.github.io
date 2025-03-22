@@ -130,24 +130,14 @@ Inference of the diffusion model also presented challenges, as we initially obse
 
 Since our full-sized model was not trained extensively, we primarily tried inference using our smaller model. The figure below shows the input map and inference outputs for the molecule with pdb ID 12e8:
 
-<div style="display: flex; justify-content: center; gap: 5px; text-align: center;">
-  <div>
-    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="20%">
-    <p>Input (4.0Å)</p>
-  </div>
-  <div>
-    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="20%">
-    <p>Output (4.0Å)</p>
-  </div>
-  <div>
-    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="20%">
-    <p>Output (3.0Å)</p>
-  </div>
-  <div>
-    <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="20%">
-    <p>Output (2.0Å)</p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="20%"><br>Input (4.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="20%"><br>Output (4.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="20%"><br>Output (3.0Å)</td>
+    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="20%"><br>Output (2.0Å)</td>
+  </tr>
+</table>
 
 The results show that although our model appears to be successfully capturing the coarse structural details, there are places of discontinuities and misalignment. To analyze the results quatitatively, we calculated the fourier shell correlation coefficient(FSC) values at different resolutions between the input 4.0Å map and output 4.0Å map, in which case the model is effectively trying to output a denoised version of the input, starting from pure gaussian noise at the last timestep. At low resolutions (>4.0Å), the FSC values exceeded the commonly used cutoff of 0.143 suggesting a degree of structural similarity. However, the relatively low correlation (~0.2 to 0.3) indicates that the model struggles to recover fine details. Therefore, its overall performance is limited, likely due to its small size and incomplete training. Moving forward, we plan to evaluate inference quality using a fully trained full-scale model, which should yield more reliable structural reconstructions.
 
