@@ -1,12 +1,4 @@
-```yaml
----
-layout: post
-title: Deep learning for Electron Density Map Sharpening 
-subtitle: Project Report of using diffusion model for super-resolution
-author: Daisy Liu   
-susemathjax: true
----
-```
+
 
 ## Project Problem Statement and Motivation
 
