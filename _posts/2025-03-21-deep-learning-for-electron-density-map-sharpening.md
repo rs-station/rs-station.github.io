@@ -1,12 +1,11 @@
-```yaml
 ---
 layout: post
 title: Deep learning for Electron Density Map Sharpening 
 subtitle: Project Report of using diffusion model for super-resolution
 author: Daisy Liu   
-susemathjax: true
+usemathjax: true
 ---
-```
+
 ## Project Problem Statement and Motivation
 
 ### What are Electron Density Maps?
@@ -16,12 +15,10 @@ X-ray crystallography and Cryo-electron microscopy are important techniques to d
 ### Why is Super-Resolution Needed?
 
 Electron density maps often have low resolutions, making it difficult to extract information of fine structural details.
-<p align="center">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png" width="500">
-</p>
 
-
-<p align="center"><i>Figure 1: Example of an electron density map.</i></p>
+![Sharpening Example](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Sharpening_Example.png){: .blog-image} 
+Figure 1: Example of an electron density map.
+{: .blog-caption}
 
 Currently, it takes a significant amount of time for experts to interpret an atomic model from X-ray or electron microscopy data, and structural biology experiments are often expensive. One major cost associated with such experiments is the time spent manually fitting atomic coordinates into electron density maps. An effective map sharpening model has the potential to make maps easier to interpret thereby decreasing the amount of expert time spent and reducing the cost. Such a model may also be used for new applications like interpolating between observed experimental results such as time points in a chemical reaction. 
 
@@ -38,7 +35,7 @@ Overall, we considered three models:  an initial baseline taken from existing re
 We used a conditional denoising diffusion model originally proposed in [Ho et al., 2020](https://arxiv.org/abs/2006.11239). The model is designed to enhance electron density maps by progressively refining noisy inputs into sharper, high-resolution representations. Unlike single-step generative models, diffusion models learn a structured noise-removal process over a large amount of timesteps and is expected to have better performance because of this gradual denoisng process.
 
 Following the DDPM framework, we first define a forward diffusion process to gradually add Gaussian noise 
-$\epsilon \sim \mathcal{N}(0,\ \mathbf{I})$ into a higher-resolution map $y_0$. Using the Markov property and re-parameterization tricks, the distribution at an arbitrary time step can be calculated as:
+$$\epsilon \sim \mathcal{N}(0,\ \mathbf{I})$$ into a higher-resolution map $$y_0$$. Using the Markov property and re-parameterization tricks, the distribution at an arbitrary time step can be calculated as:
 
 $$
 q(\mathbf{y}_t \mid \mathbf{y}_0) = \mathcal{N}(\mathbf{y}_t ; \sqrt{\bar{\alpha}_t} \mathbf{y}_0, (1 - \bar{\alpha}_t) \mathbf{I})
@@ -46,7 +43,7 @@ $$
 
 
 This enables us to employ a random sampling of time step 
-$t \in \{0, \dots, T\}$ in the forward process.
+$$t \in \{0, \dots, T\}$$ in the forward process.
 
 Training of the neural network occurs in the reverse process. Starting from random noise, the model
 learns a parametric approximation to the sample distributions, and iteratively refines the image to
@@ -54,40 +51,35 @@ obtain a high-resolution target map.
 
 In essence, the diffusion model first gradually adds noise in the forward pass, and then gradually learns to "undo" the noise, recovering the ground truth map. Figure 2 below gives an illustration of this process.
 
-<p align="center">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/Diffusion Framework.png" width="500">
-</p>
-
-<p align="center"><i>Figure 2: Framework for Diffusion Model.</i></p>
+![Diffusion Framework](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/diffusion_framework.png){: .blog-image} 
+Figure 2: Framework for Diffusion Model.
+{: .blog-caption}
 
 ### Algorithms
 
 To formalize the process described above, we show some summmaries of the training and sampling algorithms we used:
 
-<p align="center">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png" width="700">
-</p>
 
-<p align="center"><i>Figure 3: Diffusion Model Algorithms.</i></p>
-
+![Diffusion Framework](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png){: .blog-image-wide} 
+Figure 3: Diffusion Model Algorithms.
+{: .blog-caption-wide}
 
 In the training algorithm, following the same algebraic derivations in the original DDPM paper, the training objective function can be simplified to
 
 $${\lVert \boldsymbol{f}_\theta(x, y_t, t)-\boldsymbol{\epsilon} \rVert}^2$$
 
-where $f_\theta$ is our denoising function conditional on an upscaled input $x$ for more control of the output. Hence, the model is trained to predict the noise produced, which can then be subtracted from the $y_t$ to obtain a denoised map $y_{t-1}$. We use a typical DDPM U-Net adapted for 3-dimensional inputs as $f_\theta$.
+where $$f_\theta$$ is our denoising function conditional on an upscaled input $$x$$ for more control of the output. Hence, the model is trained to predict the noise produced, which can then be subtracted from the $$y_t$$ to obtain a denoised map $$y_{t-1}$$. We use a typical DDPM U-Net adapted for 3-dimensional inputs as $$f_\theta$$.
 
 ## Current Progress and Challenges
 
 ### Training Progress
 So far, we have successfully implemented the diffusion model and begun training. Initially, we tested a smaller version of the model using 2,000 samples and 200 timesteps over 50 epochs. This training completed smoothly in about two hours. We then moved on to training the full model with 20,000 samples and 1,000 timesteps— a setting recommended in the literature for optimal performance. However, these runs stalled after just a few epochs, likely due to the high memory demands of the 3D diffusion process, particularly with the self-attention blocks used in the denoising step.
 
-<p align="center">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-full.png" width="30%", style="margin-right: 20px;">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-small.png" width="30%">
-</p>
+![Training Curve Big Model](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-full.png){: .blog-image} 
+![Training Curve Small Model](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/losses-small.png){: .blog-image} 
+Figure 4: Learning Curves of Model.
+{: .blog-caption}
 
-<p align="center"><i>Figure 4: Learning Curves of Model.</i></p>
 
 Figure 4 above displays the learning curves from two representative training runs: one for the smaller model (right) and one for the full-sized model (left). In the second plot, both training and validation loss start high and decrease smoothly over epochs, showing effective learning. The validation loss follows the training loss closely, indicating that the model generalizes and there is little overfitting. In the first plot for the full model, losses are plotted against steps. Although training only reached epoch 4, the training loss drops rapidly to around 0.2, with some fluctuations. The validation loss follows a similar downward trend.
 
@@ -102,12 +94,9 @@ The timing results within the diffusion model shows that setting new noise sched
 
 We then used psutil to log memory usage. The figure below shows the values recorded in a standard run for about 1 hr, where training starts at timestamp 13:22:38.
 
-<p align="center">
-  <img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/memory.png" width="700">
-</p>
-
-<p align="center"><i>Figure 4: Memory Usage.</i></p>
-
+![Memory Usage](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/memory.png){: .blog-image-wide}
+Figure 4: Memory Usage.
+{: .blog-caption-wide}
 
 The figures indicate that there is no evident CPU bottleneck, and GPU memory allocation remains sufficient throughout the process. However, the "Read Bytes" values increase linearly and steadily, reaching extremely high levels (~180GB) just before training stalls. This result, combined with the observation that increasing num_workers and reducing batch size had minimal impact, suggests a likely I/O bottleneck. In light of these findings, we are now transitioning to training with local scratch storage. This is a suggested approach to mitigate the impact of slow network access when handling large datasets. Currently, we have copied training data into local scratch, but are still working on setting up the data loading pipeline from scratch.
 
@@ -120,10 +109,10 @@ Since our full-sized model was not trained extensively, we primarily tried infer
 
 <table>
   <tr>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="80%"><br>Input (4.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="80%"><br>Output (4.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="80%"><br>Output (3.0Å)</td>
-    <td align="center"><img src="../assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="80%"><br>Output (2.0Å)</td>
+    <td align="center"><img src="/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/input4.0-12e8.png" width="80%"><br>Input (4.0Å)</td>
+    <td align="center"><img src="/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output4.0-12e8.png" width="80%"><br>Output (4.0Å)</td>
+    <td align="center"><img src="/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output3.0-12e8.png" width="80%"><br>Output (3.0Å)</td>
+    <td align="center"><img src="/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/output2.0-12e8.png" width="80%"><br>Output (2.0Å)</td>
   </tr>
 </table>
 
