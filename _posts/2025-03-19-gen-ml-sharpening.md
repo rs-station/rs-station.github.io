@@ -3,13 +3,12 @@ layout: post
 title: Generative ML Approach to Electron Density Map Sharpening
 subtitle: Variational Autoencoding for Map Sharpening
 author: Jacob Thornton
-usemathjax: true
 ---
 
 ### Map Sharpening
 X-ray crystallography and Cryo-electron microscopy are important techniques to determine atomic-level information of biological molecules. They are widely used in many fields including structural biology, biochemistry, and biophysics. Therefore, the task of “map sharpening” – taking in either low-resolution electron density maps in crystallography or electrostatic potential maps in cryo-EM to create high-resolution ones – is a valuable area of research. Known as super-resolution in computer science, this class of algorithms increases the information content of low-resolution data. Our project focuses on this task of map sharpening, taking a 3-dimensional, low-resolution electron density map and outputting one with more detail. More detailed maps make it easier for structural biologists to interpret their data by modeling atoms into the density. Map sharpening has the potential to save researchers time and improve automated structure modeling. This task is often difficult, but has been made more feasible with machine learning algorithms.
 
-![Super Res Example](/assets/posts/2025-03-19-gen-ml-sharpening/UNet_Triplet.png){: .blog-image} 
+![Super Res Example](/assets/posts/2025-03-19-gen-ml-sharpening/UNet_Triplet.jpg){: .blog-image} 
  Example of map sharpening through machine learning
  {: .blog-caption}
 
