@@ -10,7 +10,7 @@ usemathjax: true
 
 ### What are Electron Density Maps?
 
-X-ray crystallography and Cryo-electron microscopy are important techniques to determine atomic-level information of biological molecules such as proteins and DNA. When a beam of X-rays is directed at the crystal, it is scattered by atoms in the lattice, producing a diffraction pattern of bright and dark spots reflecting the periodic structure of the molecule. This diffraction patten can then be used to generate electron density maps which encode this structural information and are widely used in many fields including structural biology, biochemistry, and biophysics. 
+X-ray crystallography and Cryo-electron microscopy are important techniques for determining atomic-level information of biological molecules such as proteins and DNA. When a beam of X-rays is directed at the crystal, it is scattered by atoms in the lattice, producing a diffraction pattern of spots. The positions of the spots reflect the geometry of the unit cell -- the repeating unit in the crystal lattice, and the intensities determine the structure of the molecule. This diffraction data is then used to generate electron density maps which encode this structural information and are widely used in many fields including structural biology, biochemistry, and biophysics. 
 
 ### Why is Super-Resolution Needed?
 
@@ -98,7 +98,7 @@ We then used psutil to log memory usage. The figure below shows the values recor
 Figure 4: Memory Usage.
 {: .blog-caption-wide}
 
-The figures indicate that there is no evident CPU bottleneck, and GPU memory allocation remains sufficient throughout the process. However, the "Read Bytes" values increase linearly and steadily, reaching extremely high levels (~180GB) just before training stalls. This result, combined with the observation that increasing num_workers and reducing batch size had minimal impact, suggests a likely I/O bottleneck. In light of these findings, we are now transitioning to training with local scratch storage. This is a suggested approach to mitigate the impact of slow network access when handling large datasets. Currently, we have copied training data into local scratch, but are still working on setting up the data loading pipeline from scratch.
+The figures indicate that there is no evidence of a CPU bottleneck, and GPU memory allocation remains sufficient throughout the process. However, the "Read Bytes" values increase linearly and steadily, reaching extremely high levels (~180GB) just before training stalls. This result, combined with the observation that increasing num_workers and reducing batch size had minimal impact, suggests a likely I/O bottleneck. In light of these findings, we are now transitioning to training with local scratch storage. This is a suggested approach to mitigate the impact of slow network access when handling large datasets. Currently, we have copied training data into local scratch, but are still working on setting up the data loading pipeline from scratch.
 
 ### Inference 
 
