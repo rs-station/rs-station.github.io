@@ -10,7 +10,7 @@ usemathjax: true
 
 ### What are Electron Density Maps?
 
-X-ray crystallography and Cryo-electron microscopy are important techniques for determining atomic-level information of biological molecules such as proteins and DNA. When a beam of X-rays is directed at the crystal, it is scattered by atoms in the lattice, producing a diffraction pattern of spots. The positions of the spots reflect the geometry of the unit cell -- the repeating unit in the crystal lattice, and the intensities determine the structure of the molecule. This diffraction data is then used to generate electron density maps which encode this structural information and are widely used in many fields including structural biology, biochemistry, and biophysics. 
+X-ray crystallography and Cryo-electron microscopy are important techniques to determine atomic-level information of biological molecules such as proteins and DNA. When a beam of X-rays is directed at the crystal, it is scattered by atoms in the lattice, producing a diffraction pattern of spots reflecting the geometry of the crystal. The brightness of these spots contains information about the structure of the molecule. This diffraction patten can then be used to generate electron density maps which encode this structural information and are widely used in many fields including structural biology, biochemistry, and biophysics.
 
 ### Why is Super-Resolution Needed?
 
