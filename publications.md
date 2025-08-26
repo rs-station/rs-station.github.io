@@ -30,6 +30,12 @@ If you're making use of any RSS packages, amazing! Please cite them as follows:
 [{{ pub.title }}]({{ pub.url}}). **{{ pub.first_author }}**{{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
 
+### SFCalculator
+{% assign sfpub = site.data.publications | where: "nickname", "SFCalculator" %}
+{% for pub in sfpub %}
+[{{ pub.title }}]({{ pub.url}}). **{{ pub.first_author }}**{{ pub.authors }}. *{{ pub.info }}*
+{% endfor %}
+
 ### abismal
 [Cite GitHub directly](https://github.com/rs-station/abismal)
 
