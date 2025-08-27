@@ -82,3 +82,10 @@
   authors: "**, Jack B.** and Kevin M. Dalton, Doeke R. Hekstra"
   url: https://scripts.iucr.org/cgi-bin/paper?S160057672100755X
   info: Journal of Applied Crystallography, 2021
+- nickname: SFCalculator
+  section: cite
+  title: "SFCalculator: connecting deep generative models and crystallography"
+  first_author: "Minhuan Li"
+  authors: ", Kevin M. Dalton, Doeke R. Hekstra"
+  url: https://doi.org/10.1101/2025.01.12.632630 
+  info: BioRxiv, 2025
