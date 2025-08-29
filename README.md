@@ -32,3 +32,34 @@ For simple posts without figures or equations, you might not need a preview. For
  3. To start serving the site, run `bundle exec jekyll serve --livereload` in your local `rs-station.github.io` git repository
  4. Navigate to the "Server address" listed in your terminal window. The preview will live update after you make any changes. 
 
+### Adding references
+References from `_data/publications.yml` are automatically included in the "Publications and Citing" tab of the rs-station page. Adding a reference just requires adding a properly formatted entry `yml`. There are two types of entries dictated by what "section" they are affiliated with. "cite" entries are for primary citations for software packages and will be rendered in the first section of the webpage. A new cite entry has the following format,
+
+```yml
+- nickname: reckless
+  section: cite
+  package: Reckless
+  title: Online Maximization of Paperclips
+  authors: "**Devin M. Bolton**, Zach B. Micemen, Derk R. Hoekstra"
+  url: https://doi.org/1l.1111/2033.01.12.632630
+  info: Nature, 2033
+```
+
+For other publications that were written by  reciprocal astronauts and/or using rs-station software, add a "pubs" entry using the following format,
+
+
+```yml
+- nickname: reckless
+  section: pubs
+  title: Online Maximization of Paperclips
+  authors: "**Devin M. Bolton**, Zach B. Micemen, Derk R. Hoekstra"
+  url: https://doi.org/1l.1111/2033.01.12.632630
+  info: Nature, 2033
+```
+
+The key differences are that the "section" value is different and that "cite" entries must include a "package". The formatting is fairly relaxed, but generally, we advise
+ - Write authors in "First M. Last" format
+ - Comma separate author names
+ - use bold text (ie. `**First A. Author**, Second B. Author, Third C. Author`) to highlight the first author
+ - Use a doi for the url whenever available
+
