@@ -9,7 +9,7 @@
   title: "Scaling and merging time-resolved Laue data with variational inference"
   authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
   url: https://doi.org/10.1063/4.0000269
-  info: Structural Dynamics
+  info: Structural Dynamics, 2024
 - nickname: doublewilson
   section: pubs
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
@@ -80,11 +80,11 @@
   title: "SFCalculator: connecting deep generative models and crystallography"
   authors: "**Minhuan Li**, Kevin M. Dalton, Doeke R. Hekstra"
   url: https://doi.org/10.1101/2025.01.12.632630 
-  info: BioRxiv, 2025
+  info: bioRxiv (preprint)
 - nickname: abismal
   section: cite
   package: "ABISMAL"
   title: "ABISMAL"
   authors: "**Kevin M. Dalton**, Doeke R. Hekstra"
   url: https://github.com/rs-station/abismal 
-  info:  GitHub, 2025
+  info: GitHub, 2025
