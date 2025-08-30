@@ -45,7 +45,7 @@ References from `_data/publications.yml` are automatically included in the "Publ
   info: Nature, 2033
 ```
 
-For other publications that were written by  reciprocal astronauts and/or using rs-station software, add a "pubs" entry using the following format,
+For other publications that were written by reciprocal astronauts and/or using rs-station software, add a "pubs" entry using the following format,
 
 
 ```yml
