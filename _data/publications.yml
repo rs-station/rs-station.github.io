@@ -84,7 +84,14 @@
 - nickname: abismal
   section: cite
   package: "ABISMAL"
-  title: "ABISMAL"
-  authors: "**Kevin M. Dalton**, Doeke R. Hekstra"
+  title: "ABISMAL Repository"
+  authors: "**Kevin M. Dalton**, Huanghao Doris Mai, Doeke R. Hekstra"
   url: https://github.com/rs-station/abismal 
+  info: GitHub, 2025
+- nickname: booster
+  section: cite
+  package: "RS-Booster"
+  title: "RS-Booster Repository"
+  authors: "**1 / Astronauts**"
+  url: https://github.com/rs-station/rs-booster
   info: GitHub, 2025
