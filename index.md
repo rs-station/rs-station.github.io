@@ -9,7 +9,7 @@ layout: base_page
     <div class="col-md-3">
         <img 
             style="max-width: 100%; object-fit: cover" 
-            src="/assets/data/rss_logo_400x400.png" 
+            src="{{ '/assets/data/rss_logo_400x400.png' | relative_url }}" 
             alt="Reciprocal Space Station logo" />
     </div>
     <div class="col-md-5">
