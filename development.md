@@ -9,5 +9,5 @@ The following packages are a part of the Reciprocal Space Station organization, 
 
 {% include development_cards.html %}
 
-<p><a href="/">⬅️ Back to production-ready packages</a></p>
+<p><a href="{{ '/' | relative_url }}">⬅️ Back to production-ready packages</a></p>
 

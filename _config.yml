@@ -3,4 +3,6 @@ title: Reciprocal Space Station
 plugins:
   - jekyll-font-awesome-sass
 
-port: 4503
+# NOTE: you can ignore this `port` line and any changes to it;
+# It is only relevant for local builds and has no effect on GitHub
+port: 4504

@@ -9,9 +9,9 @@
     <meta name="author" content="" />
     
     <!-- Favicon-->
-    <link rel="shortcut icon" href="/assets/data/rs-favicon_32x32.png" />
+    <link rel="shortcut icon" href="{{'/assets/data/rs-favicon_32x32.png' | relative_url}}" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="{{'/assets/css/styles.css' | relative_url}}">
 
     <script src="https://use.fontawesome.com/72b03f0302.js"></script>
 
@@ -33,7 +33,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="/assets/js/scripts.js"></script>
+    <script src="{{'/assets/js/scripts.js' | relative_url}}"></script>
 
     <!-- Use MathJax, only when requested in the frontmatter -->
     {% if page.usemathjax %}
