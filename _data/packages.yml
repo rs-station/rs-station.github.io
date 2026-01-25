@@ -36,3 +36,8 @@
   type: development
   link: https://github.com/rs-station/meteor
   desc: "**M**ap **E**nhancement **T**ools for **E**phemeral **O**ccupancy **R**efinement is a tool for computing crystallographic difference maps."
+- name: ROCKET
+  type: production
+  link: https://github.com/rs-station/rocket
+  docs: https://rocket-9.gitbook.io/rocket-docs
+  desc: "**R**efining **O**penfold predictions with **C**rystallographic/Cryo-EM Li**KE**lihood **T**argets (ROCKET) is a tool that uses neural nets for protein structure refinement."

@@ -1,9 +1,15 @@
+- nickname: rocket
+  section: pubs
+  title: "AlphaFold as a Prior: Experimental Structure Determination Conditioned on a Pretrained Neural Network"
+  authors: "**Alisia Fadini**, **Minhuan Li**, Airlie J. McCoy, Thomas C. Terwilliger, Randy J. Read, Doeke Hekstra, Mohammed AlQuraishi"
+  url:  https://doi.org/10.1101/2025.02.18.638828 
+  info: bioRxiv (preprint), 2025
 - nickname: dj1
   section: pubs
   title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
   authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
   url:  https://doi.org/10.1101/2024.07.19.604369
-  info: bioRxiv (preprint)
+  info: bioRxiv (preprint), 2024
 - nickname: trxvaritional
   section: pubs
   title: "Scaling and merging time-resolved Laue data with variational inference"
