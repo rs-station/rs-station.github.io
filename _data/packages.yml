@@ -28,11 +28,12 @@
   link: https://github.com/Hekstra-Lab/SFcalculator_torch
   docs: https://hekstra-lab.github.io/SFcalculator_torch/
   desc: A differentiable pipeline connecting the protein atomic models and experimental structure factors, featuring a differentiable bulk solvent correction.
+- name: ☄️ METEOR
+  type: production
+  link: https://github.com/rs-station/meteor
+  desc: "**M**ap **E**nhancement **T**ools for **E**phemeral **O**ccupancy **R**efinement is a tool for computing crystallographic difference maps."
 - name: abismal
   type: development
   link: https://github.com/rs-station/abismal
   desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
-- name: ☄️ METEOR
-  type: development
-  link: https://github.com/rs-station/meteor
-  desc: "**M**ap **E**nhancement **T**ools for **E**phemeral **O**ccupancy **R**efinement is a tool for computing crystallographic difference maps."
+
