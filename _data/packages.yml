@@ -36,4 +36,8 @@
   type: development
   link: https://github.com/rs-station/abismal
   desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
-
+- name: ROCKET
+  type: production
+  link: https://github.com/rs-station/rocket
+  docs: https://rocket-9.gitbook.io/rocket-docs
+  desc: "**R**efining **O**penfold predictions with **C**rystallographic/Cryo-EM Li**KE**lihood **T**argets (ROCKET) is a tool that uses neural nets for protein structure refinement."
