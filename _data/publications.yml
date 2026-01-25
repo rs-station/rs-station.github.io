@@ -1,8 +1,26 @@
+- nickname: doublewilson
+  section: pubs
+  title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
+  authors: "**Doeke R. Hekstra**, Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
+  url: https://doi.org/10.1126/sciadv.adj2921 
+  info: Science Advances, 2025
+- nickname: meteor
+  section: pubs
+  title: "Denoising and iterative phase recovery reveal low-occupancy populations in protein crystals"
+  authors: "**Alisia Fadini **, Virginia Apostolopoulou, Thomas J. Lane, Jasper J. van Thor"
+  url: https://doi.org/10.1038/s42003-025-09031-6
+  info: Communications Biology, 2025
+- nickname: carelessED
+  section: pubs
+  title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
+  authors: "Huanghao Mai, Ariana Peck, Kevin M. Dalton, Lygia Silva de Moraes, Jessica E. Burch, Frédéric Poitevin, Hosea M. Nelson"
+  url: https://doi.org/10.26434/chemrxiv-2024-62bmk
+  info: chemRxiv (preprint)
 - nickname: dj1
   section: pubs
   title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
   authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
-  url:  https://doi.org/10.1101/2024.07.19.604369
+  url: https://doi.org/10.1101/2024.07.19.604369
   info: bioRxiv (preprint)
 - nickname: trxvaritional
   section: pubs
@@ -10,12 +28,6 @@
   authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
   url: https://doi.org/10.1063/4.0000269
   info: Structural Dynamics, 2024
-- nickname: doublewilson
-  section: pubs
-  title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
-  authors: "**Doeke R. Hekstra**, Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
-  url: https://doi.org/10.1101/2024.07.22.604476 
-  info: bioRxiv (preprint)
 - nickname: lauedials
   section: cite
   package: "Laue-DIALS"
