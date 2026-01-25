@@ -1,77 +1,28 @@
 - nickname: doublewilson
-  section: pubs
+  section: cite
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
   authors: "**Doeke R. Hekstra**, Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://doi.org/10.1126/sciadv.adj2921 
   info: Science Advances, 2025
 - nickname: meteor
-  section: pubs
+  section: cite
   title: "Denoising and iterative phase recovery reveal low-occupancy populations in protein crystals"
   authors: "**Alisia Fadini**, Virginia Apostolopoulou, Thomas J. Lane, Jasper J. van Thor"
   url: https://doi.org/10.1038/s42003-025-09031-6
   info: Communications Biology, 2025
 - nickname: rocket
-  section: pubs
+  section: cite
   title: "AlphaFold as a Prior: Experimental Structure Determination Conditioned on a Pretrained Neural Network"
   authors: "**Alisia Fadini**, **Minhuan Li**, Airlie J. McCoy, Thomas C. Terwilliger, Randy J. Read, Doeke Hekstra, Mohammed AlQuraishi"
   url:  https://doi.org/10.1101/2025.02.18.638828 
   info: bioRxiv (preprint), 2025
-- nickname: carelessED
-  section: pubs
-  title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
-  authors: "Huanghao Mai, Ariana Peck, Kevin M. Dalton, Lygia Silva de Moraes, Jessica E. Burch, Frédéric Poitevin, Hosea M. Nelson"
-  url: https://doi.org/10.26434/chemrxiv-2024-62bmk
-  info: chemRxiv (preprint), 2024
-- nickname: dj1
-  section: pubs
-  title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
-  authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
-  url:  https://doi.org/10.1101/2024.07.19.604369
-  info: bioRxiv (preprint), 2024
-- nickname: trxvaritional
-  section: pubs
-  title: "Scaling and merging time-resolved Laue data with variational inference"
-  authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
-  url: https://doi.org/10.1063/4.0000269
-  info: Structural Dynamics, 2024
-- nickname: lauedials
+- nickname: SFCalculator
   section: cite
-  package: "Laue-DIALS"
-  title: "Laue-DIALS: open-source software for polychromatic X-ray diffraction data"
-  authors: "**Rick A. Hewitt**, Kevin M. Dalton, Derek Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
-  url: https://doi.org/10.1063/4.0000265
-  info: Structural Dynamics, 2024
-- nickname: jackdhfr
-  section: pubs
-  title: "Perturbative diffraction methods resolve a conformational switch that facilitates a two-step enzymatic mechanism"
-  authors: "**Jack B. Greisman**, Kevin M. Dalton, Dennis E. Brookner, Margaret A. Klureza, Candice J. Sheehan, In-Sik Kim, Robert W. Henning, Silvia Russi, Doeke R. Hekstra"
-  url: https://doi.org/10.1073/pnas.2313192121
-  info: PNAS, 2024
-- nickname: matchmaps
-  section: cite
-  package: "MatchMaps"
-  title: "MatchMaps: non-isomorphous difference maps for X-ray crystallography"
-  authors: "**Dennis E. Brookner** and Doeke R. Hekstra"
-  url: https://doi.org/10.1107/S1600576724003510
-  info: Journal of Applied Crystallography, 2024
-- nickname: trxreview
-  section: pubs
-  title: "Emerging Time-Resolved X-Ray Diffraction Approaches for Protein Dynamics"
-  authors: "**Doeke R. Hekstra**"
-  url: https://doi.org/10.1146/annurev-biophys-111622-091155
-  info: Annu. Rev. Biophys., 2023
-- nickname: scaling
-  section: pubs
-  title: "Correcting systematic errors in diffraction data with modern scaling algorithms"
-  authors: "**Luis A. Aldama and Kevin M. Dalton**, Doeke R. Hekstra"
-  url: https://doi.org/10.1107/S2059798323005776
-  info: Acta Crystallographica D, 2023
-- nickname: neurips2022
-  section: pubs
-  title: "Online Inference of Structure Factor Amplitudes for Serial X-ray Crystallography"
-  authors: "**Kevin M. Dalton** and Doeke R. Hekstra"
-  url: https://www.mlsb.io/papers_2022/Online_Inference_of_Structure_Factor_Amplitudes_for_Serial_X_ray_Crystallography.pdf
-  info: Machine Learning for Structural Biology Workshop, NeurIPS 2022
+  package: "SFCalculator"
+  title: "SFCalculator: connecting deep generative models and crystallography"
+  authors: "**Minhuan Li**, Kevin M. Dalton, Doeke R. Hekstra"
+  url: https://doi.org/10.1101/2025.01.12.632630 
+  info: bioRxiv (preprint), 2025
 - nickname: careless
   section: cite
   package: "Careless"
@@ -79,12 +30,20 @@
   authors: "**Kevin M. Dalton**, Jack B. Greisman, Doeke R. Hekstra"
   url: https://doi.org/10.1038/s41467-022-35280-8
   info: Nature Communications, 2022
-- nickname: rtsad
-  section: pubs
-  title: Native SAD phasing at room temperature
-  authors: "**Jack B. Greisman**, Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
-  url: https://doi.org/10.1107/S2059798322006799
-  info: Acta Crystallographica D, 2022
+- nickname: matchmaps
+  section: cite
+  package: "MatchMaps"
+  title: "MatchMaps: non-isomorphous difference maps for X-ray crystallography"
+  authors: "**Dennis E. Brookner** and Doeke R. Hekstra"
+  url: https://doi.org/10.1107/S1600576724003510
+  info: Journal of Applied Crystallography, 2024
+- nickname: lauedials
+  section: cite
+  package: "Laue-DIALS"
+  title: "Laue-DIALS: open-source software for polychromatic X-ray diffraction data"
+  authors: "**Rick A. Hewitt**, Kevin M. Dalton, Derek Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
+  url: https://doi.org/10.1063/4.0000265
+  info: Structural Dynamics, 2024
 - nickname: rs
   section: cite
   package: "reciprocalspaceship"
@@ -92,13 +51,6 @@
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S160057672100755X
   info: Journal of Applied Crystallography, 2021
-- nickname: SFCalculator
-  section: cite
-  package: "SFCalculator"
-  title: "SFCalculator: connecting deep generative models and crystallography"
-  authors: "**Minhuan Li**, Kevin M. Dalton, Doeke R. Hekstra"
-  url: https://doi.org/10.1101/2025.01.12.632630 
-  info: bioRxiv (preprint)
 - nickname: abismal
   section: cite
   package: "ABISMAL"
@@ -113,3 +65,51 @@
   authors: "**1 / Astronauts**"
   url: https://github.com/rs-station/rs-booster
   info: GitHub, 2025
+- nickname: carelessED
+  section: uses
+  title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
+  authors: "Huanghao Mai, Ariana Peck, Kevin M. Dalton, Lygia Silva de Moraes, Jessica E. Burch, Frédéric Poitevin, Hosea M. Nelson"
+  url: https://doi.org/10.26434/chemrxiv-2024-62bmk
+  info: chemRxiv (preprint), 2024
+- nickname: dj1
+  section: uses
+  title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
+  authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
+  url:  https://doi.org/10.1101/2024.07.19.604369
+  info: bioRxiv (preprint), 2024
+- nickname: trxvaritional
+  section: uses
+  title: "Scaling and merging time-resolved Laue data with variational inference"
+  authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
+  url: https://doi.org/10.1063/4.0000269
+  info: Structural Dynamics, 2024
+- nickname: jackdhfr
+  section: uses
+  title: "Perturbative diffraction methods resolve a conformational switch that facilitates a two-step enzymatic mechanism"
+  authors: "**Jack B. Greisman**, Kevin M. Dalton, Dennis E. Brookner, Margaret A. Klureza, Candice J. Sheehan, In-Sik Kim, Robert W. Henning, Silvia Russi, Doeke R. Hekstra"
+  url: https://doi.org/10.1073/pnas.2313192121
+  info: PNAS, 2024
+- nickname: trxreview
+  section: uses
+  title: "Emerging Time-Resolved X-Ray Diffraction Approaches for Protein Dynamics"
+  authors: "**Doeke R. Hekstra**"
+  url: https://doi.org/10.1146/annurev-biophys-111622-091155
+  info: Annu. Rev. Biophys., 2023
+- nickname: scaling
+  section: uses
+  title: "Correcting systematic errors in diffraction data with modern scaling algorithms"
+  authors: "**Luis A. Aldama and Kevin M. Dalton**, Doeke R. Hekstra"
+  url: https://doi.org/10.1107/S2059798323005776
+  info: Acta Crystallographica D, 2023
+- nickname: neurips2022
+  section: uses
+  title: "Online Inference of Structure Factor Amplitudes for Serial X-ray Crystallography"
+  authors: "**Kevin M. Dalton** and Doeke R. Hekstra"
+  url: https://www.mlsb.io/papers_2022/Online_Inference_of_Structure_Factor_Amplitudes_for_Serial_X_ray_Crystallography.pdf
+  info: Machine Learning for Structural Biology Workshop, NeurIPS 2022
+- nickname: rtsad
+  section: uses
+  title: Native SAD phasing at room temperature
+  authors: "**Jack B. Greisman**, Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
+  url: https://doi.org/10.1107/S2059798322006799
+  info: Acta Crystallographica D, 2022
