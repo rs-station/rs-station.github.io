@@ -15,13 +15,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - uses: ruby/setup-ruby@v1
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build --baseurl "/pr-previews/pr-${{ github.event.pull_request.number }}"
+        run: bundle exec jekyll build --baseurl "/rs-station/pr-previews/pr-${{ github.event.pull_request.number }}"
         env:
           JEKYLL_ENV: production
 
