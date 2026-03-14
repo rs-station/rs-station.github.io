@@ -61,7 +61,13 @@ The key differences are that the "section" value is different and that "cite" en
 
 ### Previewing website changes
 
-There are two ways to get a preview of website changes before they go live online. The recommended method is to consult the test clone of the website, which lives online at rs-station.github.io/website-test. The test website is re-built automatically any time there is a pull request into the main branch of this repo. Any issues in content or formatting should be apparent from the test build, and these issues can be updated before the changes go live on the actual website. For contributing a blog post, this is all you should need to know!
+There are two ways to get a preview of website changes before they go live online. 
+
+#### [Test build of the website](rs-station.github.io/website-test)
+
+The test website is re-built automatically any time there is a pull request into the main branch of this repo. Any issues in content or formatting should be apparent from the test build, and these issues can be updated before the changes go live on the actual website. 
+
+For contributing a blog post, this is all you should need to know!
 
 #### Notes for writing HTML
 
