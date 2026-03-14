@@ -1,0 +1,162 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Merging Small Molecule MicroED Data | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>22 Aug 2024</p>
+<h1>Merging Small Molecule MicroED Data</h1>
+<h3>Preprint Demonstrates using Careless in Small Molecule MicroED</h3>
+<p>Doris Mai</p>
+
+<h3 id="small-molecule-microed">Small Molecule MicroED</h3>
+<!-- For decades, single-crystal X-ray diffraction (SCXRD) has been the gold standard for structure elucidation for small molecules.  -->
+<p>Microcrystal electron diffraction (MicroED), also known as continuous rotational electron diffraction (cRED), or 3-dimensional electron diffraction (3DED), is an emerging technique for elucidating small molecule structures from micro- and nano-crystals. 
+However, data processing in microED can be challenging and often requires <strong>merging datasets from multiple crystals</strong> due to limited rotation ranges in many transmission electron microscopes (TEMs) and higher noise in intensity measurements than conventional X-ray diffraction (XRD) experiments. 
+A common practice in the field is to manually curate datasets and apply scaling programs such as <a href="https://doi.org/10.1107/S0907444909047337">XDS/XSCALE</a> from rotational XRD, but this can be time-consuming and risks introducing human bias. In this <a href="https://doi.org/10.26434/chemrxiv-2024-62bmk">preprint</a>, we demonstrate that <a href="https://github.com/rs-station/careless">Careless</a> can be used for merging small molecule microED data and investigate the impact of dataset curation.</p>
+
+<h3 id="dataset-curation-in-merging">Dataset Curation in Merging</h3>
+<p>We benchmark Careless with XDS/XSCALE on more than 10 cases of multi-crystal merging and compare the performance between using all datasets and manually curated datasets (curated=True). 
+We also explore an extension to Careless (<a href="https://github.com/DorisMai/careless/tree/multi_xtal_sig">MC-Careless</a>) to automate the curation of datasets. Specifically, an optimal weighting among datasets (\(w\)) is learned jointly with the scaling factors (\(K\)) and structure factor amplitudes (\(F\)). 
+This weight modulates the effective uncertainty of the intensities (\(\sigma_I\)) from different crystals to account for the variability of data quality across datasets.</p>
+
+<p class="blog-caption-wide"><img src="/assets/posts/2024-08-22-small-molecule-microed/mc-careless-schematic.png" alt="Schematic of weighting" class="blog-image-wide" /> 
+Schematic from the <a href="https://doi.org/10.26434/chemrxiv-2024-62bmk">preprint</a> of the multi-crystal weighting extension to Careless. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">(CC-BY-NC-ND license)</a></p>
+
+<p>In the presented cases, Careless benefits from using all available data, and our multi-crystal weighting extension did not further improve the performance. Manual curation of datasets affects the \(CC_{1/2}\) in XDS/XSCALE and Careless but has marginal impact on the accuracy with respect to structure factor amplitudes calculated from reference structures and on <em>ab initio</em> phasing outcomes.</p>
+
+<p class="blog-caption-wide"><img src="/assets/posts/2024-08-22-small-molecule-microed/preliminary-maps.png" alt="Initial map" class="blog-image-wide" /> 
+Examples from the <a href="https://doi.org/10.26434/chemrxiv-2024-62bmk">preprint</a> of <em>ab initio</em> phasing outcomes from different merging protocols. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">(CC-BY-NC-ND license)</a></p>
+
+<h3 id="key-points-and-future-directions">Key points and Future Directions</h3>
+<ul>
+  <li>Careless can merge microED and small molecule crystallography data.</li>
+  <li>The variational inference framework implemented in Careless is flexible for methods development as demonstrated in our <a href="https://github.com/DorisMai/careless/tree/multi_xtal_sig">MC-Careless</a>.</li>
+  <li>Additional exploration of the hyperparamter space and the Wilson prior might be helpful for challeging cases with pathologies.</li>
+  <li>The common practice of manual dataset curation should be cautioned and deserves future investigation.</li>
+</ul>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+  </body>
+</html>
+
+

@@ -1,0 +1,153 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Installation | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <h1 id="how-to-install">How to install</h1>
+
+<p>All of the Reciprocal Space Station packages are <code class="language-plaintext highlighter-rouge">pip</code>-installable, e.g.:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>reciprocalspaceship
+</code></pre></div></div>
+
+<p>We recommend that you use a package manager such as <a href="https://docs.conda.io/en/latest/"><code class="language-plaintext highlighter-rouge">conda</code></a> and always install into a fresh environment, e.g.:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create <span class="nt">-n</span> my-new-careless-environment
+conda activate my-new-careless-environment
+pip <span class="nb">install </span>careless
+</code></pre></div></div>
+
+<h2 id="development-builds">Development builds</h2>
+
+<p>If you’re looking for a version of the software that’s newer than the latest version published to PyPI, you can alternatively install directly from source:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>git+https://github.com/rs-station/rs-booster.git
+</code></pre></div></div>
+
+<p>or if you want to develop yourself and use your own custom version, you can clone the source code:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/rs-station/rs-booster.git
+<span class="nb">cd </span>rs-booster
+pip <span class="nb">install</span> <span class="nt">-e</span> <span class="nb">.</span>
+</code></pre></div></div>
+
+<h2 id="companion-software">Companion software</h2>
+
+<p>The pure-python dependencies of RSS packages (<code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">gemmi</code>, etc.) will be downloaded automatically when you use <code class="language-plaintext highlighter-rouge">pip</code>. However, some functionality (e.g. <a href="https://rs-station.github.io/rs-booster/misc.html#id1"><code class="language-plaintext highlighter-rouge">rs.scaleit</code></a> from <code class="language-plaintext highlighter-rouge">rs-booster</code>) is just a wrapper around other software (in this case, <a href="https://www.ccp4.ac.uk/download/#os=mac"><code class="language-plaintext highlighter-rouge">CCP4</code></a>) which does need to be installed separately. Hopefully, some day soon, software such as <code class="language-plaintext highlighter-rouge">CCP4</code> and <code class="language-plaintext highlighter-rouge">phenix</code> will follow the lead of <code class="language-plaintext highlighter-rouge">dials</code>, <code class="language-plaintext highlighter-rouge">gemmi</code>, <code class="language-plaintext highlighter-rouge">cctbx</code>, and more and become <code class="language-plaintext highlighter-rouge">pip</code>/<code class="language-plaintext highlighter-rouge">conda</code>-installable!</p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+  </body>
+</html>
+
+

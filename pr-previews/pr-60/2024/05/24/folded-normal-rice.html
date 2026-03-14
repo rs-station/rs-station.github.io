@@ -1,0 +1,411 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Structure factor distributions | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>24 May 2024</p>
+<h1>Structure factor distributions</h1>
+<h3>Learnable implementations of the Rice and folded normal distributions</h3>
+<p>Kevin Dalton</p>
+
+<h3 id="introduction">Introduction</h3>
+<p>Two of the most important distributions in X-ray crystallography are the folded normal and Rice distributions. These are used to model centric and acentric structure factors respectively. In order to further crystallographic computing, we in the <code class="language-plaintext highlighter-rouge">rs-station</code> org desired learnable implementations of these distributions which could be trained by gradient descent. We have now implemented such distributions in PyTorch in the <code class="language-plaintext highlighter-rouge">rs-distributions</code> package (<a href="https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.FoldedNormal"><code class="language-plaintext highlighter-rouge">FoldedNormal</code></a> &amp; <a href="https://rs-station.github.io/distributions/reference/rs_distributions/distributions/#rs_distributions.distributions.Rice"><code class="language-plaintext highlighter-rouge">Rice</code></a>). The remainder of this post will focus on the details of these implementations alongside some context about the recent history of variational inference.</p>
+
+<h3 id="reparameterization">Reparameterization</h3>
+<p>Reparameterization refers to several methods which render <strong>sampling</strong> from a distribution <strong>as a differentiable operation</strong> with respect to the distribution’s parameters. The utility of the method is that <strong>expectations</strong> over distributions can be <strong>learned by gradient descent</strong> in a flexible manner. The concept was introduced in the seminal <a href="https://arxiv.org/abs/1312.6114">paper</a> by Kingma and Welling. Their approach is simple and applies to any distribution which can be phrased as an invertible transform of a random variable with some standard distribution.</p>
+
+<p>In the original reparameterization paper, the requirement that transforms be invertible is problematic for many important distributions. For example, a folded normal random variable can be described as a transformation of a standard normal variable. If</p>
+
+\[x \sim \mathrm{Normal}(0, 1),\]
+
+<p>then</p>
+
+\[z = |\sigma x + \mu|\]
+
+<p>is folded normal distributed with location \(\mu\) and scale \(\sigma\) . At face value, this seems like a valid reparameterization. However, it is not, because the inverse of the absolute value is ambiguous. If \(f(x)=\vert x \vert\), then \(f^{-1}(y)\) must have two values for any \(y&gt;0\) . Therefore, the inverse is not a valid function.</p>
+
+<h3 id="implicit-reparameterization-gradients">Implicit Reparameterization Gradients</h3>
+
+<p>A solution to the restriction of reparameterization gradients came in the form of <a href="https://arxiv.org/abs/1805.08498">implicit reparameterization gradients</a>. This technique enables straightforward reparameterization of any distribution for which the cumulative distribution function is available and differentiable.</p>
+
+<p>Given a distribution with cumulative distribution function, \(S_\phi(z)\), the gradient of samples, \(z\), with respect to the parameters, \(\phi\) is</p>
+
+\[\nabla_\phi z = -\nabla_\phi S(z) / \nabla_z S(z) .\]
+
+<p>All we need to compute implicit reparameterization gradients are the derivatives of \(S\) with respect to the distribution’s parameters and the value of the samples generated during the current gradient step.</p>
+
+<p>This suggests that we can reparameterize any distribution provided
+ 1) a procedure to generate samples from the desired distribution
+ 2) the gradients of cumulative distributionfunction with respect to parameters and samples</p>
+
+<p>I will now describe how we meet these requirements for the folded normal and Rice distributions.</p>
+
+<h3 id="folded-normal">Folded Normal</h3>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Folded_normal_distribution">folded normal</a> random variable is the absolute value of a normally-distributed random variable. It has two parameters, \(\mu\) and \(\sigma\) which are the location and scale of the underlying normal distribution. Samples from a folded normal distribution can be straightforwardly generated from the normal distribution. If</p>
+
+\[\begin{align}
+x &amp;\sim \mathrm{Normal}(\mu, \sigma) \\
+z &amp;= |x| 
+\end{align}\]
+
+<p>then</p>
+
+\[z \sim \mathrm{FoldedNormal(\mu, \sigma)}.\]
+
+<p>Gradients of the parameters with respect to these samples require the cumulative distribution function,</p>
+
+\[S(z | \mu, \sigma) = \frac{1}{2}\left[
+    \mathrm{erf}\left(
+        \frac{z+\mu}{\sigma \sqrt{2}}
+    \right) + 
+    \mathrm{erf}\left(
+        \frac{z-\mu}{\sigma \sqrt{2}}
+    \right)
+\right]\]
+
+<p>Given the derivative of the error function,</p>
+
+\[\frac{\partial}{\partial x} \mathrm{erf}\left(u\right) = \frac{2}{\sqrt \pi} e ^ {-u^2} \frac{\partial}{\partial x} u\]
+
+<p>and a bit of algebra, the derivatives work out to pretty tidy expressions,</p>
+
+\[\begin{align}
+\frac{\partial}{\partial z} S(z \vert \mu, \sigma) &amp;= 
+\mathrm{Normal} \left(z\vert-\mu,\sigma\right) + 
+\mathrm{Normal} \left(z\vert\mu,\sigma\right) \\
+\frac{\partial}{\partial \mu} S(z\vert \mu, \sigma) &amp;= 
+\mathrm{Normal} \left(z\vert-\mu,\sigma\right) - 
+\mathrm{Normal} \left(z\vert\mu,\sigma\right)  \\
+\frac{\partial}{\partial \sigma} S(z\vert \mu, \sigma) &amp;= 
+-\frac{z + \mu}{\sigma}\mathrm{Normal} \left(z\vert-\mu,\sigma\right) 
+-\frac{z - \mu}{\sigma}\mathrm{Normal} \left(z\vert\mu,\sigma\right) 
+\end{align}\]
+
+<p>These can be used compute the desired implicit reparameterization gradients,</p>
+
+\[\begin{align}
+\frac{\partial z}{\partial \mu} &amp;= -
+\frac{\partial}{\partial \mu}S\left(z|\mu, \sigma\right) /
+\frac{\partial}{\partial z}S\left(z|\mu, \sigma\right)\\
+\frac{\partial z}{\partial \sigma} &amp;=  -
+\frac{\partial}{\partial \sigma}S\left(z|\mu, \sigma\right) /
+\frac{\partial}{\partial z}S\left(z|\mu, \sigma\right)\\
+\end{align}\]
+
+<p>which are straightforward to implement,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">torch.distributions</span> <span class="kn">import</span> <span class="n">Normal</span>
+
+<span class="k">def</span> <span class="nf">gradients</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="n">nminus</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="o">-</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">).</span><span class="n">prob</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">nplus</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">).</span><span class="n">prob</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">dSdz</span> <span class="o">=</span> <span class="n">nminus</span> <span class="o">+</span> <span class="n">nplus</span>
+    <span class="n">dSdmu</span> <span class="o">=</span> <span class="n">nminus</span> <span class="o">-</span> <span class="n">nplus</span>
+    <span class="n">dSdsigma</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+       <span class="o">-</span><span class="p">(</span><span class="n">z</span> <span class="o">+</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">nminus</span> <span class="o">-</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">*</span> <span class="n">nplus</span>
+    <span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span>
+    <span class="n">dzdmu</span> <span class="o">=</span> <span class="o">-</span><span class="n">dSdmu</span> <span class="o">/</span> <span class="n">dSdz</span>
+    <span class="n">dzdsigma</span> <span class="o">=</span> <span class="o">-</span><span class="n">dSdsigma</span> <span class="o">/</span> <span class="n">dSdz</span>
+    <span class="k">return</span> <span class="n">dzdmu</span><span class="p">,</span> <span class="n">dzdsigma</span>
+</code></pre></div></div>
+<p>in PyTorch. Minhuan Li has a nice <a href="https://minhuanli.github.io/2023/09/12/ImplicitReparameterizationTrick/">explanation</a> of how to use these gradients to define a custom function to support PyTorch’s automatic differentiation. I will not repeat his effort here.</p>
+
+<h3 id="rice-distribution">Rice Distribution</h3>
+<p>The rice distribution is the distribution of amplitudes of an isotropic, normally distributed variable in the complex plane. It has two parameters, \(\nu\) and \(\sigma\) which represent the distance from the origin and the standard deviation of the underlying normal distribution. Samples from \(\mathrm{Rice}(\nu, \sigma)\) are easy to generate. If \(x\) and \(y\) represent independent, random draws from a standard normal,</p>
+
+\[\begin{align}
+x &amp;\sim \mathrm{Normal}(0, 1) \\
+y &amp;\sim \mathrm{Normal}(0, 1) \\
+\end{align}\]
+
+<p>Then,</p>
+
+\[z = \sqrt{(\sigma x)^2 + (\sigma y + \nu)^2}\]
+
+<p>follows the desired Rice distribution. Again, to estimate gradients of \(z\) will require the cumulative distribution function,</p>
+
+\[S(z|\nu, \sigma) = 1 - Q_1\left(\frac{\nu}{\sigma} , \frac{z} {\sigma}\right)\]
+
+<p>Where \(Q_1\) is the Marcum Q function. The partial derivatives are <a href="https://en.wikipedia.org/wiki/Marcum_Q-function#Differentiation">known</a>. Using these gradients, it is possible to derive the implicit reparameterization gradients,</p>
+
+\[\begin{align}
+\frac{\partial}{\partial \nu} z &amp;= 
+        I_1(\nu z \sigma^{-2}) /
+        I_0(\nu z \sigma^{-2}) \\
+\frac{\partial}{\partial \sigma} z &amp;= 
+        \sigma^{-1} \left(
+            z - 
+            \nu I_1(\nu z \sigma^{-2}) / 
+            I_0(\nu z \sigma^{-2}) 
+        \right).
+\end{align}\]
+
+<p>The end of this post will contain a more detailed derivation of these expressions. Once again, implementing these gradients is straightforward in PyTorch,</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">torch.special</span> <span class="kn">import</span> <span class="n">i1e</span><span class="p">,</span><span class="n">i0e</span>
+
+<span class="k">def</span> <span class="nf">rice_gradients</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="n">nuzsig2</span> <span class="o">=</span> <span class="n">nu</span><span class="o">*</span><span class="n">z</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigma</span><span class="o">*</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">dzdnu</span> <span class="o">=</span> <span class="n">i1e</span><span class="p">(</span><span class="n">nuzsig2</span><span class="p">)</span> <span class="o">/</span> <span class="n">i0e</span><span class="p">(</span><span class="n">nuzsig2</span><span class="p">)</span>
+    <span class="n">dzdsigma</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">dzdnu</span><span class="p">)</span><span class="o">/</span><span class="n">sigma</span>
+    <span class="k">return</span> <span class="n">dzdnu</span><span class="p">,</span> <span class="n">dzdsigma</span>
+</code></pre></div></div>
+
+<p>Note that I used the numerically stable, exponentially <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.i1e.html">scaled Bessel function</a> here. This is acceptable, because the exponential scaling factor is canceled by division. That is, <code class="language-plaintext highlighter-rouge">i1e(x) / i0e(x) == i1(x) / i0(x)</code>. Again, Minhuan Li has a nice <a href="https://minhuanli.github.io/2023/09/12/ImplicitReparameterizationTrick/">explanation</a> of how to use these gradients to define a custom function in PyTorch.</p>
+
+<h3 id="more-detailed-derivation-of-rice-gradients">More detailed derivation of Rice gradients</h3>
+
+\[\begin{align}
+\frac{\partial}{\partial a} Q_1 \left(a, b\right) &amp;= b \exp\left[-\frac{1}{2}\left(a^2 + b^2\right)\right] I_1(ab) \\
+\frac{\partial}{\partial b} Q_1 \left(a, b\right) &amp;= -b \exp\left[-\frac{1}{2}\left(a^2 + b^2\right)\right] I_0(ab)
+\end{align}\]
+
+<p>Knowing these derivatives, we should be able to compute the ones we need using the chain rule. Rephrasing the S in terms of the arguments of \(Q_1\) gives a function \(S: \mathbb R^2 \to \mathbb R\)</p>
+
+\[S(a, b) = 1 - Q_1(a, b)\]
+
+<p>with a Jacobian / gradient,</p>
+
+\[\boldsymbol{\partial}S(a,b) = \nabla S= \left\{
+-\frac{\partial}{\partial a} Q_1 \left(a, b\right), \quad
+-\frac{\partial}{\partial b} Q_1 \left(a, b\right) 
+\right\}\]
+
+<p>which is</p>
+
+\[\begin{align}
+ = \left\{
+-b \exp\left[-\frac{1}{2}\left(a^2 + b^2\right)\right] I_1(ab),\quad 
+b \exp\left[-\frac{1}{2}\left(a^2 + b^2\right)\right] I_0(ab)
+\right\}
+\end{align}\]
+
+<p>to simplify the notation and facilitate implementation, let</p>
+
+\[q(a,b) = b\exp\left[-\frac{1}{2}(a^2+b^2)\right],\]
+
+<p>such that</p>
+
+\[\boldsymbol{\partial}S(a,b) = \nabla S= \left\{
+-q(a,b)I_1(ab), q(a,b)I_0(ab)
+\right\}\]
+
+<p>We can rephrase \(S\) using function composition,</p>
+
+\[S\left(z | \nu, \sigma\right) = 1 - Q_1(f(z, \nu, \sigma)),\]
+
+<p>where \(f : \mathbb R^3 \to \mathbb R^2\),</p>
+
+\[f\left( z, \nu, \sigma \right) = \left\{ \frac{\nu}{\sigma} , \frac{z}{\sigma}\right\}\]
+
+<p>with Jacobian,</p>
+
+\[\boldsymbol{\partial} f = \begin{bmatrix}
+\frac{\partial f_1}{\partial z} &amp; \frac{\partial f_1}{\partial \nu}  &amp; \frac{\partial f_1}{\partial \sigma} \\
+\frac{\partial f_2}{\partial z} &amp; \frac{\partial f_2}{\partial \nu}  &amp; \frac{\partial f_2}{\partial \sigma} \\
+\end{bmatrix} = \begin{bmatrix}
+0 &amp; \sigma^{-1} &amp; -\nu\sigma^{-2}\\
+\sigma^{-1} &amp; 0 &amp; -z\sigma^{-2}\\
+\end{bmatrix}\]
+
+<p>From the chain rule,</p>
+
+\[\begin{align}
+\nabla S &amp;= 
+\boldsymbol \partial S \left( f(z,\ \nu, \sigma\right)) \boldsymbol \partial f(z, \nu, \sigma) \\
+&amp;= \boldsymbol \partial S \left( \frac{\nu}{\sigma}, \frac{z}{\sigma}\right) \boldsymbol \partial f(z, \nu, \sigma) \\
+&amp;= \boldsymbol \partial f(z, \nu, \sigma)^T \nabla S \left( \frac{\nu}{\sigma}, \frac{z}{\sigma}\right) \\
+&amp;= \begin{bmatrix}
+0 &amp; \sigma^{-1} \\
+\sigma^{-1} &amp; 0 \\
+-\nu\sigma^{-2}&amp; -z\sigma^{-2}\\
+\end{bmatrix}
+\left\{\frac{\partial S(a,b)}{\partial a}, \frac{\partial S(a,b)} {\partial{b}}\right\}\\
+&amp;= \left\{
+    \frac{\partial S(a,b)}{\partial b} \sigma^{-1}, 
+    \frac{\partial S(a,b)}{\partial a} \sigma^{-1}, 
+    -\frac{\partial S(a,b)}{\partial a} \nu \sigma^{-2} -\frac{\partial S(a,b)}{\partial b} z \sigma^{-2}
+\right\}\\
+&amp;= \left\{
+    q(a,b)I_0(ab) \sigma^{-1}, 
+    -q(a,b)I_1(ab) \sigma^{-1}, 
+    q(a,b)\left(I_1(ab)\nu\sigma^{-2} - I_0(ab)z\sigma^{-2}\right)
+\right\}\\
+&amp;= \left\{
+    q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right) 
+        I_0(\nu z \sigma^{-2}) \sigma^{-1}, 
+    -q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right)
+        I_1(\nu z \sigma^{-2}) \sigma^{-1}, 
+    q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right)
+    \left(
+        I_1(\nu z \sigma^{-2})\nu\sigma^{-2} - 
+        I_0(\nu z \sigma^{-2})z\sigma^{-2}
+    \right)
+\right\}\\
+\end{align}\]
+
+<p>Writing the terms as separate partial derivatives,</p>
+
+\[\begin{align}
+\frac{\partial S}{\partial z} &amp;= q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right) 
+        I_0(\nu z \sigma^{-2}) \sigma^{-1} \\
+\frac{\partial S}{\partial \nu} &amp;= 
+    -q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right)
+        I_1(\nu z \sigma^{-2}) \sigma^{-1} \\
+\frac{\partial S}{\partial \sigma} &amp;= 
+    q\left(\frac{\nu}{\sigma},\frac{z}{\sigma}\right)\left(
+        I_1(\nu z \sigma^{-2})\nu\sigma^{-2} - 
+        I_0(\nu z \sigma^{-2})z\sigma^{-2} 
+    \right) \\
+\end{align}\]
+
+<p>is more visually appealing. Using the implicit reparameterization gradients formulas,</p>
+
+\[\begin{align}
+\frac{\partial}{\partial \nu} z = 
+    -\frac{\partial S}{\partial \nu} 
+    \left(
+        \frac{\partial S}{\partial z}
+    \right)^{-1} &amp;= 
+        I_1(\nu z \sigma^{-2}) /
+        I_0(\nu z \sigma^{-2}) \\
+\frac{\partial}{\partial \sigma} z = 
+    -\frac{\partial S}{\partial \sigma} 
+    \left(
+        \frac{\partial S}{\partial z}
+    \right)^{-1} &amp;= 
+        \sigma^{-1} \left(
+            z - 
+            \nu I_1(\nu z \sigma^{-2}) / 
+            I_0(\nu z \sigma^{-2}) 
+        \right) \\
+\end{align}\]
+
+<p>The \(q(\frac{\nu}{\sigma}, \frac{z}{\sigma})\) terms cancel, leaving behind very clean expressions for the gradients of the samples.</p>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+  </body>
+</html>
+
+

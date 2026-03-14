@@ -1,0 +1,152 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Generative ML Approach to Electron Density Map Sharpening | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>19 Mar 2025</p>
+<h1>Generative ML Approach to Electron Density Map Sharpening</h1>
+<h3>Variational Autoencoding for Map Sharpening</h3>
+<p>Jacob Thornton</p>
+
+<h3 id="map-sharpening">Map Sharpening</h3>
+<p>X-ray crystallography and Cryo-electron microscopy are important techniques to determine atomic-level information of biological molecules. They are widely used in many fields including structural biology, biochemistry, and biophysics. Therefore, the task of “map sharpening” – taking in either low-resolution electron density maps in crystallography or electrostatic potential maps in cryo-EM to create high-resolution ones – is a valuable area of research. Known as super-resolution in computer science, this class of algorithms increases the information content of low-resolution data. Our project focuses on this task of map sharpening, taking a 3-dimensional, low-resolution electron density map and outputting one with more detail. More detailed maps make it easier for structural biologists to interpret their data by modeling atoms into the density. Map sharpening has the potential to save researchers time and improve automated structure modeling. This task is often difficult, but has been made more feasible with machine learning algorithms.</p>
+
+<p class="blog-caption"><img src="/assets/posts/2025-03-19-gen-ml-sharpening/UNet_Triplet.jpg" alt="Super Res Example" class="blog-image" /> 
+ Example of map sharpening through machine learning</p>
+
+<h3 id="generative-modeling">Generative Modeling</h3>
+<p>A number of successful machine learning models for map sharpening have been produced in recent years but there has yet to be a significant success of generative models for this task. With our research we aim to determine the feasibility of a variational autoencoder (VAE) as a model for electron density map sharpening. A VAE model is composed of an encoder and a decoder. The encoder encodes important information or features of the input map to a lower dimensional space called the latent space. This encoded vector of features is then scaled back up by the decoder to the size of the input to retrieve the sharpened map.</p>
+
+<p class="blog-caption"><img src="/assets/posts/2025-03-19-gen-ml-sharpening/VAE.png" alt="VAE Architecture" class="blog-image" /> 
+ VAE architecture visualization</p>
+
+<h3 id="results">Results</h3>
+<p>A lot of progress was made toward building a VAE model actually capable of sharpening electron density maps. Although current results are short of performing super resolution, they have validated the use of a VAE in that our model is capable of encoding relevant information from a map to a latent space and then decoding that to something that resembles a density. That being said there is still a significant gap between our results and the threshold for super resolution as measured by the real space correlation coefficient of the produced maps on target maps in the validation set.</p>
+
+<p class="blog-caption"><img src="/assets/posts/2025-03-19-gen-ml-sharpening/Validation_RSCC.png" alt="Validation RSCC" class="blog-image" /> 
+ Validation real space correlation coefficient</p>
+
+<h3 id="next-steps">Next Steps</h3>
+<p>Next steps will involve further modifying the VAE architecture to improve model performance. This will consist primarily of increasing the power of the encoder to reduce input dimensionality before it is mapped into the latent space and secondarily of continuing to modify hyperparameters such as the learning rate of the model.</p>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+  </body>
+</html>
+
+

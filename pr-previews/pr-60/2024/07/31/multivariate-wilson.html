@@ -1,0 +1,178 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Multivariate Wilson Priors | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>31 Jul 2024</p>
+<h1>Multivariate Wilson Priors</h1>
+<h3>Pre-prints Demonstrate Multivariate Priors for Time-Resolved Crystallography</h3>
+<p>Kevin Dalton</p>
+
+<h3 id="comparative-crystallography-and-careless">Comparative Crystallography and Careless</h3>
+<p>In modern structural biology, we are often more interested in the small differences between related structures rather than the structures themselves. There are many applications of this concept in the domain of comparative crystallography. For instance, equilibrium biophysical perturbations such as multitemperature crystallography, non-equilibrium perturbations like electric-field or temperature jumps, drug fragment screening, and anomalous diffraction all fall under the umbrella of comparative crystallography. While comparative data have been successfully analyzed using conventional tools, the fidelity of experiments are often challenged by the magnitude of systematic errors present in diffraction data. These can be hundreds of times larger than the true structural differences.</p>
+
+<p class="blog-caption"><img src="/assets/posts/2024-07-31-multivariate-wilson/systematic_error.png" alt="Systematic errors in rotation data" class="blog-image" />
+Example of systematic errors in conventional diffraction data from <a href="https://doi.org/10.1038/s41467-022-35280-8">Dalton et al</a>. <a href="https://creativecommons.org/licenses/by/4.0/">(CC-BY license)</a></p>
+
+<p>To address the problem of systematic errors in diffraction data, we built <a href="https://github.com/rs-station/careless">careless</a>, a flexible tool for merging reflection intensities. Careless uses modern concepts from machine learning like variational inference and deep learning to correct the systematic errors. In our original <a href="https://doi.org/10.1038/s41467-022-35280-8">publication</a> we demonstrated that careless works well for one important application of comparative crystallography which is time-resolved diffraction. Specifically, we showed state of the art inference of time-resolved structural changes in photoactive yellow protein. This week, we’re excited to announce a new feature which takes careless to the next level in the comparative crystallography setting. We shared our insights in a series of 3 closely related pre-prints.</p>
+
+<ol>
+  <li><a href="https://doi.org/10.1101/2024.07.22.604476">Sensitive Detection of Structural Differences using a Statistical Framework for Comparative Crystallography.</a></li>
+  <li><a href="https://doi.org/10.1101/2024.07.19.604369">Resolving DJ-1 Glyoxalase Catalysis Using Mix-and-Inject Serial Crystallography at a Synchrotron</a></li>
+  <li><a href="https://doi.org/10.1101/2024.07.30.605871">Scaling and Merging Time-Resolved Laue Data with Variational Inference</a></li>
+</ol>
+
+<h3 id="multivariate-wilson-prior">Multivariate Wilson Prior</h3>
+<p class="blog-caption"><img src="/assets/posts/2024-07-31-multivariate-wilson/comparative_xtal_graphs.png" alt="Applications of the multivariate Wilson prior" class="blog-image" />
+Applications of the multivariate Wilson prior from <a href="https://doi.org/10.1101/2024.07.22.604476">Hekstra et al.</a> <a href="https://creativecommons.org/licenses/by-nc/4.0/">(CC-BY-NC license)</a></p>
+
+<p>Hekstra et al. (1) derive a mathematical formalism for comparative crystallography. The key insight in their approach is to add some structure into the Bayesian prior distribution used for merging data in Careless. Specifically, the default implementation in careless treats related structures as statistically <em>independent</em>. By allowing users to specify that subsequent time-points should be statistically <em>dependent</em>, this work is able to tease much more signal out of diffraction data. Specific applications demonstrated in the manuscript include</p>
+<ul>
+  <li>polychromatic anomalous diffraction</li>
+  <li>time-resolved polychromatic diffraction</li>
+  <li>anomalous diffraction at an X-ray free electron laser (XFEL)</li>
+  <li>drug fragment screen</li>
+</ul>
+
+<p>In every case, the structured prior is able to increase the amount of signal observed in the data.</p>
+
+<h3 id="time-resolved-diffraction-of-an-enzyme-dj-1">Time-resolved Diffraction of an Enzyme, DJ-1</h3>
+<p>Zielinski and Dolamore et al. (2) applied the Multivariate Wilson prior to DJ-1, an enzyme involved in Parkinson’s disease. In this study, Lois Pollack’s <a href="https://pollack.research.engineering.cornell.edu/">team</a> from Cornell University developed sample mixers which allowed DJ-1 to be rapidly mixed with a substrate, methylglyoxal. Mark Wilson’s <a href="https://redoxbiologycenter.unl.edu/markwilsonphd">group</a> from University of Nebraska Lincoln grew the DJ-1 crystals which were recorded in a time-resolved fashion at <a href="https://biocars.uchicago.edu/">BioCARS</a>, a polychromatic beamline at the Advanced Photon Source. This configuration allowed the collaborators  to observe the conversion of toxic methylgloxal into non-toxic lactate. The exceptional clarity of the time-resolved difference electron density maps produced by Careless enabled new insights into the catalytic mechanism of DJ-1 including an explanation of the enantio-purity of the products.</p>
+
+<p class="blog-caption"><img src="/assets/posts/2024-07-31-multivariate-wilson/lc_intermediate.png" alt="Stereo chemistry of DJ-1 Lactoyl-cysteine intermediate" class="blog-image" />
+The mechanism of enantioselective hydrolysis in DJ-1 catalysis as explained by <a href="https://doi.org/10.1101/2024.07.19.604369">Zielinski and Dolamore et al.</a>. Water can only access the Lactoylcysteine intermediate from the solvent-exposed face of the active site. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">(CC-BY-NC-ND license)</a></p>
+
+<p class="blog-caption"><img src="/assets/posts/2024-07-31-multivariate-wilson/dj1_allostery.png" alt="Long-range allostery in DJ-1" class="blog-image" />
+<a href="https://doi.org/10.1101/2024.07.19.604369">Zielinski and Dolamore et al.</a> show evidence of long-range allostery between the active site and Cystein-53. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">(CC-BY-NC-ND license)</a></p>
+
+<h3 id="variational-inference-best-practices">Variational Inference Best Practices</h3>
+<p>Finally, Zielinski et al (3), details the application of Careless to time-resolved data using DJ-1 as an example. This manuscript offers helpful guidance to users seeking to get the most of their time-resolved diffraction data. Furthermore, it contains a thorough ablation study which demonstrates the impact of many components of the model. As judged from the ablation, the multivariate Wilson prior was extremely important for maximizing time-resolved signal. In our estimation, the prior contributes a nearly 10 sigma boost in signal to noise!</p>
+
+<p><img src="/assets/posts/2024-07-31-multivariate-wilson/dj1_ablation_study.png" alt="DJ-1 merging ablation study" class="blog-image-wide" /></p>
+
+<p class="blog-caption-wide"><a href="https://doi.org/10.1101/2024.07.30.605871">Zielinski et al.</a> studied the importance of careless model components by conducting ablation studies. Among other important observations, they showed the multivariate Wilson prior accounts for a nearly 10 sigma increase in time-resolved difference signal. <a href="https://creativecommons.org/licenses/by-nc/4.0/">(CC-BY-NC license)</a></p>
+
+<h3 id="the-future-of-variational-inference-in-crystallography">The Future of Variational Inference in Crystallography</h3>
+<p>Together, these pre-prints highlight the flexibility of variational inference as a framework for modeling crystallographic data. New insights like the multivariate prior are easy to incorporate and test. Furthermore, they translate to meaningful biological results! The rs-station devs are looking forward to continuing advancing the state of the art as we support and develop this important technology.</p>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+  </body>
+</html>
+
+

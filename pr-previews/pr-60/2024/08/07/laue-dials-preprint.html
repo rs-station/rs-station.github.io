@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> Laue-DIALS for Pink-Beam Crystallography | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>07 Aug 2024</p>
+<h1>Laue-DIALS for Pink-Beam Crystallography</h1>
+<h3>New Preprint for Laue-DIALS Software</h3>
+<p>Rick A. Hewitt</p>
+
+<h3 id="introduction">Introduction</h3>
+<p>Crystallography has often been limited to monochromatic light sources because of the complications a pink beam brings for data analysis. While some software, including <a href="https://journals.iucr.org/a/issues/2020/02/00/ae5078/index.html">PinkIndexer</a>, <a href="https://biocars.uchicago.edu/facilities/software/precognition-documentation/">Precognition</a>, and the <a href="https://doi.org/10.1107/S1600577521001326">Daresbury Laue Suite</a> can be used to analyze these data, we are lacking a modern, open-source package for polychromatic data analysis. Here we present a new package called <a href="https://rs-station.github.io/laue-dials/">Laue-DIALS</a> which fills this gap. Polychromatic crystallography has characteristics that make it particularly apt for time-resolved experiments and can help to maximize signal with fewer images. It can also render partiality a non-issue by capturing full reflections on single still images. We hope that the use of the (free and open-source!) Laue-DIALS software will encourage and enable the use of polychromatic crystallography experiments. You can find the recently published preprint <a href="https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1">on bioRxiv</a>!</p>
+
+<p><img src="/assets/posts/2024-08-07-laue-dials-preprint.md/laue_rlp.png" alt="Reciprocal lattice points in the Laue case" class="blog-image-wide" />
+<em class="blog-caption">Full reflections from Laue pink-beam crystallography vs monochromatic stills and rotations from <a href="https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1">Hewitt et al</a>. <a href="https://creativecommons.org/licenses/by/4.0/">(CC-BY-NC license)</a></em></p>
+
+<p>Laue-DIALS is currently able to handle single-crystal fixed-target datasets, with development to extend to serial crystallography rapidly underway! Laue-DIALS can be installed using <code class="language-plaintext highlighter-rouge">pip</code> after <a href="https://dials.github.io/installation.html">installing the DIALS diffraction analysis package</a>.</p>
+
+<h3 id="quick-tutorial">Quick Tutorial</h3>
+<p>Laue-DIALS has a variety of tutorial notebooks. Each analysis in the preprint was performed with a notebook that can be found <a href="https://zenodo.org/records/12761162">in the associated deposition on Zenodo</a>. Experimental data are available from <a href="https://sbgrid.org">SBGrid</a>. A routine data analysis pipeline is described by the following figure:</p>
+
+<p><img src="/assets/posts/2024-08-07-laue-dials-preprint.md/laue-dials-pipeline.png" alt="Laue-DIALS Pipeline" class="blog-image-narrow" />
+<em class="blog-caption">Basic Laue-DIALS analysis pipeline from <a href="https://www.biorxiv.org/content/10.1101/2024.07.23.604358v1">Hewitt et al</a>. <a href="https://creativecommons.org/licenses/by/4.0/">(CC-BY-NC license)</a></em></p>
+
+<p>There are also useful command-line utilities like <code class="language-plaintext highlighter-rouge">laue.plot_wavelengths</code> and <code class="language-plaintext highlighter-rouge">laue.compute_rmsds</code>, which are particularly useful as benchmark tools for quality after geometric refinement. The full Laue-DIALS command-line interface is described with all arguments <a href="https://rs-station.github.io/laue-dials/cli/functions.html">in our online documentation</a>. The nature of these programs also make them easy to apply to several passes of data via bash scripting (as seen in the deposition tutorials).</p>
+
+<h3 id="get-involved">Get Involved!</h3>
+<p>As we mentioned: Laue-DIALS is fully open source! We’d love to get your participation as a user, and even as a contributor. Any bug reports or feature requests can be made on the <a href="https://github.com/rs-station/laue-dials/issues">Laue-DIALS Github Issues page</a>. We look forward to seeing you there! If you would like to contribute source code or documentation, you can find guidelines at our <a href="https://rs-station.github.io/laue-dials/contributing.html">online documentation</a>.</p>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+  </body>
+</html>
+
+

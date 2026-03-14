@@ -1,0 +1,144 @@
+<!doctype html>
+
+<html lang=" en-US">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="/pr-previews/pr-60/assets/data/rs-favicon_32x32.png" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/styles.css">
+
+    <script src="https://use.fontawesome.com/72b03f0302.js"></script>
+
+    <title> ESRF Trip Report | RS-Station </title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-5">
+        <a class="navbar-brand" href="/pr-previews/pr-60/index.html"> 
+            <!-- <img style="height: 40px;" src="/assets/data/rss_logo_400x400.png" alt="Reciprocal Space Station logo" /> -->
+            Reciprocal Space Station
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/">
+                        Home
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/about.html">
+                        About
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/contact.html">
+                        Contact
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/publications.html">
+                        Publications and Citing
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/development.html">
+                        In Development
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link "
+                        href="/pr-previews/pr-60/blog.html">
+                        Blog
+                    </a>
+                </li>
+                
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://github.com/orgs/rs-station/repositories">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <div class="container px-4 px-lg-5">
+
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-md-2">
+    </div>
+
+    <div class="col-md-8">
+       <p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+<p>28 Feb 2025</p>
+<h1>ESRF Trip Report</h1>
+<h3>Mix and Inject Serial Crystallography at ESRF</h3>
+<p>Kevin Dalton</p>
+
+<p class="blog-caption-wide"><img src="/assets/posts/2025-02-28-esrf-trip-report/esrf_view.jpg" alt="ESRF" class="blog-image-wide" /> 
+Image of ESRF from the <a href="https://en.wikipedia.org/wiki/Bastille_(Grenoble)">Bastille, Grenoble</a> courtesy of Kara Zielinksi. <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">(CC-BY-NC-ND license)</a></p>
+
+<p>I spent last week at the European Synchrotron Radiation Facility (ESRF) in Grenoble, France. I was supporting beam time for Kara Zielinski and other friends of the Station. Apart from being a little remote, Grenoble is a cool place to visit. It’s situated in the French Alps and is accessible from the Lyon or Geneva airports. Unlike most synchrotrons in the States, ESRF is close to the city center and well-connected to public transit.</p>
+
+<p>The team brought two samples to the <a href="https://www.esrf.fr/id29">ID29 beamline</a> for time-resolved, mix and inject serial crystallography. We had a lot of technical difficulties including a leaky sample reservoir, a rogue attenuator cutting our flux, a broken HPLC pump, and one protein spontaneously crystallizing in a novel space group. In spite of it, we were able to collect timepoints at beyond 2.5 Å resolution for one of our samples, Hsp31, mixed with its substrate methylglyoxal. Our data follow the reaction progress from 50ms through 3s.</p>
+
+<p>We were attempting to record data in “single-turnover” conditions with substrate limiting. This is a challenging way to do a time-resolved experiment. The low sample concentration means that the fraction of substrate-bound proteins in the crystal will be small. Data analysis is ongoing, but we hope that the <a href="https://doi.org/10.1101/2024.07.22.604476">multivariate Wilson prior</a> can help us resolve the reaction intermediates.</p>
+
+<p>For me, this was a landmark experiment, because it represents the first time that my new scaling software, <a href="https://github.com/rs-station/abismal">Abismal</a>, was used for real-time data analysis. For our data, we found that merging runtimes with abismal were competitive with the <a href="https://www.desy.de/~twhite/crystfel/manual-partialator.html">Partialator</a> unity model. However, the implementation of Abismal as a machine-learning model trained by stochastic gradient descent (on small batches of data) means that it can “save its work” throughout training. This means it can start saving preliminary maps within minutes of parsing the data. Getting these preliminary maps early gave us actionable feedback and allowed the team to start refining structures faster. While Abismal is not necessarily ready for general use, it confirmed for me that it can provide useful feedback on the time scale of experiments.</p>
+
+<p>Thanks to everyone involved, especially the staff at ID29, Daniele, Sam, and Shibom!</p>
+
+
+<p><a href="/pr-previews/pr-60/blog.html">⬅️ Back to blog posts</a></p>
+
+    </div>
+
+
+</div>
+
+    </div>
+
+    <footer class="py-5 bg-dark">
+    <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">&copy;  <script>document.write( new Date().getUTCFullYear() );</script> 1/astronauts </p></div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/pr-previews/pr-60/assets/js/scripts.js"></script>
+
+    <!-- Use MathJax, only when requested in the frontmatter -->
+    
+  </body>
+</html>
+
+
