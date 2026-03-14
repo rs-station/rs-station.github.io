@@ -4,6 +4,9 @@ layout: content_page
 ---
 
 # What is Reciprocal Space Station?
-Reciprocal Space Station (RSS) began in [Doeke Hekstra's lab](https://hekstralab.fas.harvard.edu/) with  `reciprocalspaceship`, a crystallographically-aware extension of the popular `pandas` python package.
 
-As `reciprocalspaceship` and other packages expanded and gained contributors outside of the Hekstra Lab, it became time for Reciprocal Space Station to "take off" and become a separate organization. Our goal is for RSS to grow as a hub for open-source crystallographic software, gaining both new packages and new astronauts. 
+We're an academic consortium developing open-source software infrastructure for the next generation of structural biology. 
+
+While the Protein Data Bank has enabled decades of success in structure-guided drug discovery, most deposited models represent static snapshots, whereas proteins function through dynamic ensembles of conformations. RSS aims to bridge experimental structural biology and modern AI by building foundational libraries that model structural distributions directly from crystallography and cryo-EM data. These tools will enable automated analysis of large screening datasets, interpretation of heterogeneous maps, and identification of transient or cryptic ligand-binding states relevant to drug discovery. 
+
+By converting cutting-edge academic methods into production-grade, open-source software, RSS seeks to accelerate the translation of complex structural data into actionable biological insight for both academia and industry.

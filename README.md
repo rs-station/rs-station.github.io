@@ -87,7 +87,7 @@ You can find all the instances of this syntax by searching this repo for "relati
 #### Building Jekyll locally
 
 The second (and not recommended) option is to run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and isntallation. 
- 1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the  Jekyll docs
- 2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass github-pages`
+ 1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the Jekyll docs
+ 2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass jekyll`
  3. To start serving the site, run `bundle exec jekyll serve --livereload` in your local `rs-station.github.io` git repository
  4. Navigate to the "Server address" listed in your terminal window. The preview will live update after you make any changes. 
