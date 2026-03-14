@@ -11,9 +11,11 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
+          repository: rs-station/rs-station.github.io-preview
           ref: gh-pages
+          token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
 
       - name: Remove preview folder
         run: |

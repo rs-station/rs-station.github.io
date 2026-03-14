@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
@@ -22,14 +22,16 @@ jobs:
           bundler-cache: true
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build --baseurl "/rs-station/pr-previews/pr-${{ github.event.pull_request.number }}"
+        run: bundle exec jekyll build --baseurl "/rs-station.github.io-preview/pr-previews/pr-${{ github.event.pull_request.number }}"
         env:
           JEKYLL_ENV: production
 
-      - name: Deploy to gh-pages preview folder
+      - name: Deploy to preview repo
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          external_repository: rs-station/rs-station.github.io-preview
+          publish_branch: gh-pages
           publish_dir: ./_site
           destination_dir: pr-previews/pr-${{ github.event.pull_request.number }}
           keep_files: true  # important — don't wipe other previews
@@ -38,7 +40,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const url = 'https://rs-station.github.io/pr-previews/pr-${{ github.event.pull_request.number }}/';
+            const url = 'https://rs-station.github.io/rs-station.github.io-preview/pr-previews/pr-${{ github.event.pull_request.number }}/';
             const body = `🔍 Preview deployed to: ${url}`;
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
