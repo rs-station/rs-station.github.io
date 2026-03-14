@@ -1,17 +1,20 @@
 - nickname: doublewilson
   section: cite
+  package: "Careless"
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
   authors: "**Doeke R. Hekstra**, Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://doi.org/10.1126/sciadv.adj2921 
   info: Science Advances, 2025
 - nickname: meteor
   section: cite
+  package: "meteor"
   title: "Denoising and iterative phase recovery reveal low-occupancy populations in protein crystals"
   authors: "**Alisia Fadini**, Virginia Apostolopoulou, Thomas J. Lane, Jasper J. van Thor"
   url: https://doi.org/10.1038/s42003-025-09031-6
   info: Communications Biology, 2025
 - nickname: rocket
   section: cite
+  package: "ROCKET"
   title: "AlphaFold as a Prior: Experimental Structure Determination Conditioned on a Pretrained Neural Network"
   authors: "**Alisia Fadini**, **Minhuan Li**, Airlie J. McCoy, Thomas C. Terwilliger, Randy J. Read, Doeke Hekstra, Mohammed AlQuraishi"
   url:  https://doi.org/10.1101/2025.02.18.638828 
@@ -66,49 +69,49 @@
   url: https://github.com/rs-station/rs-booster
   info: GitHub, 2025
 - nickname: carelessED
-  section: uses
+  section: applications
   title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
   authors: "Huanghao Mai, Ariana Peck, Kevin M. Dalton, Lygia Silva de Moraes, Jessica E. Burch, Frédéric Poitevin, Hosea M. Nelson"
   url: https://doi.org/10.26434/chemrxiv-2024-62bmk
   info: chemRxiv (preprint), 2024
 - nickname: dj1
-  section: uses
+  section: applications
   title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
   authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
   url:  https://doi.org/10.1101/2024.07.19.604369
   info: bioRxiv (preprint), 2024
 - nickname: trxvaritional
-  section: uses
+  section: applications
   title: "Scaling and merging time-resolved Laue data with variational inference"
   authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
   url: https://doi.org/10.1063/4.0000269
   info: Structural Dynamics, 2024
 - nickname: jackdhfr
-  section: uses
+  section: applications
   title: "Perturbative diffraction methods resolve a conformational switch that facilitates a two-step enzymatic mechanism"
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Dennis E. Brookner, Margaret A. Klureza, Candice J. Sheehan, In-Sik Kim, Robert W. Henning, Silvia Russi, Doeke R. Hekstra"
   url: https://doi.org/10.1073/pnas.2313192121
   info: PNAS, 2024
 - nickname: trxreview
-  section: uses
+  section: applications
   title: "Emerging Time-Resolved X-Ray Diffraction Approaches for Protein Dynamics"
   authors: "**Doeke R. Hekstra**"
   url: https://doi.org/10.1146/annurev-biophys-111622-091155
   info: Annu. Rev. Biophys., 2023
 - nickname: scaling
-  section: uses
+  section: applications
   title: "Correcting systematic errors in diffraction data with modern scaling algorithms"
   authors: "**Luis A. Aldama and Kevin M. Dalton**, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S2059798323005776
   info: Acta Crystallographica D, 2023
 - nickname: neurips2022
-  section: uses
+  section: applications
   title: "Online Inference of Structure Factor Amplitudes for Serial X-ray Crystallography"
   authors: "**Kevin M. Dalton** and Doeke R. Hekstra"
   url: https://www.mlsb.io/papers_2022/Online_Inference_of_Structure_Factor_Amplitudes_for_Serial_X_ray_Crystallography.pdf
   info: Machine Learning for Structural Biology Workshop, NeurIPS 2022
 - nickname: rtsad
-  section: uses
+  section: applications
   title: Native SAD phasing at room temperature
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Candice J. Sheehan, Margaret A. Klureza, Igor Kurinov, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S2059798322006799

@@ -24,7 +24,7 @@ Reciprocal Space Station encourages developers to contribute [blog posts](rs-sta
         ![Systematic errors in rotation data](/assets/posts/2024-07-31-multivariate-wilson/systematic_error.png){: .blog-image} 
         Example of systematic errors in conventional diffraction data from [Dalton et al](https://doi.org/10.1038/s41467-022-35280-8). [(CC-BY license)](https://creativecommons.org/licenses/by/4.0/)
         {: .blog-caption}
- - Inlude the licenses of images from papers or preprints.
+ - Include the licenses of images from papers or preprints.
 
 For simple posts without figures or equations, you might not need a preview. For information about previewing changes, see [below](#previewing-website-changes)
 
@@ -46,7 +46,7 @@ For other publications that were written by reciprocal astronauts and/or using r
 
 ```yml
 - nickname: reckless
-  section: pubs
+  section: applications
   title: Online Maximization of Paperclips
   authors: "**Devin M. Bolton**, Zach B. Micemen, Derk R. Hoekstra"
   url: https://doi.org/1l.1111/2033.01.12.632630
@@ -65,7 +65,7 @@ There are two ways to get a preview of website changes before they go live onlin
 
 #### Notes for writing HTML
 
-Note that the syntactical sugar described here is only necessary when writting HTML, and can be ignored entirely when writing markdown.
+Note that the syntactical sugar described here is only necessary when writing HTML, and can be ignored entirely when writing markdown.
 
 The HTML infrastructure of the website is written such that the exact same code can build the website either at rs-station.github.io **or** rs-station.github.io/website-test. In order for this to work, HTML links must be specified as *relative* links with the following [Jekyll](https://jekyllrb.com/)/[Liquid](https://shopify.github.io/liquid/basics/introduction/) syntax:
 
@@ -86,7 +86,7 @@ You can find all the instances of this syntax by searching this repo for "relati
 
 #### Building Jekyll locally
 
-The second (and not recommended) option is to run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and isntallation. 
+The second (and not recommended) option is to run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and installation. 
  1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the  Jekyll docs
  2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass github-pages`
  3. To start serving the site, run `bundle exec jekyll serve --livereload` in your local `rs-station.github.io` git repository
