@@ -2,7 +2,7 @@
   section: cite
   package: "Careless"
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
-  authors: "**Doeke R. Hekstra**, Harrison K. Wang, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
+  authors: "**Doeke R. Hekstra**, **Harrison K. Wang**, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://doi.org/10.1126/sciadv.adj2921 
   info: Science Advances, 2025
 - nickname: meteor
