@@ -1,4 +1,4 @@
-name: Test build of site  # see https://github.com/rs-station/rs-station.github.io-preview/blob/main/README.md
+name: Preview build of site  # see https://github.com/rs-station/rs-station.github.io-preview/blob/main/README.md
 
 on:
   pull_request:
