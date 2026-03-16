@@ -1,4 +1,4 @@
-name: Cleanup PR preview
+name: Cleanup preview build of site
 
 on:
   pull_request:
@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout preview repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ssh-key: ${{ secrets.PREVIEW_DEPLOY_KEY }}
           repository: rs-station/rs-station.github.io-preview
