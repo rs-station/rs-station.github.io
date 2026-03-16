@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to preview repo
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          personal_token: ${{ secrets.PREVIEW_DEPLOY_KEY }}
           external_repository: rs-station/rs-station.github.io-preview
           publish_branch: gh-pages
           publish_dir: ./_site
