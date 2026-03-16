@@ -24,7 +24,7 @@ Reciprocal Space Station encourages developers to contribute [blog posts](rs-sta
         ![Systematic errors in rotation data](/assets/posts/2024-07-31-multivariate-wilson/systematic_error.png){: .blog-image} 
         Example of systematic errors in conventional diffraction data from [Dalton et al](https://doi.org/10.1038/s41467-022-35280-8). [(CC-BY license)](https://creativecommons.org/licenses/by/4.0/)
         {: .blog-caption}
- - Inlude the licenses of images from papers or preprints.
+ - Include the licenses of images from papers or preprints.
 
 For simple posts without figures or equations, you might not need a preview. For information about previewing changes, see [below](#previewing-website-changes)
 
@@ -46,7 +46,7 @@ For other publications that were written by reciprocal astronauts and/or using r
 
 ```yml
 - nickname: reckless
-  section: pubs
+  section: applications
   title: Online Maximization of Paperclips
   authors: "**Devin M. Bolton**, Zach B. Micemen, Derk R. Hoekstra"
   url: https://doi.org/1l.1111/2033.01.12.632630
@@ -63,17 +63,18 @@ The key differences are that the "section" value is different and that "cite" en
 
 There are two ways to get a preview of website changes before they go live online. 
 
+#### Automatic previews
+
 The recommended method is to consult your PRs preview build. You should get an automatic message
 linking to the preview URL when you open an new PR. It is rebuilt on every new push, but note it
 might take a minute or so to update.
 
 Previews are hosted at a remote repo: [rs-station.github.io-preview](https://github.com/rs-station/rs-station.github.io-preview)
 
-
 #### Building Jekyll locally
 
-The second (and not recommended) option is to run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and isntallation. 
- 1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the Jekyll docs
- 2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass jekyll`
+Run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and installation. 
+ 1. Install ruby and Jekyll by following the [instructions](https://jekyllrb.com/docs/) in the  Jekyll docs
+ 2. Install the `rs-station` specific dependencies by running: `gem install jekyll-font-awesome-sass github-pages`
  3. To start serving the site, run `bundle exec jekyll serve --livereload` in your local `rs-station.github.io` git repository
  4. Navigate to the "Server address" listed in your terminal window. The preview will live update after you make any changes. 
