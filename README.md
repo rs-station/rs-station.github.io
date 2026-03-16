@@ -61,28 +61,14 @@ The key differences are that the "section" value is different and that "cite" en
 
 ### Previewing website changes
 
-There are two ways to get a preview of website changes before they go live online. The recommended method is to consult the test clone of the website, which lives online at rs-station.github.io/website-test. The test website is re-built automatically any time there is a pull request into the main branch of this repo. Any issues in content or formatting should be apparent from the test build, and these issues can be updated before the changes go live on the actual website. For contributing a blog post, this is all you should need to know!
+There are two ways to get a preview of website changes before they go live online. 
 
-#### Notes for writing HTML
+The recommended method is to consult your PRs preview build. You should get an automatic message
+linking to the preview URL when you open an new PR. It is rebuilt on every new push, but note it
+might take a minute or so to update.
 
-Note that the syntactical sugar described here is only necessary when writting HTML, and can be ignored entirely when writing markdown.
+Previews are hosted at a remote repo: [rs-station.github.io-preview](https://github.com/rs-station/rs-station.github.io-preview)
 
-The HTML infrastructure of the website is written such that the exact same code can build the website either at rs-station.github.io **or** rs-station.github.io/website-test. In order for this to work, HTML links must be specified as *relative* links with the following [Jekyll](https://jekyllrb.com/)/[Liquid](https://shopify.github.io/liquid/basics/introduction/) syntax:
-
-```html
-<a class="navbar-brand" href="{{ '/index.html' | relative_url}}"> 
-```
-This link will point to rs-station.github.io/index on the actual site, and to rs-station.github.io/website-test/index on the test site, as desired.
-
-It is **incorrect** for any HTML links to be specified like this:
-
-```html
-<!-- this does not work! do not do this! -->
-<a class="navbar-brand" href="/index.html"> 
-```
-because this link will always point to rs-station.github.io/index, even when it is supposed to point to rs-station.github.io/website-test/index.
-
-You can find all the instances of this syntax by searching this repo for "relative_url".
 
 #### Building Jekyll locally
 
