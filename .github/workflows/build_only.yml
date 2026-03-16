@@ -41,7 +41,7 @@ jobs:
         with:
           script: |
             const url = 'https://rs-station.github.io/rs-station.github.io-preview/pr-previews/pr-${{ github.event.pull_request.number }}/';
-            const body = `🔍 Preview deployed to: ${url}`;
+            const body = `Nice work! A preview showing what the website will look like with changes due to your PR has been deployed to: ${url}`;
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
