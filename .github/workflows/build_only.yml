@@ -47,7 +47,7 @@ jobs:
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes('Preview deployed to:'));
+            const existing = comments.find(c => c.user.type === 'Bot' && c.body.includes('Nice work! A preview'));
             if (existing) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
