@@ -61,6 +61,16 @@ The key differences are that the "section" value is different and that "cite" en
 
 ### Previewing website changes
 
+There are two ways to get a preview of website changes before they go live online. 
+
+#### Automatic previews
+
+The recommended method is to consult your PR's preview build. You should get an automatic message
+linking to the preview URL when you open a new PR. It is rebuilt on every new push, but note it
+might take a minute or so to update.
+
+Previews are hosted at a remote repo: [rs-station.github.io-preview](https://github.com/rs-station/rs-station.github.io-preview)
+
 #### Building Jekyll locally
 
 Run [Jekyll](https://jekyllrb.com/) yourself to build your own local copy of the site. Follow these instructions to serve the rs-station page locally for writing or development; be warned that this may involve a fair amount of setup and installation. 
