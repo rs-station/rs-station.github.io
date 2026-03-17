@@ -65,7 +65,7 @@ There are two ways to get a preview of website changes before they go live onlin
 
 #### Automatic previews
 
-The recommended method is to consult your PRs preview build. You should get an automatic message
+The recommended method is to consult your PR's preview build. You should get an automatic message
 linking to the preview URL when you open an new PR. It is rebuilt on every new push, but note it
 might take a minute or so to update.
 
