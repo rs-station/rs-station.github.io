@@ -19,7 +19,7 @@
   docs: https://rs-station.github.io/laue-dials/
   desc: Extending `DIALS` for polychromatic "pink beam" data collected at Laue X-ray sources
 - name: rs-booster
-  type: production
+  type: development
   link: https://github.com/rs-station/rs-booster
   docs: https://rs-station.github.io/rs-booster/
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
