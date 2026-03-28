@@ -1,19 +1,19 @@
-- name: reciprocal​spaceship
+- name: 🛸 reciprocal​spaceship
   type: production
   link: https://github.com/rs-station/reciprocalspaceship
   docs: https://rs-station.github.io/reciprocalspaceship/
   desc: Tools for exploring reciprocal space. This package provides a crystallographically-aware extension of `pandas` and other useful reciprocal-space tools
-- name: careless
+- name: 🎲 careless
   type: production
   link: https://github.com/rs-station/careless
   desc: Applying variational inference to the scaling and merging of crystallographic data
   examples: https://github.com/rs-station/careless-examples
-- name: matchmaps
+- name: 🗺️ matchmaps
   type: production
   link: https://github.com/rs-station/matchmaps
   docs: https://rs-station.github.io/matchmaps/
   desc: Make difference maps between near-isomorphous or non-isomorphous datasets
-- name: laue-dials
+- name: 🌈 laue-dials
   type: production
   link: https://github.com/rs-station/laue-dials
   docs: https://rs-station.github.io/laue-dials/
@@ -23,7 +23,7 @@
   link: https://github.com/rs-station/rs-booster
   docs: https://rs-station.github.io/rs-booster/
   desc: A "booster rocket" for `reciprocalspaceship` containing useful command-line utilities
-- name: SFCalculator
+- name: 🧮 SFCalculator
   type: production
   link: https://github.com/Hekstra-Lab/SFcalculator_torch
   docs: https://hekstra-lab.github.io/SFcalculator_torch/
@@ -36,7 +36,7 @@
   type: development
   link: https://github.com/rs-station/abismal
   desc: "**A**pproximate **B**ayesian **I**nference for **S**caling and **M**erging at **A**dvanced **L**ightsources"
-- name: ROCKET
+- name: 🚀 ROCKET
   type: production
   link: https://github.com/rs-station/rocket
   docs: https://rocket-9.gitbook.io/rocket-docs
