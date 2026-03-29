@@ -1,4 +1,4 @@
-- name: 1/🛸 reciprocalspaceship
+- name: '1/🛸 reciprocal<span class="rs-light">spaceship</span>'
   type: production
   link: https://github.com/rs-station/reciprocalspaceship
   docs: https://rs-station.github.io/reciprocalspaceship/
