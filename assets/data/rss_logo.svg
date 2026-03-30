@@ -5,8 +5,8 @@
    width="85"
    version="1.1"
    id="svg98"
-   sodipodi:docname="RS_NASA.svg"
-   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="rss_logo.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
    inkscape:export-filename="../Downloads/RS_NASA.png"
    inkscape:export-xdpi="3200"
    inkscape:export-ydpi="3200"
@@ -21432,18 +21432,23 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="11.313709"
-     inkscape:cx="30.052037"
-     inkscape:cy="42.072852"
+     inkscape:zoom="8.0000004"
+     inkscape:cx="44.437498"
+     inkscape:cy="41.249998"
      inkscape:window-width="1920"
-     inkscape:window-height="2123"
-     inkscape:window-x="5760"
-     inkscape:window-y="0"
+     inkscape:window-height="1027"
+     inkscape:window-x="1920"
+     inkscape:window-y="1096"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg98">
     <inkscape:grid
        type="xygrid"
-       id="grid6139" />
+       id="grid6139"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px" />
   </sodipodi:namedview>
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.1;stroke-dasharray:none"
@@ -27165,7 +27170,7 @@
      d="m 53.546305,46.189688 -2.20462,-1.92658 h -14.36649"
      id="path70222" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#fc3d21;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1)"
+     style="fill:none;fill-opacity:1;stroke:#ff2428;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1)"
      d="m 79.229478,37.548524 -33.842303,6.01235"
      id="path70228"
      sodipodi:nodetypes="cc" />
@@ -27181,21 +27186,21 @@
        y="53.0411"
        style="fill:#ffffff;stroke-width:1">S</tspan></text>
   <path
-     style="fill:none;fill-opacity:1;stroke:#fc3d21;stroke-width:0.999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker22412)"
+     style="fill:none;fill-opacity:1;stroke:#ff2428;stroke-width:0.999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker22412)"
      d="M 44.693635,43.179599 7.2223099,32.648665"
      id="path70232"
      sodipodi:nodetypes="cc" />
   <g
      id="g88597"
-     style="fill:#fc3d21">
+     style="fill:#ff2428">
     <path
        d="m 44.985535,44.846508 0.28587,2.98961 0.16832,-2.98427 c 0.57708,-0.0908 1.02859,-0.5557 1.1034,-1.13813 l 2.97624,-0.28587 -3.00029,-0.16831 c -0.12022,-0.53968 -0.57174,-0.95379 -1.13279,-1.02059 l -0.27785,-3.05639 -0.16564,3.07777 c -0.51564,0.11221 -0.91906,0.52899 -1.01524,1.05264 l -3.06708,0.27785 3.06174,0.16564 c 0.0908,0.5477 0.51563,0.98585 1.06333,1.09005 z"
        id="path70234"
-       style="fill:#fc3d21;fill-opacity:1;stroke-width:1" />
+       style="fill:#ff2428;fill-opacity:1;stroke-width:1" />
     <path
        d="m 45.990925,44.599378 2.31611,1.91183 -1.99118,-2.22921 c 0.34383,-0.47229 0.33439,-1.12027 -0.0246,-1.585 l 1.90239,-2.30666 -2.24054,2.0025 c -0.46663,-0.29659 -1.07871,-0.27015 -1.52267,0.0794 l -2.35767,-1.96473 2.05919,2.29344 c -0.28527,0.44395 -0.27582,1.02392 0.0264,1.46221 l -1.97228,2.36523 2.2821,-2.04785 c 0.45151,0.32304 1.06171,0.33249 1.52266,0.0189 z"
        id="path70236"
-       style="fill:#fc3d21;fill-opacity:1;stroke-width:1" />
+       style="fill:#ff2428;fill-opacity:1;stroke-width:1" />
   </g>
   <path
      id="path70246"
@@ -27227,7 +27232,7 @@
      id="path70258"
      sodipodi:nodetypes="cc" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#fc3d21;stroke-width:0.99999px;stroke-linecap:butt;stroke-linejoin:bevel;stroke-opacity:1;marker-end:url(#Dot)"
+     style="fill:none;fill-opacity:1;stroke:#ff2428;stroke-width:0.99999px;stroke-linecap:butt;stroke-linejoin:bevel;stroke-opacity:1;marker-end:url(#Dot)"
      d="M 44.631445,44.118625 11.985028,66.151602"
      id="path70230"
      sodipodi:nodetypes="cc" />
@@ -27236,7 +27241,7 @@
      d="m 36.975175,44.263108 v -4.28589 h 14.36651 l 2.20462,1.92658 v 4.28589 h -14.3665 z"
      id="path70238" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#fc3d21;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1)"
+     style="fill:none;fill-opacity:1;stroke:#ff2428;stroke-width:1.6;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#CapRibbon1)"
      d="m 79.229478,37.548524 -7.445039,1.322669"
      id="path106698"
      sodipodi:nodetypes="cc" />

@@ -5371,6 +5371,12 @@ fieldset:disabled .btn {
   margin-bottom: 0.5rem;
 }
 
+.rs-light {
+  font-weight: 300;
+  font-size: 1.0em;
+  letter-spacing: -0.02em;
+}
+
 .card-subtitle {
   margin-top: -0.25rem;
   margin-bottom: 0;

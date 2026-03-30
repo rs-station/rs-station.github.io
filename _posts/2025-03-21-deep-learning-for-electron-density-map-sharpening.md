@@ -57,7 +57,7 @@ Figure 2: Framework for Diffusion Model.
 
 ### Algorithms
 
-To formalize the process described above, we show some summmaries of the training and sampling algorithms we used:
+To formalize the process described above, we show some summaries of the training and sampling algorithms we used:
 
 
 ![Diffusion Framework](/assets/posts/2025-03-21-deep-learning-for-electron-density-map-sharpening/algorithms.png){: .blog-image-wide} 
@@ -116,7 +116,7 @@ Since our full-sized model was not trained extensively, we primarily tried infer
   </tr>
 </table>
 
-The results show that although our model appears to be successfully capturing the coarse structural details, there are places of discontinuities and misalignment. To analyze the results quatitatively, we calculated the fourier shell correlation coefficient(FSC) values at different resolutions between the input 4.0Å map and output 4.0Å map, in which case the model is effectively trying to output a denoised version of the input, starting from pure gaussian noise at the last timestep. At low resolutions (>4.0Å), the FSC values exceeded the commonly used cutoff of 0.143 suggesting a degree of structural similarity. However, the relatively low correlation (~0.2 to 0.3) indicates that the model struggles to recover fine details. Therefore, its overall performance is limited, likely due to its small size and incomplete training. Moving forward, we plan to evaluate inference quality using a fully trained full-scale model, which should yield more reliable structural reconstructions.
+The results show that although our model appears to be successfully capturing the coarse structural details, there are places of discontinuities and misalignment. To analyze the results quantitatively, we calculated the fourier shell correlation coefficient(FSC) values at different resolutions between the input 4.0Å map and output 4.0Å map, in which case the model is effectively trying to output a denoised version of the input, starting from pure gaussian noise at the last timestep. At low resolutions (>4.0Å), the FSC values exceeded the commonly used cutoff of 0.143 suggesting a degree of structural similarity. However, the relatively low correlation (~0.2 to 0.3) indicates that the model struggles to recover fine details. Therefore, its overall performance is limited, likely due to its small size and incomplete training. Moving forward, we plan to evaluate inference quality using a fully trained full-scale model, which should yield more reliable structural reconstructions.
 
 
 ## Future Work

@@ -30,5 +30,5 @@ Examples from the [preprint](https://doi.org/10.26434/chemrxiv-2024-62bmk) of *a
 ### Key points and Future Directions
 - Careless can merge microED and small molecule crystallography data.
 - The variational inference framework implemented in Careless is flexible for methods development as demonstrated in our [MC-Careless](https://github.com/DorisMai/careless/tree/multi_xtal_sig).
-- Additional exploration of the hyperparamter space and the Wilson prior might be helpful for challeging cases with pathologies.
+- Additional exploration of the hyperparameter space and the Wilson prior might be helpful for challenging cases with pathologies.
 - The common practice of manual dataset curation should be cautioned and deserves future investigation.
