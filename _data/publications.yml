@@ -29,10 +29,10 @@
 - nickname: abismal
   section: cite
   package: "ABISMAL"
-  title: "ABISMAL Repository"
-  authors: "**Kevin M. Dalton**, Huanghao Doris Mai, Doeke R. Hekstra"
-  url: https://github.com/rs-station/abismal
-  info: GitHub, 2025
+  title: "Abismal: Approximate Bayesian Inference for Scaling and Merging at Advanced Lightsources"
+  authors: "**Doris Mai**, Doeke R Hekstra, Frédéric Poitevin, Kevin M Dalton"
+  url: https://doi.org/10.1063/4.0000945
+  info: Structural Dynamics, 2025
 - nickname: booster
   section: cite
   package: "RS-Booster"
