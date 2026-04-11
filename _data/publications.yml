@@ -1,9 +1,16 @@
+- nickname: rocket
+  section: cite
+  package: "ROCKET"
+  title: "AlphaFold as a Prior: Experimental Structure Determination Conditioned on a Pretrained Neural Network"
+  authors: "**Alisia Fadini**, **Minhuan Li**, Airlie J. McCoy, Suresh Banjara, Hiroki Okumura, Eve Napier, Pietro Fontana, Amir R. Khan, Luca Jovine, Thomas C. Terwilliger, Randy J. Read, Doeke R. Hekstra & Mohammed AlQuraishi"
+  url:  https://doi.org/10.1038/s41592-026-03047-4
+  info: Nature Methods, 2026
 - nickname: doublewilson
   section: cite
   package: "Careless"
   title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
   authors: "**Doeke R. Hekstra**, **Harrison K. Wang**, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
-  url: https://doi.org/10.1126/sciadv.adj2921 
+  url: https://doi.org/10.1126/sciadv.adj2921
   info: Science Advances, 2025
 - nickname: meteor
   section: cite
@@ -12,27 +19,27 @@
   authors: "**Alisia Fadini**, Virginia Apostolopoulou, Thomas J. Lane, Jasper J. van Thor"
   url: https://doi.org/10.1038/s42003-025-09031-6
   info: Communications Biology, 2025
-- nickname: rocket
-  section: cite
-  package: "ROCKET"
-  title: "AlphaFold as a Prior: Experimental Structure Determination Conditioned on a Pretrained Neural Network"
-  authors: "**Alisia Fadini**, **Minhuan Li**, Airlie J. McCoy, Thomas C. Terwilliger, Randy J. Read, Doeke Hekstra, Mohammed AlQuraishi"
-  url:  https://doi.org/10.1101/2025.02.18.638828 
-  info: bioRxiv (preprint), 2025
 - nickname: SFCalculator
   section: cite
   package: "SFCalculator"
   title: "SFCalculator: connecting deep generative models and crystallography"
   authors: "**Minhuan Li**, Kevin M. Dalton, Doeke R. Hekstra"
-  url: https://doi.org/10.1101/2025.01.12.632630 
+  url: https://doi.org/10.1101/2025.01.12.632630
   info: bioRxiv (preprint), 2025
-- nickname: careless
+- nickname: abismal
   section: cite
-  package: "Careless"
-  title: "A unifying Bayesian framework for merging X-ray diffraction data"
-  authors: "**Kevin M. Dalton**, Jack B. Greisman, Doeke R. Hekstra"
-  url: https://doi.org/10.1038/s41467-022-35280-8
-  info: Nature Communications, 2022
+  package: "ABISMAL"
+  title: "ABISMAL Repository"
+  authors: "**Kevin M. Dalton**, Huanghao Doris Mai, Doeke R. Hekstra"
+  url: https://github.com/rs-station/abismal
+  info: GitHub, 2025
+- nickname: booster
+  section: cite
+  package: "RS-Booster"
+  title: "RS-Booster Repository"
+  authors: "**1 / Astronauts**"
+  url: https://github.com/rs-station/rs-booster
+  info: GitHub, 2025
 - nickname: matchmaps
   section: cite
   package: "MatchMaps"
@@ -47,6 +54,13 @@
   authors: "**Rick A. Hewitt**, Kevin M. Dalton, Derek Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
   url: https://doi.org/10.1063/4.0000265
   info: Structural Dynamics, 2024
+- nickname: careless
+  section: cite
+  package: "Careless"
+  title: "A unifying Bayesian framework for merging X-ray diffraction data"
+  authors: "**Kevin M. Dalton**, Jack B. Greisman, Doeke R. Hekstra"
+  url: https://doi.org/10.1038/s41467-022-35280-8
+  info: Nature Communications, 2022
 - nickname: rs
   section: cite
   package: "reciprocalspaceship"
@@ -54,20 +68,6 @@
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S160057672100755X
   info: Journal of Applied Crystallography, 2021
-- nickname: abismal
-  section: cite
-  package: "ABISMAL"
-  title: "ABISMAL Repository"
-  authors: "**Kevin M. Dalton**, Huanghao Doris Mai, Doeke R. Hekstra"
-  url: https://github.com/rs-station/abismal 
-  info: GitHub, 2025
-- nickname: booster
-  section: cite
-  package: "RS-Booster"
-  title: "RS-Booster Repository"
-  authors: "**1 / Astronauts**"
-  url: https://github.com/rs-station/rs-booster
-  info: GitHub, 2025
 - nickname: carelessED
   section: applications
   title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
