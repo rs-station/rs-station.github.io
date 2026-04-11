@@ -33,13 +33,6 @@
   authors: "**Doris Mai**, Doeke R Hekstra, Frédéric Poitevin, Kevin M Dalton"
   url: https://doi.org/10.1063/4.0000945
   info: Structural Dynamics, 2025
-- nickname: booster
-  section: cite
-  package: "RS-Booster"
-  title: "RS-Booster Repository"
-  authors: "**1 / Astronauts**"
-  url: https://github.com/rs-station/rs-booster
-  info: GitHub, 2025
 - nickname: matchmaps
   section: cite
   package: "MatchMaps"
