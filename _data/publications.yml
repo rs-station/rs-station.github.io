@@ -8,7 +8,7 @@
 - nickname: doublewilson
   section: cite
   package: "Double-Wilson (Careless)"
-  title: "Sensitive detection of structural differences using a statistical framework for comparative crystallography"
+  title: "Sensitive detection of structural dynamics using a statistical framework for comparative crystallography"
   authors: "**Doeke R. Hekstra**, **Harrison K. Wang**, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://doi.org/10.1126/sciadv.adj2921
   info: Science Advances, 2025
@@ -44,7 +44,7 @@
   section: cite
   package: "Laue-DIALS"
   title: "Laue-DIALS: open-source software for polychromatic X-ray diffraction data"
-  authors: "**Rick A. Hewitt**, Kevin M. Dalton, Derek Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
+  authors: "**Rick A. Hewitt**, Kevin M. Dalton, Derek A. Mendez, Harrison K. Wang, Margaret A. Klureza, Dennis E. Brookner, Jack B. Greisman, David McDonagh, Vukica Šrajer, Nicholas K. Sauter, Aaron S. Brewster, Doeke R. Hekstra"
   url: https://doi.org/10.1063/4.0000265
   info: Structural Dynamics, 2024
 - nickname: careless
@@ -69,13 +69,13 @@
   info: chemRxiv (preprint), 2024
 - nickname: dj1
   section: applications
-  title: "Resolving DJ-I glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
+  title: "Resolving DJ-1 glyoxalase catalysis using mix-and-inject serial crystallography at a synchrotron"
   authors: "**Kara A. Zielinski and Cole Dolamore**, Kevin M. Dalton, Nathan Smith, John Termini, Robert Henning, Vukica Srajer, Doeke R. Hekstra, Lois Pollack, Mark A. Wilson"
   url:  https://doi.org/10.1101/2024.07.19.604369
   info: bioRxiv (preprint), 2024
 - nickname: trxvaritional
   section: applications
-  title: "Scaling and merging time-resolved Laue data with variational inference"
+  title: "Scaling and merging time-resolved pink-beam diffraction with variational inference"
   authors: "**Kara A. Zielinski**, Cole Dolamore, Harrison K. Wang, Robert W. Henning, Mark A. Wilson, Lois Pollack, Vukica Srajer, Doeke R. Hekstra, Kevin M. Dalton"
   url: https://doi.org/10.1063/4.0000269
   info: Structural Dynamics, 2024
