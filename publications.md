@@ -12,6 +12,9 @@ If you're making use of any RSS packages, amazing! Please cite them as follows:
 {% for pub in group.items %}
 [{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
+{% if group.name == "Careless" %}
+<small>Please cite both papers when using `careless` with the Double Wilson prior.</small>
+{% endif %}
 {% endfor %}
 
 
