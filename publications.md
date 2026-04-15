@@ -6,11 +6,10 @@ layout: content_page
 # Citing Reciprocal Space Station packages
 If you're making use of any RSS packages, amazing! Please cite them as follows:
 
-{% for pub in site.data.publications %}
-{% if pub.section == "cite" %}
+{% assign cite_pubs = site.data.publications | where: "section", "cite" | sort_natural: "package" %}
+{% for pub in cite_pubs %}
 ### {{ pub.package }}
 [{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
-{% endif %}
 {% endfor %}
 
 
