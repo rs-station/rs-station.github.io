@@ -12,6 +12,7 @@
   authors: "**Doeke R. Hekstra**, **Harrison K. Wang**, Margaret A. Klureza, Jack B. Greisman, Kevin M. Dalton"
   url: https://doi.org/10.1126/sciadv.adj2921
   info: Science Advances, 2025
+  footnote: "Please cite both papers when using `careless` with the Double Wilson prior."
 - nickname: meteor
   section: cite
   package: "METEOR"
