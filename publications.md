@@ -8,7 +8,6 @@ If you're making use of any RSS packages, amazing! Please cite them as follows:
 
 {% assign cite_pubs = site.data.publications | where: "section", "cite" | sort_natural: "package" | group_by: "package" %}
 {% for group in cite_pubs %}
-### {{ group.name }}
 {% for pub in group.items %}
 [{{ pub.title }}]({{ pub.url}}). {{ pub.authors }}. *{{ pub.info }}*
 {% endfor %}
