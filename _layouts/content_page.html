@@ -2,13 +2,18 @@
 layout: base_page
 ---
 
-<div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-md-2">
-    </div>
+<div class="row gx-4 gx-lg-5 my-5">
 
-    <div class="col-md-8">
-       {{ content }}
+  <!-- Scrollspy TOC sidebar (large screens only) -->
+  <div class="col-lg-3 d-none d-lg-block" id="toc-col">
+    <div class="toc-sidebar sticky-top" style="top: 1.5rem;">
+      <nav id="page-toc" class="toc-nav" aria-label="On this page"></nav>
     </div>
+  </div>
 
+  <!-- Main content -->
+  <div class="col-12 col-md-10 offset-md-1 col-lg-9 offset-lg-0" id="content-body">
+    {{ content }}
+  </div>
 
 </div>

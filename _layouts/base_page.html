@@ -10,6 +10,10 @@
     
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{'/assets/data/rs-favicon_32x32.png' | relative_url}}" />
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" href="{{'/assets/css/styles.css' | relative_url}}">
 
@@ -19,15 +23,17 @@
 
   </head>
 
-  <body>
+  <body{% if page.fullwidth %} class="hero-page"{% endif %}>
 
     {% include navbar.html %}
 
+    {% if page.fullwidth %}
+    {{ content }}
+    {% else %}
     <div class="container px-4 px-lg-5">
-
       {{ content }}
-
     </div>
+    {% endif %}
 
     {% include footer.html %}
 

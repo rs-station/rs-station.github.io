@@ -92,6 +92,409 @@ body {
 
 /* custom things should go here */
 
+/* ── Brand variables ── */
+:root {
+  --rss-blue:       #2563eb;
+  --rss-blue-light: rgba(37, 99, 235, 0.08);
+  --rss-blue-mid:   rgba(37, 99, 235, 0.35);
+  --rss-text:       #1a1f2e;
+  --rss-text-muted: #6b7280;
+}
+
+/* ── Typography ── */
+body {
+  font-family: 'Inter', var(--bs-font-sans-serif);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--rss-text);
+  position: relative; /* required for Bootstrap ScrollSpy */
+  padding-top: 58px;  /* compensate for fixed-top navbar */
+}
+
+body.hero-page {
+  padding-top: 0; /* hero page lets the navbar float over the hero */
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--rss-text);
+}
+
+h1 { font-size: 2rem;    margin-top: 0;      margin-bottom: 1rem; }
+h2 { font-size: 1.35rem; margin-top: 2.25rem; margin-bottom: 0.6rem;
+     padding-bottom: 0.4rem; border-bottom: 1px solid #e5e7eb; }
+h3 { font-size: 1.1rem;  margin-top: 1.75rem; margin-bottom: 0.4rem; }
+
+/* inline links */
+a:not([class]) {
+  color: var(--rss-blue);
+  font-weight: 400;
+  text-decoration: none;
+}
+a:hover:not([class]) {
+  text-decoration: underline;
+}
+
+/* Prevent individual nav items from wrapping mid-label */
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+/* ── Navbar: blue accent border + shadow ── */
+.navbar.bg-dark {
+  border-bottom: 2px solid var(--rss-blue);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Primary button → brand blue ── */
+.btn-primary {
+  background-color: var(--rss-blue);
+  border-color: var(--rss-blue);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* ── Cards ── */
+.card {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* blog-footer — non-Bootstrap card-footer used in home cards */
+.blog-footer {
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ── Scrollspy sidebar ── */
+.toc-sidebar {
+  padding-top: 0.5rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.toc-nav {
+  border-left: 2px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-nav .nav-link {
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--rss-text-muted);
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  border-radius: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.toc-nav .nav-link.toc-h3 {
+  padding-left: 1.5rem;
+  font-size: 0.76rem;
+}
+
+.toc-nav .nav-link:hover {
+  color: var(--rss-blue);
+  border-left-color: var(--rss-blue-mid);
+  background-color: var(--rss-blue-light);
+}
+
+.toc-nav .nav-link.active {
+  color: var(--rss-blue);
+  font-weight: 500;
+  border-left-color: var(--rss-blue);
+  background-color: var(--rss-blue-light);
+}
+
+/* ══════════════════════════════════════════════════
+   Landing page
+   ══════════════════════════════════════════════════ */
+
+/* ── Hero ── */
+.hero-section {
+  height: 100vh;
+  min-height: 580px;
+  background: #0d1117;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-logo {
+  position: absolute;
+  left: -12%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 130vh;
+  height: auto;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+.scroll-hint {
+  z-index: 1;
+}
+
+.hero-logo {
+  height: 96px;
+  width: auto;
+  filter: drop-shadow(0 0 32px rgba(37, 99, 235, 0.4));
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 3.4vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: scrollBounce 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Transparent → opaque navbar transition on hero page */
+.navbar.navbar-hero {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.navbar.navbar-hero.navbar-scrolled {
+  background: #212529 !important;
+  border-bottom: 2px solid var(--rss-blue) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Brand: hidden until scrolled past hero, then fades in */
+body.hero-page .navbar-brand {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+body.hero-page .navbar.navbar-scrolled .navbar-brand {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Center nav items while brand is out of flow */
+body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+  margin-left: 48% !important;
+  margin-right: 0 !important;
+}
+
+/* ── Vision ── */
+.vision-section {
+  padding: 7rem 0;
+  background: #fff;
+}
+
+.vision-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rss-blue);
+  margin-bottom: 0.85rem;
+}
+
+.vision-heading {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--rss-text);
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.vision-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #4b5563;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tabs section ── */
+.tabs-section {
+  padding: 4rem 0 6rem;
+  background: #f8fafc;
+}
+
+.rss-tabs {
+  border-bottom: 2px solid #e5e7eb;
+  gap: 0.15rem;
+}
+
+.rss-tabs .nav-link {
+  color: var(--rss-text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0;
+  background: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.rss-tabs .nav-link:hover {
+  color: var(--rss-text);
+  border-bottom-color: #d1d5db;
+  background: transparent;
+}
+
+.rss-tabs .nav-link.active {
+  color: var(--rss-blue);
+  border-bottom-color: var(--rss-blue);
+  font-weight: 600;
+  background: transparent;
+}
+
+.rss-tab-content {
+  padding-top: 2rem;
+}
+
+/* forum / pane */
+.tab-feature-pane {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tab-feature-pane h3 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* blog list inside tab */
+.blog-tab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 700px;
+}
+
+.blog-tab-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--rss-text);
+  transition: background 0.15s ease;
+}
+
+.blog-tab-entry:hover {
+  background: #eef2ff;
+  color: var(--rss-blue);
+  text-decoration: none;
+}
+
+.blog-tab-date {
+  font-size: 0.76rem;
+  color: var(--rss-text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.blog-tab-title {
+  font-weight: 500;
+  font-size: 0.93rem;
+}
+
+/* ── Footer ── */
+footer.py-5.bg-dark {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+footer .container p {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
 .blog-image {
   margin-right: 10%;
   margin-left: 10%;
