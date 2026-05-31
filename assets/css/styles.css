@@ -557,8 +557,11 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     height: 28px !important;
   }
 
-  /* ── Hero text: full-width and centred instead of pinned to the right.
+  /* ── Hero text: full-width, pushed lower, with a soft dark glow behind it.
      Keep it positioned (relative) so its z-index stays above the overlay. ── */
+  .hero-section {
+    align-items: flex-start;
+  }
   .hero-content {
     position: relative;
     transform: none;
@@ -566,7 +569,10 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     right: auto;
     left: auto;
     top: auto;
-    padding: 0 1.5rem;
+    margin-top: 34vh; /* move the logo + text further down */
+    padding: 2rem 1.5rem;
+    /* faded darker glow behind the logo and text */
+    background: radial-gradient(ellipse 85% 65% at 50% 50%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 72%);
   }
 
   .hero-title {
