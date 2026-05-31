@@ -261,7 +261,7 @@ a:hover:not([class]) {
 /* ── Cover banner at the top of content pages ── */
 .page-cover-banner {
   height: 200px;
-  margin-bottom: -2rem; /* let content tuck up into the fade */
+  margin-bottom: -20rem; /* let content tuck up into the fade */
   background-size: cover;
   background-position: center bottom;
   /* Image fully visible at top, fading into the white page below */
@@ -516,6 +516,75 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 .blog-tab-title {
   font-weight: 500;
   font-size: 0.93rem;
+}
+
+/* ══════════════════════════════════════════════════
+   Mobile / responsive adjustments
+   ══════════════════════════════════════════════════ */
+
+/* Navbar collapses below lg (992px) — fix hero-page nav behaviour */
+@media (max-width: 991.98px) {
+  /* Cancel the desktop nav-centering trick */
+  body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Always show the brand on mobile so users know where they are */
+  body.hero-page .navbar-brand {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Give the open hamburger menu a solid backdrop (it sits over the image) */
+  body.hero-page .navbar.navbar-hero .navbar-collapse {
+    background: #212529;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* Phone layout (below md, 768px) */
+@media (max-width: 767.98px) {
+  /* Hero text: flow naturally and centre instead of pinning to the right half */
+  .hero-content {
+    position: static;
+    transform: none;
+    width: 100%;
+    right: auto;
+    top: auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Let the title wrap onto multiple lines */
+  .hero-title {
+    white-space: normal;
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+  }
+
+  .hero-logo {
+    height: 72px;
+  }
+
+  /* Uniform dark veil so centred white text is readable over any part of the image */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(13,17,23,0.55), rgba(13,17,23,0.7));
+  }
+
+  /* Tighter section padding on small screens */
+  .vision-section {
+    padding: 4rem 0;
+  }
+  .tabs-section {
+    padding: 3rem 0 4rem;
+  }
+
+  /* Shorter cover banner on content pages */
+  .page-cover-banner {
+    height: 150px;
+  }
 }
 
 /* ── Footer ── */
