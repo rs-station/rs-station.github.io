@@ -246,17 +246,13 @@ a:hover:not([class]) {
   overflow: hidden;
 }
 
-.hero-bg-logo {
+.hero-bg-cover {
   position: absolute;
-  left: -12%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 130vh;
-  height: auto;
-  opacity: 0.5;
-  pointer-events: none;
-  user-select: none;
+  inset: 0;
+  background-size: cover;
+  background-position: center left;
   z-index: 0;
+  pointer-events: none;
 }
 
 .hero-content {

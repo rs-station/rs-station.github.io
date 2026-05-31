@@ -8,11 +8,7 @@ fullwidth: true
      HERO — full viewport, dark
      ═══════════════════════════════════════════════ -->
 <section class="hero-section">
-  <img
-    src="{{ '/assets/data/meatball_noletter.svg' | relative_url }}"
-    class="hero-bg-logo"
-    aria-hidden="true"
-  />
+  <div class="hero-bg-cover" style="background-image: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%), url('{{ '/assets/data/reciprocal_space_station_cover.jpg' | relative_url }}')" aria-hidden="true"></div>
   <div class="hero-content text-center">
     <img
       src="{{ '/assets/data/RSS_Worm_no_background.png' | relative_url }}"
