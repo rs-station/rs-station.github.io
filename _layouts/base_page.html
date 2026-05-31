@@ -30,6 +30,7 @@
     {% if page.fullwidth %}
     {{ content }}
     {% else %}
+    <div class="page-cover-banner" style="background-image: url('{{ '/assets/data/reciprocal_space_station_cover.jpg' | relative_url }}')" aria-hidden="true"></div>
     <div class="container px-4 px-lg-5">
       {{ content }}
     </div>

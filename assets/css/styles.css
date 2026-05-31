@@ -258,6 +258,17 @@ a:hover:not([class]) {
   mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
 }
 
+/* ── Cover banner at the top of content pages ── */
+.page-cover-banner {
+  height: 200px;
+  margin-bottom: -2rem; /* let content tuck up into the fade */
+  background-size: cover;
+  background-position: center bottom;
+  /* Image fully visible at top, fading into the white page below */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
 /* ── Hero ── */
 .hero-section {
   height: 100vh;
