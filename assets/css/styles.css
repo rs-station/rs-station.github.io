@@ -524,8 +524,15 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 
 /* Navbar collapses below lg (992px) — fix hero-page nav behaviour */
 @media (max-width: 991.98px) {
+  /* On mobile, the hero navbar is solid (no transparent overlay tricks) */
+  body.hero-page .navbar.navbar-hero {
+    background: #212529 !important;
+    border-bottom: 2px solid var(--rss-blue) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+
   /* Cancel the desktop nav-centering trick */
-  body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+  body.hero-page .navbar .navbar-nav {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
@@ -536,21 +543,14 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     opacity: 1;
     pointer-events: auto;
   }
-
-  /* Give the open hamburger menu a solid backdrop (it sits over the image) */
-  body.hero-page .navbar.navbar-hero .navbar-collapse {
-    background: #212529;
-    margin-top: 0.5rem;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-  }
 }
 
 /* Phone layout (below md, 768px) */
 @media (max-width: 767.98px) {
-  /* Hero text: flow naturally and centre instead of pinning to the right half */
+  /* Hero text: flow naturally and centre instead of pinning to the right half.
+     Keep it positioned (relative) so its z-index stays above the dark overlay. */
   .hero-content {
-    position: static;
+    position: relative;
     transform: none;
     width: 100%;
     right: auto;
@@ -570,7 +570,7 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 
   /* Uniform dark veil so centred white text is readable over any part of the image */
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(13,17,23,0.55), rgba(13,17,23,0.7));
+    background: linear-gradient(180deg, rgba(13,17,23,0.5), rgba(13,17,23,0.7));
   }
 
   /* Tighter section padding on small screens */
