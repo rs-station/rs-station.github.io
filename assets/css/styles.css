@@ -234,25 +234,23 @@ a:hover:not([class]) {
    Landing page
    ══════════════════════════════════════════════════ */
 
-/* ── Hero ── */
+/* ── Wrapper: cover image behind both hero and vision ── */
+.hero-vision-wrapper {
+  background-size: cover;
+  background-position: center left;
+}
+
+/* ── Hero: dark overlay right side, fades out at bottom ── */
 .hero-section {
   height: 100vh;
   min-height: 580px;
-  background: #0d1117;
+  background: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-}
-
-.hero-bg-cover {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center left;
-  z-index: 0;
-  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
 .hero-content {
@@ -347,7 +345,7 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 /* ── Vision ── */
 .vision-section {
   padding: 7rem 0;
-  background: #fff;
+  background: linear-gradient(to bottom, transparent 0%, #ffffff 50%);
 }
 
 .vision-label {

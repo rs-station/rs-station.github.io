@@ -5,57 +5,59 @@ fullwidth: true
 ---
 
 <!-- ═══════════════════════════════════════════════
-     HERO — full viewport, dark
+     Wrapper: cover image spans hero + vision
      ═══════════════════════════════════════════════ -->
-<section class="hero-section">
-  <div class="hero-bg-cover" style="background-image: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%), url('{{ '/assets/data/reciprocal_space_station_cover.jpg' | relative_url }}')" aria-hidden="true"></div>
-  <div class="hero-content text-center">
-    <img
-      src="{{ '/assets/data/RSS_Worm_no_background.png' | relative_url }}"
-      alt="Reciprocal Space Station"
-      class="hero-logo mb-4"
-    />
-    <h1 class="hero-title">Reciprocal Space Station</h1>
-    <p class="hero-subtitle">open-source structural biology powered by AI</p>
-    <div class="hero-actions mt-4">
-      <a class="btn btn-primary btn-sm" href="https://github.com/orgs/rs-station">
-        <i class="fa-brands fa-github me-1"></i>GitHub
-      </a>
-      <a class="btn btn-outline-light btn-sm ms-2" href="{{ '/about.html' | relative_url }}">
-        About us
-      </a>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <i class="fa-solid fa-chevron-down fa-xs"></i>
-  </div>
-</section>
+<div class="hero-vision-wrapper" style="background-image: url('{{ '/assets/data/reciprocal_space_station_cover.jpg' | relative_url }}')">
 
-<!-- ═══════════════════════════════════════════════
-     VISION — scroll-revealed mission statement
-     ═══════════════════════════════════════════════ -->
-<section class="vision-section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-7 col-md-9 text-center">
-        <p class="vision-label reveal">What we do</p>
-        <h2 class="vision-heading reveal" style="transition-delay:.1s">
-          Open science for the next generation of structural biology
-        </h2>
-        <p class="vision-text reveal" style="transition-delay:.2s">
-          RSS is a consortium developing an open-source ecosystem for methods spanning X-ray crystallography,
-          cryo-EM, and the AI that increasingly connects structure to function.
-          We're an open community that welcomes contributions from academics, industry,
-          and non-profits across the world of structural biology.
-        </p>
-        <a class="btn btn-primary reveal mt-2" href="{{ '/about.html' | relative_url }}" style="transition-delay:.3s">
-          Learn more
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-content text-center">
+      <img
+        src="{{ '/assets/data/RSS_Worm_no_background.png' | relative_url }}"
+        alt="Reciprocal Space Station"
+        class="hero-logo mb-4"
+      />
+      <h1 class="hero-title">Reciprocal Space Station</h1>
+      <p class="hero-subtitle">open-source structural biology powered by AI</p>
+      <div class="hero-actions mt-4">
+        <a class="btn btn-primary btn-sm" href="https://github.com/orgs/rs-station">
+          <i class="fa-brands fa-github me-1"></i>GitHub
+        </a>
+        <a class="btn btn-outline-light btn-sm ms-2" href="{{ '/about.html' | relative_url }}">
+          About us
         </a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <i class="fa-solid fa-chevron-down fa-xs"></i>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="vision-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9 text-center">
+          <p class="vision-label reveal">What we do</p>
+          <h2 class="vision-heading reveal" style="transition-delay:.1s">
+            Open science for the next generation of structural biology
+          </h2>
+          <p class="vision-text reveal" style="transition-delay:.2s">
+            RSS is a consortium developing an open-source ecosystem for methods spanning X-ray crystallography,
+            cryo-EM, and the AI that increasingly connects structure to function.
+            We're an open community that welcomes contributions from academics, industry,
+            and non-profits across the world of structural biology.
+          </p>
+          <a class="btn btn-primary reveal mt-2" href="{{ '/about.html' | relative_url }}" style="transition-delay:.3s">
+            Learn more
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <!-- ═══════════════════════════════════════════════
      TABS — Software · Forum · Blog
