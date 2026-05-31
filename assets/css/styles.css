@@ -238,19 +238,46 @@ a:hover:not([class]) {
 .hero-vision-wrapper {
   background-size: cover;
   background-position: center left;
+  position: relative;
 }
 
-/* ── Hero: dark overlay right side, fades out at bottom ── */
+/* Blur band that softens the cover image at the hero ↔ vision boundary */
+.hero-vision-blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100vh;
+  height: 60px;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
+  /* feather the band's own edges so the blur eases in and out */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
+}
+
+/* ── Hero ── */
 .hero-section {
   height: 100vh;
   min-height: 580px;
-  background: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* Dark overlay on its own div — covers the full hero, fades out on scroll */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%);
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 0.15s linear;
 }
 
 .hero-content {
@@ -346,6 +373,8 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 .vision-section {
   padding: 7rem 0;
   background: linear-gradient(to bottom, transparent 0%, #ffffff 50%);
+  position: relative;
+  z-index: 1;
 }
 
 .vision-label {
@@ -389,7 +418,8 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 /* ── Tabs section ── */
 .tabs-section {
   padding: 4rem 0 6rem;
-  background: #f8fafc;
+  /* Start transparent (continues the vision white) then settle into #f8fafc */
+  background: linear-gradient(to bottom, transparent 0%, #f8fafc 12%);
 }
 
 .rss-tabs {

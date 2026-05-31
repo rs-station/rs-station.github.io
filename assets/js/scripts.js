@@ -5,17 +5,28 @@ document.addEventListener('DOMContentLoaded', function () {
      and fade it in as the user scrolls past the hero.           */
   var navbar = document.querySelector('.navbar');
   var heroSection = document.querySelector('.hero-section');
+  var heroOverlay = document.querySelector('.hero-overlay');
   if (navbar && heroSection) {
     navbar.classList.add('navbar-hero');
-    function updateNavbar() {
-      if (window.scrollY > 60) {
+    function updateOnScroll() {
+      var y = window.scrollY;
+
+      // Navbar: transparent at top, opaque after scrolling
+      if (y > 60) {
         navbar.classList.add('navbar-scrolled');
       } else {
         navbar.classList.remove('navbar-scrolled');
       }
+
+      // Hero dark overlay: full at top, gone by the time the hero is scrolled past
+      if (heroOverlay) {
+        var fadeDistance = heroSection.offsetHeight * 0.6;
+        var opacity = 1 - (y / fadeDistance);
+        heroOverlay.style.opacity = Math.max(0, Math.min(1, opacity));
+      }
     }
-    window.addEventListener('scroll', updateNavbar, { passive: true });
-    updateNavbar();
+    window.addEventListener('scroll', updateOnScroll, { passive: true });
+    updateOnScroll();
   }
 
   /* ── Scroll reveal ─────────────────────────────────────────────

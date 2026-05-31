@@ -11,6 +11,7 @@ fullwidth: true
 
   <!-- HERO -->
   <section class="hero-section">
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content text-center">
       <img
         src="{{ '/assets/data/RSS_Worm_no_background.png' | relative_url }}"
@@ -56,6 +57,9 @@ fullwidth: true
       </div>
     </div>
   </section>
+
+  <!-- Blur band softening the hero ↔ vision interface -->
+  <div class="hero-vision-blur" aria-hidden="true"></div>
 
 </div>
 
