@@ -557,8 +557,9 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
   }
 
   .hero-title {
-    white-space: normal;
-    font-size: clamp(1.6rem, 6vw, 2.6rem);
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    font-size: clamp(1.4rem, 6vw, 2.1rem);
   }
 
   .hero-logo {
