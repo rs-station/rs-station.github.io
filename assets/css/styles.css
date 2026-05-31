@@ -261,7 +261,7 @@ a:hover:not([class]) {
 /* ── Cover banner at the top of content pages ── */
 .page-cover-banner {
   height: 200px;
-  margin-bottom: -20rem; /* let content tuck up into the fade */
+  margin-bottom: -2rem; /* let content tuck up into the fade */
   background-size: cover;
   background-position: center bottom;
   /* Image fully visible at top, fading into the white page below */
@@ -522,58 +522,55 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
    Mobile / responsive adjustments
    ══════════════════════════════════════════════════ */
 
-/* Navbar collapses below lg (992px) — fix hero-page nav behaviour */
+/* Everything switches together at the navbar's collapse breakpoint (992px) */
 @media (max-width: 991.98px) {
-  /* On mobile, the hero navbar is solid (no transparent overlay tricks) */
-  body.hero-page .navbar.navbar-hero {
+
+  /* ── Navbar: solid on the hero page (both states), brand always visible ── */
+  body.hero-page .navbar.navbar-hero,
+  body.hero-page .navbar.navbar-hero.navbar-scrolled {
     background: #212529 !important;
     border-bottom: 2px solid var(--rss-blue) !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
   }
 
-  /* Cancel the desktop nav-centering trick */
   body.hero-page .navbar .navbar-nav {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
-  /* Always show the brand on mobile so users know where they are */
   body.hero-page .navbar-brand {
     position: static;
     opacity: 1;
     pointer-events: auto;
   }
-}
 
-/* Phone layout (below md, 768px) */
-@media (max-width: 767.98px) {
-  /* Hero text: flow naturally and centre instead of pinning to the right half.
-     Keep it positioned (relative) so its z-index stays above the dark overlay. */
+  /* ── Hero text: full-width and centred instead of pinned to the right.
+     Keep it positioned (relative) so its z-index stays above the overlay. ── */
   .hero-content {
     position: relative;
     transform: none;
     width: 100%;
     right: auto;
+    left: auto;
     top: auto;
     padding: 0 1.5rem;
   }
 
-  /* Let the title wrap onto multiple lines */
   .hero-title {
     white-space: normal;
-    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
   }
 
   .hero-logo {
     height: 72px;
   }
 
-  /* Uniform dark veil so centred white text is readable over any part of the image */
+  /* Uniform dark veil (the desktop right-side radial doesn't suit centred text) */
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(13,17,23,0.5), rgba(13,17,23,0.7));
+    background: linear-gradient(180deg, rgba(13,17,23,0.5), rgba(13,17,23,0.72));
   }
 
-  /* Tighter section padding on small screens */
+  /* Tighter section spacing on small screens */
   .vision-section {
     padding: 4rem 0;
   }
@@ -581,7 +578,6 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     padding: 3rem 0 4rem;
   }
 
-  /* Shorter cover banner on content pages */
   .page-cover-banner {
     height: 150px;
   }
