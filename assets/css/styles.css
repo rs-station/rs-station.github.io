@@ -558,9 +558,13 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
   }
 
   /* ── Hero text: full-width, pushed lower, with a soft dark glow behind it.
-     Keep it positioned (relative) so its z-index stays above the overlay. ── */
+     Column layout + justify-content flex-end reliably drops the content
+     into the lower portion of the hero (margin tricks get eaten by
+     flex centering). Keep it positioned so z-index stays above the overlay. ── */
   .hero-section {
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 16vh;
   }
   .hero-content {
     position: relative;
@@ -569,7 +573,6 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     right: auto;
     left: auto;
     top: auto;
-    margin-top: 34vh; /* move the logo + text further down */
     padding: 2rem 1.5rem;
     /* faded darker glow behind the logo and text */
     background: radial-gradient(ellipse 85% 65% at 50% 50%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 72%);
