@@ -544,6 +544,19 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     pointer-events: auto;
   }
 
+  /* Tighten the navbar so the brand + hamburger fit on a phone */
+  .navbar > .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;
+    min-width: 0;
+  }
+  .navbar-brand img {
+    height: 28px !important;
+  }
+
   /* ── Hero text: full-width and centred instead of pinned to the right.
      Keep it positioned (relative) so its z-index stays above the overlay. ── */
   .hero-content {
