@@ -3,16 +3,15 @@ layout: content_page
 title: Blog
 ---
 
-<h1> Reciprocal Space Station Blog </h1>
-A place for explanations and elaborations from the RS-station astronauts.
+<h1>Reciprocal Space Station Blog</h1>
+<p class="blog-intro">A place for explanations and elaborations from the RS-station astronauts.</p>
 
-<hr>
-
+<div class="blog-list">
 {% for post in site.posts %}
-<h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-{{ post.date | date: "%b %d, %Y" }}
-<br>
-{{ post.subtitle }}
-<br>
-<br>
+  <article class="blog-entry">
+    <h2 class="blog-entry-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    <div class="blog-entry-date">{{ post.date | date: "%b %d, %Y" }}</div>
+    {% if post.subtitle %}<p class="blog-entry-subtitle">{{ post.subtitle }}</p>{% endif %}
+  </article>
 {% endfor %}
+</div>

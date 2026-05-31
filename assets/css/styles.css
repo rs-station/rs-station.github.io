@@ -519,6 +519,186 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 }
 
 /* ══════════════════════════════════════════════════
+   Content page typography
+   (about / contact / publications / development / blog)
+   Scoped to #content-body; child combinators keep card
+   markup (e.g. development cards) untouched.
+   ══════════════════════════════════════════════════ */
+#content-body,
+.page-cover-title,
+.toc-nav {
+  font-family: 'IBM Plex Sans', 'Inter', var(--bs-font-sans-serif);
+}
+
+#content-body {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #1f2733;
+}
+
+/* Headings — bold, near-black, with blue accents */
+#content-body > h1 {
+  font-weight: 800;
+  font-size: 2.15rem;
+  letter-spacing: -0.03em;
+  color: #0d1422;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+#content-body > h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: #0d1422;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e3e8f0;
+}
+
+#content-body > h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--rss-blue);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#content-body > p {
+  margin-bottom: 1.1rem;
+}
+
+/* Journal / meta italics in a softer tone */
+#content-body em {
+  color: #5b6472;
+  font-style: italic;
+}
+
+/* Markdown links — blue with an underline that grows on hover */
+#content-body a:not([class]) {
+  color: var(--rss-blue);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.25);
+  transition: border-color 0.15s ease;
+}
+#content-body a:not([class]):hover {
+  border-bottom-color: var(--rss-blue);
+  text-decoration: none;
+}
+
+/* Inline code — blue on a light chip */
+#content-body code {
+  background: #eef2f9;
+  color: #1d4ed8;
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+#content-body pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Lists rendered as cleanly separated entries with hairline dividers */
+#content-body > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+#content-body > ul > li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  border-bottom: 1px solid #edf1f7;
+}
+#content-body > ul > li:last-child {
+  border-bottom: none;
+}
+#content-body > ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.4em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rss-blue);
+  opacity: 0.55;
+}
+
+/* Footnotes / small print */
+#content-body small {
+  display: inline-block;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Soft horizontal rules */
+#content-body hr {
+  border: none;
+  border-top: 1px solid #e3e8f0;
+  margin: 2rem 0;
+  opacity: 1;
+}
+
+/* ── Blog index entries ── */
+#content-body .blog-intro {
+  font-size: 1.1rem;
+  color: #5b6472;
+  margin-bottom: 2rem;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-entry {
+  padding: 1.5rem 0;
+  border-top: 1px solid #e8ecf2;
+}
+.blog-entry:last-child {
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.blog-entry-title {
+  margin: 0 0 0.35rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.blog-entry-title a {
+  color: #0d1422;
+  text-decoration: none;
+  border: none !important;
+  transition: color 0.15s ease;
+}
+.blog-entry-title a:hover {
+  color: var(--rss-blue);
+}
+
+.blog-entry-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rss-blue);
+  margin-bottom: 0.5rem;
+}
+
+.blog-entry-subtitle {
+  margin: 0 !important;
+  color: #5b6472;
+  font-size: 0.98rem;
+}
+
+/* ══════════════════════════════════════════════════
    Mobile / responsive adjustments
    ══════════════════════════════════════════════════ */
 
