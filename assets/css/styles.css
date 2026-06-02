@@ -109,6 +109,11 @@ body {
   color: var(--rss-text);
   position: relative; /* required for Bootstrap ScrollSpy */
   padding-top: 58px;  /* compensate for fixed-top navbar */
+  /* Sticky footer: stretch to at least the viewport so the footer
+     pins to the bottom on short pages but still flows on long ones. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 body.hero-page {
@@ -469,7 +474,23 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 }
 
 .rss-tab-content {
+  display: grid;
   padding-top: 2rem;
+}
+
+/* Stack every pane in the same grid cell so the content area is always
+   as tall as the tallest pane — switching tabs never resizes the page.
+   The compound selector outranks Bootstrap's .tab-content>.tab-pane rule. */
+.rss-tab-content.tab-content > .tab-pane {
+  display: block;          /* override Bootstrap's display:none */
+  grid-area: 1 / 1;        /* all panes share one cell */
+  visibility: hidden;      /* hidden but still occupies space; out of tab order + a11y */
+  pointer-events: none;
+}
+
+.rss-tab-content.tab-content > .tab-pane.active {
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* forum / pane */
@@ -490,6 +511,7 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
   flex-direction: column;
   gap: 0.4rem;
   max-width: 700px;
+  margin-inline: auto;
 }
 
 .blog-tab-entry {
@@ -794,6 +816,7 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
 footer.py-5.bg-dark {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
+  margin-top: auto; /* sticky footer: absorb free space, pin to bottom */
 }
 
 footer .container p {
