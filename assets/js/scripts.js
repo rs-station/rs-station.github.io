@@ -85,12 +85,21 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  var emojiStripRe = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})\s*/gu;
+  /* Strip emoji, variation selectors (U+FE0E/FE0F) and zero-width joiners,
+     then drop any leading non-letter junk (e.g. the "1/" brand prefix). */
+  var emojiRe = /[\p{Emoji_Presentation}\p{Extended_Pictographic}\uFE0E\uFE0F\u200D]/gu;
+  function cleanLabel(text) {
+    return text
+      .replace(emojiRe, '')
+      .replace(/^[^\p{L}]+/u, '')
+      .trim();
+  }
 
   headings.forEach(function (h) {
+    var label = cleanLabel(h.textContent);
+
     if (!h.id) {
-      h.id = h.textContent.trim()
-        .replace(emojiStripRe, '')
+      h.id = label
         .toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/\s+/g, '-')
@@ -101,9 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var a = document.createElement('a');
     a.className = 'nav-link toc-' + h.tagName.toLowerCase();
     a.href = '#' + h.id;
-    a.textContent = h.textContent
-      .replace(emojiStripRe, '')
-      .trim();
+    a.textContent = label;
     tocNav.appendChild(a);
   });
 
