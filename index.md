@@ -119,7 +119,7 @@ fullwidth: true
                 <p class="card-text small text-muted">More RSS packages under active development — use at your own risk!</p>
               </div>
               <div class="card-footer bg-transparent border-0 pb-3">
-                <a class="btn btn-primary btn-sm" href="{{ '/development.html' | relative_url }}">See packages</a>
+                <a class="btn btn-primary btn-sm" href="{{ '/software.html' | relative_url }}">See packages</a>
               </div>
             </div>
           </div>

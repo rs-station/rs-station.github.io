@@ -47,6 +47,25 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
+  /* ── Landing tabs: keep the tab nav anchored when switching ─────
+     Panes vary in height; without this, switching from a short pane
+     to a taller one while scrolled down leaves the new pane cropped.
+     On tab change we re-anchor the tab strip just below the navbar,
+     but only scroll up (never force a downward jump).            */
+  var tabButtons = document.querySelectorAll('#landingTabs button[data-bs-toggle="tab"]');
+  var tabsNav = document.getElementById('landingTabs');
+  if (tabButtons.length && tabsNav) {
+    var NAVBAR_H = 58;
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener('shown.bs.tab', function () {
+        var anchor = tabsNav.getBoundingClientRect().top + window.scrollY - NAVBAR_H - 16;
+        if (window.scrollY > anchor) {
+          window.scrollTo({ top: anchor, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
   /* ── Scrollspy TOC sidebar ─────────────────────────────────────
      Dynamically builds a nav from page headings and activates
      Bootstrap ScrollSpy to highlight the current section.      */
