@@ -1,9 +1,9 @@
 - name: Home
   link: /
-- name: Software
-  link: /software.html
 - name: About
   link: /about.html
+- name: Software
+  link: /software.html
 - name: Contact
   link: /contact.html
 - name: Publications
