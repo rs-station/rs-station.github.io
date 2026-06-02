@@ -176,6 +176,10 @@ a:hover:not([class]) {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  margin-top: 0;        /* card titles may be <h3> (for the TOC); cancel heading top-margin */
+  border-bottom: none;  /* and the content-page <h2>/<h3> divider styling */
+  padding-bottom: 0;
+  color: var(--rss-text);
 }
 
 /* blog-footer — non-Bootstrap card-footer used in home cards */
