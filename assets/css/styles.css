@@ -92,6 +92,739 @@ body {
 
 /* custom things should go here */
 
+/* ── Brand variables ── */
+:root {
+  --rss-blue:       #2563eb;
+  --rss-blue-light: rgba(37, 99, 235, 0.08);
+  --rss-blue-mid:   rgba(37, 99, 235, 0.35);
+  --rss-text:       #1a1f2e;
+  --rss-text-muted: #6b7280;
+}
+
+/* ── Typography ── */
+body {
+  font-family: 'Inter', var(--bs-font-sans-serif);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--rss-text);
+  position: relative; /* required for Bootstrap ScrollSpy */
+  padding-top: 58px;  /* compensate for fixed-top navbar */
+  /* Sticky footer: stretch to at least the viewport so the footer
+     pins to the bottom on short pages but still flows on long ones. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.hero-page {
+  padding-top: 0; /* hero page lets the navbar float over the hero */
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--rss-text);
+}
+
+h1 { font-size: 2rem;    margin-top: 0;      margin-bottom: 1rem; }
+h2 { font-size: 1.35rem; margin-top: 2.25rem; margin-bottom: 0.6rem;
+     padding-bottom: 0.4rem; border-bottom: 1px solid #e5e7eb; }
+h3 { font-size: 1.1rem;  margin-top: 1.75rem; margin-bottom: 0.4rem; }
+
+/* inline links */
+a:not([class]) {
+  color: var(--rss-blue);
+  font-weight: 400;
+  text-decoration: none;
+}
+a:hover:not([class]) {
+  text-decoration: underline;
+}
+
+/* Prevent individual nav items from wrapping mid-label */
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+/* ── Navbar: blue accent border + shadow ── */
+.navbar.bg-dark {
+  border-bottom: 2px solid var(--rss-blue);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Primary button → brand blue ── */
+.btn-primary {
+  background-color: var(--rss-blue);
+  border-color: var(--rss-blue);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+/* ── Cards ── */
+.card {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 0;        /* card titles may be <h3> (for the TOC); cancel heading top-margin */
+  border-bottom: none;  /* and the content-page <h2>/<h3> divider styling */
+  padding-bottom: 0;
+  color: var(--rss-text);
+}
+
+/* blog-footer — non-Bootstrap card-footer used in home cards */
+.blog-footer {
+  padding: 0.75rem 1rem 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* ── Scrollspy sidebar ── */
+.toc-sidebar {
+  padding-top: 0.5rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.toc-nav {
+  border-left: 2px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-nav .nav-link {
+  padding: 0.3rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--rss-text-muted);
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  border-radius: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.toc-nav .nav-link.toc-h3 {
+  padding-left: 1.5rem;
+  font-size: 0.76rem;
+}
+
+.toc-nav .nav-link:hover {
+  color: var(--rss-blue);
+  border-left-color: var(--rss-blue-mid);
+  background-color: var(--rss-blue-light);
+}
+
+.toc-nav .nav-link.active {
+  color: var(--rss-blue);
+  font-weight: 500;
+  border-left-color: var(--rss-blue);
+  background-color: var(--rss-blue-light);
+}
+
+/* ══════════════════════════════════════════════════
+   Landing page
+   ══════════════════════════════════════════════════ */
+
+/* ── Wrapper: cover image behind both hero and vision ── */
+.hero-vision-wrapper {
+  background-size: cover;
+  background-position: center left;
+  position: relative;
+}
+
+/* Blur band that softens the cover image at the hero ↔ vision boundary */
+.hero-vision-blur {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100vh;
+  height: 60px;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
+  /* feather the band's own edges so the blur eases in and out */
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 50%, transparent);
+}
+
+/* ── Cover banner at the top of content pages ── */
+.page-cover-banner {
+  height: 200px;
+  margin-bottom: -2rem; /* let content tuck up into the fade */
+  background-size: cover;
+  background-position: center bottom;
+  /* Image fully visible at top, fading into the white page below */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+/* ── Hero ── */
+.hero-section {
+  height: 100vh;
+  min-height: 580px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Dark overlay on its own div — covers the full hero, fades out on scroll */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 120% at 17% 50%, transparent 10%, #0d1117 90%);
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
+  transition: opacity 0.15s linear;
+}
+
+.hero-content {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+.scroll-hint {
+  z-index: 1;
+}
+
+.hero-logo {
+  height: 96px;
+  width: auto;
+  filter: drop-shadow(0 0 32px rgba(37, 99, 235, 0.4));
+}
+
+.hero-title {
+  font-size: clamp(1.5rem, 3.4vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: scrollBounce 2.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0);   }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Transparent → opaque navbar transition on hero page */
+.navbar.navbar-hero {
+  background: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.navbar.navbar-hero.navbar-scrolled {
+  background: #212529 !important;
+  border-bottom: 2px solid var(--rss-blue) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Brand: hidden until scrolled past hero, then fades in */
+body.hero-page .navbar-brand {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+body.hero-page .navbar.navbar-scrolled .navbar-brand {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Center nav items while brand is out of flow */
+body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+  margin-left: 48% !important;
+  margin-right: 0 !important;
+}
+
+/* ── Vision ── */
+.vision-section {
+  padding: 7rem 0;
+  background: linear-gradient(to bottom, transparent 0%, #ffffff 50%);
+  position: relative;
+  z-index: 1;
+}
+
+.vision-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rss-blue);
+  margin-bottom: 0.85rem;
+}
+
+.vision-heading {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--rss-text);
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.vision-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #4b5563;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Tabs section ── */
+.tabs-section {
+  padding: 4rem 0 6rem;
+  /* Start transparent (continues the vision white) then settle into #f8fafc */
+  background: linear-gradient(to bottom, transparent 0%, #f8fafc 12%);
+}
+
+.rss-tabs {
+  border-bottom: 2px solid #e5e7eb;
+  gap: 0.15rem;
+}
+
+.rss-tabs .nav-link {
+  color: var(--rss-text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0;
+  background: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.rss-tabs .nav-link:hover {
+  color: var(--rss-text);
+  border-bottom-color: #d1d5db;
+  background: transparent;
+}
+
+.rss-tabs .nav-link.active {
+  color: var(--rss-blue);
+  border-bottom-color: var(--rss-blue);
+  font-weight: 600;
+  background: transparent;
+}
+
+.rss-tab-content {
+  display: grid;
+  padding-top: 2rem;
+}
+
+/* Stack every pane in the same grid cell so the content area is always
+   as tall as the tallest pane — switching tabs never resizes the page.
+   The compound selector outranks Bootstrap's .tab-content>.tab-pane rule. */
+.rss-tab-content.tab-content > .tab-pane {
+  display: block;          /* override Bootstrap's display:none */
+  grid-area: 1 / 1;        /* all panes share one cell */
+  visibility: hidden;      /* hidden but still occupies space; out of tab order + a11y */
+  pointer-events: none;
+}
+
+.rss-tab-content.tab-content > .tab-pane.active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* forum / pane */
+.tab-feature-pane {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tab-feature-pane h3 {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* blog list inside tab */
+.blog-tab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.blog-tab-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--rss-text);
+  transition: background 0.15s ease;
+}
+
+.blog-tab-entry:hover {
+  background: #eef2ff;
+  color: var(--rss-blue);
+  text-decoration: none;
+}
+
+.blog-tab-date {
+  font-size: 0.76rem;
+  color: var(--rss-text-muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.blog-tab-title {
+  font-weight: 500;
+  font-size: 0.93rem;
+}
+
+/* ══════════════════════════════════════════════════
+   Content page typography
+   (about / contact / publications / development / blog)
+   Scoped to #content-body; child combinators keep card
+   markup (e.g. development cards) untouched.
+   ══════════════════════════════════════════════════ */
+#content-body,
+.page-cover-title,
+.toc-nav {
+  font-family: 'IBM Plex Sans', 'Inter', var(--bs-font-sans-serif);
+}
+
+#content-body {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #1f2733;
+}
+
+/* Headings — bold, near-black, with blue accents */
+#content-body > h1 {
+  font-weight: 800;
+  font-size: 2.15rem;
+  letter-spacing: -0.03em;
+  color: #0d1422;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+#content-body > h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  color: #0d1422;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e3e8f0;
+}
+
+#content-body > h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--rss-blue);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#content-body > p {
+  margin-bottom: 1.1rem;
+}
+
+/* Journal / meta italics in a softer tone */
+#content-body em {
+  color: #5b6472;
+  font-style: italic;
+}
+
+/* Markdown links — blue with an underline that grows on hover */
+#content-body a:not([class]) {
+  color: var(--rss-blue);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.25);
+  transition: border-color 0.15s ease;
+}
+#content-body a:not([class]):hover {
+  border-bottom-color: var(--rss-blue);
+  text-decoration: none;
+}
+
+/* Inline code — blue on a light chip */
+#content-body code {
+  background: #eef2f9;
+  color: #1d4ed8;
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  font-size: 0.86em;
+}
+#content-body pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Lists rendered as cleanly separated entries with hairline dividers */
+#content-body > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+#content-body > ul > li {
+  position: relative;
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  border-bottom: 1px solid #edf1f7;
+}
+#content-body > ul > li:last-child {
+  border-bottom: none;
+}
+#content-body > ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.4em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rss-blue);
+  opacity: 0.55;
+}
+
+/* Footnotes / small print */
+#content-body small {
+  display: inline-block;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Soft horizontal rules */
+#content-body hr {
+  border: none;
+  border-top: 1px solid #e3e8f0;
+  margin: 2rem 0;
+  opacity: 1;
+}
+
+/* ── Blog index entries ── */
+#content-body .blog-intro {
+  font-size: 1.1rem;
+  color: #5b6472;
+  margin-bottom: 2rem;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-entry {
+  padding: 1.5rem 0;
+  border-top: 1px solid #e8ecf2;
+}
+.blog-entry:last-child {
+  border-bottom: 1px solid #e8ecf2;
+}
+
+.blog-entry-title {
+  margin: 0 0 0.35rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.blog-entry-title a {
+  color: #0d1422;
+  text-decoration: none;
+  border: none !important;
+  transition: color 0.15s ease;
+}
+.blog-entry-title a:hover {
+  color: var(--rss-blue);
+}
+
+.blog-entry-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rss-blue);
+  margin-bottom: 0.5rem;
+}
+
+.blog-entry-subtitle {
+  margin: 0 !important;
+  color: #5b6472;
+  font-size: 0.98rem;
+}
+
+/* ══════════════════════════════════════════════════
+   Mobile / responsive adjustments
+   ══════════════════════════════════════════════════ */
+
+/* Everything switches together at the navbar's collapse breakpoint (992px) */
+@media (max-width: 991.98px) {
+
+  /* ── Navbar: solid on the hero page (both states), brand always visible ── */
+  body.hero-page .navbar.navbar-hero,
+  body.hero-page .navbar.navbar-hero.navbar-scrolled {
+    background: #212529 !important;
+    border-bottom: 2px solid var(--rss-blue) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  body.hero-page .navbar .navbar-nav {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  body.hero-page .navbar-brand {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Tighten the navbar so the brand + hamburger fit on a phone */
+  .navbar > .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;
+    min-width: 0;
+  }
+  .navbar-brand img {
+    height: 28px !important;
+  }
+
+  /* ── Hero text: full-width, pushed lower, with a soft dark glow behind it.
+     Column layout + justify-content flex-end reliably drops the content
+     into the lower portion of the hero (margin tricks get eaten by
+     flex centering). Keep it positioned so z-index stays above the overlay. ── */
+  .hero-section {
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 16vh;
+  }
+  .hero-content {
+    position: relative;
+    transform: none;
+    width: 100%;
+    right: auto;
+    left: auto;
+    top: auto;
+    padding: 2rem 1.5rem;
+    /* faded darker glow behind the logo and text */
+    background: radial-gradient(ellipse 85% 65% at 50% 50%, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 72%);
+  }
+
+  .hero-title {
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    font-size: clamp(1.4rem, 6vw, 2.1rem);
+  }
+
+  .hero-logo {
+    height: 72px;
+  }
+
+  /* Uniform dark veil (the desktop right-side radial doesn't suit centred text) */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(13,17,23,0.5), rgba(13,17,23,0.72));
+  }
+
+  /* Tighter section spacing on small screens */
+  .vision-section {
+    padding: 4rem 0;
+  }
+  .tabs-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .page-cover-banner {
+    height: 150px;
+  }
+}
+
+/* ── Footer ── */
+footer.py-5.bg-dark {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  margin-top: auto; /* sticky footer: absorb free space, pin to bottom */
+}
+
+footer .container p {
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+
 .blog-image {
   margin-right: 10%;
   margin-left: 10%;

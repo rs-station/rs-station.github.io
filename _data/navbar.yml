@@ -2,11 +2,11 @@
   link: /
 - name: About
   link: /about.html
+- name: Software
+  link: /software.html
 - name: Contact
   link: /contact.html
 - name: Publications
   link: /publications.html
-- name: In Development
-  link: /development.html
 - name: Blog
   link: /blog.html
