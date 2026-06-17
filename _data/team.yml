@@ -1,0 +1,33 @@
+- name: Doeke Hekstra
+  title: Associate Professor of Molecular and Cellular Biology and Applied Physics
+  affiliation: Harvard University
+  link: https://hekstralab.fas.harvard.edu/
+  github: DHekstra
+- name: TJ Lane
+  title: Group Leader
+  affiliation: Deutsches Elektronen-Synchrotron “DESY”
+  link: https://tjlane.github.io/
+  github: tjlane
+- name: Mohammed AlQuraishi
+  title: Assistant Professor of Systems Biology (in Computer Science), Department Systems Biology
+  affiliation: Columbia University
+  link: https://www.aqlab.io/
+  github: alquraishi
+- name: Kevin Dalton
+  title: Associate Staff Scientist in Experimental Data Systems
+  affiliation: Linac Coherent Light Source at SLAC National Accelerator Laboratory
+  github: kmdalton
+- name: Alisia Fadini
+  title: Department of Systems Biology Postdoctoral Fellow
+  affiliation: Columbia University
+  github: alisiafadini
+- name: Minhuan Li
+  title: Center for Computational Mathematics (CCM) Research Fellow
+  affiliation: Flatiron Institute
+  link: https://minhuanli.github.io/
+  github: minhuanli
+- name: Luhuan Wu
+  title: Center for Computational Mathematics (CCM) Associate Research Scientist
+  affiliation: Flatiron Institute
+  link: https://luhuanwu.github.io/
+  github: LuhuanWu
