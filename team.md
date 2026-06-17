@@ -1,9 +1,13 @@
 ---
 title: Team
-layout: content_page
+layout: base_page
 ---
 
-# Core Team
+<div class="mt-4 mb-5" markdown="1">
+
+# Core Developers
 
 {% include team_cards.html %}
+
+</div>
 
