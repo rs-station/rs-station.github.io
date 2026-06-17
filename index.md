@@ -45,8 +45,8 @@ fullwidth: true
             Open science for the next generation of structural biology
           </h2>
           <p class="vision-text reveal" style="transition-delay:.2s">
-            RSS is a consortium developing an open-source ecosystem for methods spanning X-ray crystallography,
-            cryo-EM, and the AI that increasingly connects structure to function.
+            RSS is a new consortium developing an open-source ecosystem for methods spanning X-ray crystallography,
+            cryo-EM/ET, SAXS, and the AI that increasingly connects structure to function.
             We're an open community that welcomes contributions from academics, industry,
             and non-profits across the world of structural biology.
           </p>
