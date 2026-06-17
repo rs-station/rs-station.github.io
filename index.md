@@ -19,7 +19,7 @@ fullwidth: true
         class="hero-logo mb-4"
       />
       <h1 class="hero-title">Reciprocal Space Station</h1>
-      <p class="hero-subtitle">open-source structural biology powered by AI</p>
+      <p class="hero-subtitle">open-source structural biology for the AI era</p>
       <div class="hero-actions mt-4">
         <a class="btn btn-primary btn-sm" href="https://github.com/orgs/rs-station">
           <i class="fa-brands fa-github me-1"></i>GitHub
