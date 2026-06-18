@@ -1,6 +1,6 @@
 ---
 layout: base_page
-title: "Structural biology has more to teach AI than coordinates"
+title: "Structural Biology Has More to Teach AI Than Atomic Coordinates"
 fullwidth: true
 ---
 
@@ -138,37 +138,17 @@ fullwidth: true
     display: block;
   }
 
-  /* ── Post body below the hero ── */
-  .fp-body {
-    background: #fdf0d6;
-    padding: clamp(3rem, 9vh, 7rem) 0 clamp(4rem, 10vh, 8rem);
+  /* ── Transition from the dark hero into the standard white article ── */
+  .fp-hero-to-body {
+    height: 120px;
+    background: linear-gradient(to bottom, #003049 0%, #ffffff 100%);
   }
-  .fp-body .fp-prose {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-    color: #1a1a1a;
-  }
-  .fp-prose h2 {
-    font-family: "DM Serif Display", "Source Serif 4", Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(1.5rem, 3.2vw, 2rem);
-    color: #003049;
-    margin: 2.5rem 0 1rem;
-    border: 0;
-  }
-  .fp-prose p {
-    font-size: 1.15rem;
-    line-height: 1.75;
-    color: #2a2a2a;
-    margin: 0 0 1.25rem;
-  }
-  .fp-prose .fp-lede {
-    font-size: 1.3rem;
-    line-height: 1.65;
-    color: #003049;
-  }
+  /* Everything below the hero is wrapped in #content-body, so it inherits
+     the site's blog typography (IBM Plex Sans, blue h3s, styled links/lists)
+     and scripts.js builds the scrollspy TOC "section slider" in the sidebar. */
+  .fp-after { background: #ffffff; }
+  /* RSS-blue section titles for this announcement (site default h2 is near-black) */
+  body.fp-hide-nav #content-body > h2 { color: var(--rss-blue); }
 
   @media (max-width: 991.98px) {
     .fp-subtitle { display: none; } /* keep the small-screen hero uncluttered */
@@ -199,7 +179,7 @@ fullwidth: true
     <div class="fp-textstack">
       <div class="fp-textstack-inner">
         <div class="fp-eyebrow"><span class="fp-rule"></span>RSS News</div>
-        <h1 class="fp-title">Structural biology has more to teach AI than coordinates</h1>
+        <h1 class="fp-title">Structural Biology Has More to Teach AI Than Atomic Coordinates</h1>
         <p class="fp-subtitle">The Reciprocal Space Station joins the Open Molecular Software Foundation to bring raw signals and frontier structural biology experiments to the next era of biomolecular AI.</p>
       </div>
     </div>
@@ -216,24 +196,52 @@ fullwidth: true
   </div>
 </section>
 
-<!-- ═══════════════ BODY (scaffold — drop real content here) ═══════════════ -->
-<div class="fp-body">
-  <article class="fp-prose">
-    <p class="fp-lede reveal">Placeholder lede. The Reciprocal Space Station is joining the
-      Open Molecular Software Foundation — a short, punchy opening paragraph that sets up
-      why this matters goes here.</p>
+<!-- Soft transition from the dark hero into the white article -->
+<div class="fp-hero-to-body" aria-hidden="true"></div>
 
-    <h2 class="reveal">Why this matters</h2>
-    <p class="reveal">Placeholder body paragraph. Replace this with the real announcement
-      copy. Each <code>.reveal</code> block fades and slides up as it scrolls into view,
-      using the site's existing IntersectionObserver.</p>
-    <p class="reveal">A second placeholder paragraph so you can see consecutive reveals
-      staggering naturally as you scroll down the page.</p>
+<!-- ═══════════════ BODY (scaffold — drop real content here) ═══════════════
+     Mirrors the content_page layout: #content-body gets the site's blog
+     typography, and #page-toc gives the scrollspy "section slider" sidebar
+     (both wired up automatically by scripts.js). -->
+<div class="fp-after">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 mt-4 mb-5">
 
-    <h2 class="reveal">What comes next</h2>
-    <p class="reveal">Closing placeholder paragraph — links, call to action, or a quote can
-      live here once the real content is ready.</p>
-  </article>
+      <!-- Scrollspy TOC sidebar (large screens only) -->
+      <div class="col-lg-3 d-none d-lg-block" id="toc-col">
+        <div class="toc-sidebar sticky-top" style="top: 80px;">
+          <nav id="page-toc" class="toc-nav" aria-label="On this page"></nav>
+        </div>
+      </div>
+
+      <!-- Main article -->
+      <div class="col-12 col-md-10 offset-md-1 col-lg-9 offset-lg-0 py-4" id="content-body">
+
+        <p class="lead reveal">Placeholder lede. The Reciprocal Space Station is joining the
+          Open Molecular Software Foundation — a short, punchy opening paragraph that sets up
+          why this matters goes here.</p>
+
+        <h2 class="reveal">Why this matters</h2>
+        <p class="reveal">Placeholder body paragraph. Replace this with the real announcement
+          copy. Each <code>.reveal</code> block fades and slides up as it scrolls into view,
+          using the site's existing IntersectionObserver.</p>
+        <p class="reveal">A second placeholder paragraph so you can see consecutive reveals
+          staggering naturally as you scroll down the page.</p>
+
+        <h3 class="reveal">A subsection</h3>
+        <p class="reveal">Subsection placeholder — note that <code>h3</code> subheadings render
+          in RSS blue, exactly like the rest of the site's posts.</p>
+
+        <h2 class="reveal">What comes next</h2>
+        <p class="reveal">Closing placeholder paragraph — links, call to action, or a quote can
+          live here once the real content is ready.</p>
+
+        <p class="reveal mt-5"><a href="{{ '/blog.html' | relative_url }}">⬅️ Back to blog posts</a></p>
+
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ═══════════════ Responsive diffraction figure ═══════════════ -->
