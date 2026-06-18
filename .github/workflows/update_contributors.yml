@@ -1,0 +1,50 @@
+name: Update community contributors
+
+on:
+  # Refresh daily at 06:00 UTC
+  schedule:
+    - cron: "0 6 * * *"
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit the regenerated data file
+  actions: write    # dispatch the build_and_deploy workflow
+
+concurrency:
+  group: "update-contributors"
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerate contributors data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/fetch_contributors.py
+
+      - name: Commit and redeploy if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain _data/contributors.json)" ]; then
+            echo "No contributor changes; nothing to do."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/contributors.json
+          git commit -m "data: refresh community contributors"
+          git push
+          # A push made with GITHUB_TOKEN does not trigger build_and_deploy
+          # (loop-prevention), so dispatch it explicitly to redeploy with fresh data.
+          gh workflow run build_and_deploy.yml

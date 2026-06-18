@@ -9,5 +9,11 @@ layout: base_page
 
 {% include team_cards.html %}
 
+# Community Developers
+
+Everyone who has contributed code to an rs-station repository. Thank you! 🎉
+
+{% include community_cards.html %}
+
 </div>
 
