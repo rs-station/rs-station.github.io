@@ -26,7 +26,7 @@
 - name: 🧮 SFCalculator
   type: production
   link: https://github.com/Hekstra-Lab/SFcalculator_torch
-  docs: https://hekstra-lab.github.io/SFcalculator_torch/
+  docs: https://rs-station.github.io/SFcalculator_torch/
   desc: A differentiable pipeline connecting the protein atomic models and experimental structure factors, featuring a differentiable bulk solvent correction.
 - name: ☄️ METEOR
   type: production
