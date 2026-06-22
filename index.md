@@ -19,7 +19,7 @@ fullwidth: true
         class="hero-logo mb-4"
       />
       <h1 class="hero-title">Reciprocal Space Station</h1>
-      <p class="hero-subtitle">open-source structural biology powered by AI</p>
+      <p class="hero-subtitle">open-source structural biology for the AI era</p>
       <div class="hero-actions mt-4">
         <a class="btn btn-primary btn-sm" href="https://github.com/orgs/rs-station">
           <i class="fa-brands fa-github me-1"></i>GitHub
@@ -45,8 +45,7 @@ fullwidth: true
             Open science for the next generation of structural biology
           </h2>
           <p class="vision-text reveal" style="transition-delay:.2s">
-            RSS is a consortium developing an open-source ecosystem for methods spanning X-ray crystallography,
-            cryo-EM, and the AI that increasingly connects structure to function.
+            RSS is a consortium building an open-source ecosystem for frontier structural biology, spanning X-ray crystallography, cryo-EM/ET, SAXS, and the AI that increasingly connects structure to function.
             We're an open community that welcomes contributions from academics, industry,
             and non-profits across the world of structural biology.
           </p>
