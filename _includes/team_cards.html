@@ -1,0 +1,40 @@
+<div class="row gx-4 gx-lg-5 justify-content-center" id="team-grid">
+
+    {% for member in site.data.team %}
+        {% if member.link %}{% assign target = member.link %}{% else %}{% assign target = "https://github.com/" | append: member.github %}{% endif %}
+        <div class="col-sm-6 col-lg-4 mb-4">
+            <a class="team-card-link" href="{{ target }}">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        {% if member.photo %}
+                        <img class="team-avatar rounded-circle mb-3" src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
+                        {% else %}
+                        <img class="team-avatar rounded-circle mb-3" src="https://github.com/{{ member.github }}.png" alt="{{ member.name }}">
+                        {% endif %}
+                        <h3 class="card-title">{{ member.name }}</h3>
+                        <p class="card-text">
+                            <strong>{{ member.title }}</strong><br>
+                            {{ member.affiliation }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+
+<script>
+    // Shuffle the team cards on each visit (Fisher–Yates) so no one is
+    // perpetually listed first.
+    (function () {
+        var grid = document.getElementById('team-grid');
+        if (!grid) return;
+        var cards = Array.prototype.slice.call(grid.children);
+        for (var i = cards.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+        }
+        cards.forEach(function (card) { grid.appendChild(card); });
+    })();
+</script>
