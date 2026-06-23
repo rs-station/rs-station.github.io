@@ -402,6 +402,7 @@ body.hero-page .navbar-brand {
   transition: opacity 0.35s ease;
 }
 body.hero-page .navbar.navbar-scrolled .navbar-brand {
+  position: static;   /* back in flow so it claims space and the nav sits to its right */
   opacity: 1;
   pointer-events: auto;
 }
