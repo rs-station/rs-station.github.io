@@ -741,8 +741,10 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
    Mobile / responsive adjustments
    ══════════════════════════════════════════════════ */
 
-/* Everything switches together at the navbar's collapse breakpoint (992px) */
-@media (max-width: 991.98px) {
+/* Collapsed-navbar styling: must switch at the navbar's collapse breakpoint
+   (below xl / 1200px), not the 992px phone breakpoint, so the hamburger menu
+   renders correctly in the 992–1200px band too. */
+@media (max-width: 1199.98px) {
 
   /* ── Navbar: solid on the hero page (both states), brand always visible ── */
   body.hero-page .navbar.navbar-hero,
@@ -762,6 +764,10 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+/* Phone-sized layout adjustments */
+@media (max-width: 991.98px) {
 
   /* Tighten the navbar so the brand + hamburger fit on a phone */
   .navbar > .container {
