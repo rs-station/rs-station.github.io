@@ -148,11 +148,14 @@ a:hover:not([class]) {
   white-space: nowrap;
 }
 
-/* Social icons stay on a single row, including in the collapsed hamburger menu */
+/* Social icons stay on a single, evenly-spaced row in both the expanded bar and
+   the collapsed hamburger menu (where Bootstrap zeroes nav-link padding, so they
+   would otherwise touch). flex-shrink: 0 stops them collapsing into columns. */
 .nav-social {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 /* ── Navbar: blue accent border + shadow ── */
@@ -403,12 +406,14 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
   pointer-events: auto;
 }
 
-/* Center nav items while brand is out of flow — expanded navbar only, so it
-   never leaks into the collapsed hamburger menu (which stays left-aligned). */
+/* Center nav items while the brand is out of flow — expanded navbar only, so it
+   never leaks into the collapsed hamburger menu (which stays left-aligned).
+   Auto margins center the nav as a block regardless of how many items it holds,
+   so it can't be squeezed into wrapping the way a fixed % margin could. */
 @media (min-width: 1400px) {
   body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
-    margin-left: 48% !important;
-    margin-right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
