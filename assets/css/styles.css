@@ -148,6 +148,16 @@ a:hover:not([class]) {
   white-space: nowrap;
 }
 
+/* Social icons stay on a single, evenly-spaced row in both the expanded bar and
+   the collapsed hamburger menu (where Bootstrap zeroes nav-link padding, so they
+   would otherwise touch). flex-shrink: 0 stops them collapsing into columns. */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 /* ── Navbar: blue accent border + shadow ── */
 .navbar.bg-dark {
   border-bottom: 2px solid var(--rss-blue);
@@ -392,14 +402,20 @@ body.hero-page .navbar-brand {
   transition: opacity 0.35s ease;
 }
 body.hero-page .navbar.navbar-scrolled .navbar-brand {
+  position: static;   /* back in flow so it claims space and the nav sits to its right */
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Center nav items while brand is out of flow */
-body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
-  margin-left: 48% !important;
-  margin-right: 0 !important;
+/* Center nav items while the brand is out of flow — expanded navbar only, so it
+   never leaks into the collapsed hamburger menu (which stays left-aligned).
+   Auto margins center the nav as a block regardless of how many items it holds,
+   so it can't be squeezed into wrapping the way a fixed % margin could. */
+@media (min-width: 1200px) {
+  body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 /* ── Vision ── */
@@ -741,8 +757,10 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
    Mobile / responsive adjustments
    ══════════════════════════════════════════════════ */
 
-/* Everything switches together at the navbar's collapse breakpoint (992px) */
-@media (max-width: 991.98px) {
+/* Collapsed-navbar styling: must switch at the navbar's collapse breakpoint
+   (below xl / 1200px), not the 992px phone breakpoint, so the hamburger menu
+   renders correctly across the whole collapsed band. */
+@media (max-width: 1199.98px) {
 
   /* ── Navbar: solid on the hero page (both states), brand always visible ── */
   body.hero-page .navbar.navbar-hero,
@@ -752,16 +770,15 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
   }
 
-  body.hero-page .navbar .navbar-nav {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
   body.hero-page .navbar-brand {
     position: static;
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+/* Phone-sized layout adjustments */
+@media (max-width: 991.98px) {
 
   /* Tighten the navbar so the brand + hamburger fit on a phone */
   .navbar > .container {
