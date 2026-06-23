@@ -148,6 +148,13 @@ a:hover:not([class]) {
   white-space: nowrap;
 }
 
+/* Social icons stay on a single row, including in the collapsed hamburger menu */
+.nav-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 /* ── Navbar: blue accent border + shadow ── */
 .navbar.bg-dark {
   border-bottom: 2px solid var(--rss-blue);
@@ -396,10 +403,13 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
   pointer-events: auto;
 }
 
-/* Center nav items while brand is out of flow */
-body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
-  margin-left: 48% !important;
-  margin-right: 0 !important;
+/* Center nav items while brand is out of flow — expanded navbar only, so it
+   never leaks into the collapsed hamburger menu (which stays left-aligned). */
+@media (min-width: 1400px) {
+  body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
+    margin-left: 48% !important;
+    margin-right: 0 !important;
+  }
 }
 
 /* ── Vision ── */
@@ -752,11 +762,6 @@ body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     background: #212529 !important;
     border-bottom: 2px solid var(--rss-blue) !important;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-  }
-
-  body.hero-page .navbar .navbar-nav {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
   }
 
   body.hero-page .navbar-brand {
