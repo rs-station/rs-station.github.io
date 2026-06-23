@@ -410,7 +410,7 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
    never leaks into the collapsed hamburger menu (which stays left-aligned).
    Auto margins center the nav as a block regardless of how many items it holds,
    so it can't be squeezed into wrapping the way a fixed % margin could. */
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
   body.hero-page .navbar:not(.navbar-scrolled) .navbar-nav {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -757,9 +757,9 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
    ══════════════════════════════════════════════════ */
 
 /* Collapsed-navbar styling: must switch at the navbar's collapse breakpoint
-   (below xxl / 1400px), not the 992px phone breakpoint, so the hamburger menu
+   (below xl / 1200px), not the 992px phone breakpoint, so the hamburger menu
    renders correctly across the whole collapsed band. */
-@media (max-width: 1399.98px) {
+@media (max-width: 1199.98px) {
 
   /* ── Navbar: solid on the hero page (both states), brand always visible ── */
   body.hero-page .navbar.navbar-hero,
