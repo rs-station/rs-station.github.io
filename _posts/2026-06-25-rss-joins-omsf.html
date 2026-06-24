@@ -1,0 +1,408 @@
+---
+layout: base_page
+title: "Structural Biology Has More to Teach AI Than Atomic Coordinates"
+subtitle: "RSS joins the Open Molecular Software Foundation"
+fullwidth: true
+---
+
+<!-- Extra display/body fonts for the hero figure (Inter is already site-wide) -->
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+
+<style>
+  /* ─────────────────────────────────────────────────────────────
+     Fancy post hero — "The Transmitter" diffraction figure.
+     Reuses the site's .hero-section (100vh), .scroll-hint and
+     .reveal; everything below is scoped to .fp- to stay local.
+     ───────────────────────────────────────────────────────────── */
+  .fp-hero {
+    background: #003049;
+    overflow: hidden;
+  }
+
+  /* The figure layer fills the hero and is the element that fades
+     out on scroll (see .hero-fade handling in scripts.js). */
+  .fp-figure {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #003049;
+    will-change: opacity;
+    transition: opacity 0.15s linear;
+  }
+
+  .fp-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+  }
+
+  /* horizontal editorial margin that scales with the viewport */
+  .fp-hero {
+    --fp-inset: clamp(20px, 6vw, 96px);
+  }
+
+  .fp-hairline {
+    position: absolute;
+    top: clamp(20px, 5vh, 48px);
+    left: var(--fp-inset);
+    right: var(--fp-inset);
+    height: 1px;
+    background: rgba(253, 240, 214, 0.16);
+    z-index: 2;
+  }
+
+  .fp-date {
+    position: absolute;
+    top: calc(clamp(20px, 5vh, 48px) + 16px);
+    left: var(--fp-inset);
+    z-index: 2;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(253, 240, 214, 0.6);
+  }
+
+  .fp-textstack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 var(--fp-inset);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .fp-textstack-inner {
+    max-width: 760px;
+  }
+
+  .fp-eyebrow {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(14px, 1.2vw, 18px);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #d14d57;
+    margin-bottom: clamp(16px, 2.5vh, 28px);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .fp-rule {
+    display: inline-block;
+    width: 26px;
+    height: 2px;
+    background: #d14d57;
+  }
+
+  .fp-title {
+    font-family: "DM Serif Display", "Source Serif 4", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5.2vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+    color: #fdf0d6;
+    margin: 0 0 clamp(16px, 2.5vh, 28px);
+    text-wrap: balance;
+  }
+
+  .fp-subtitle {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: clamp(1.05rem, 1.8vw, 23px);
+    line-height: 1.5;
+    color: rgba(253, 240, 214, 0.74);
+    margin: 0;
+    max-width: 620px;
+    text-wrap: pretty;
+  }
+
+  .fp-logo {
+    position: absolute;
+    bottom: clamp(24px, 5vh, 52px);
+    left: var(--fp-inset);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+  }
+
+  .fp-logo img {
+    height: clamp(46px, 6vw, 76px);
+    width: auto;
+    display: block;
+  }
+
+  /* ── Transition from the dark hero into the standard white article ── */
+  .fp-hero-to-body {
+    height: 120px;
+    background: linear-gradient(to bottom, #003049 0%, #ffffff 100%);
+  }
+  /* Everything below the hero is wrapped in #content-body, so it inherits
+     the site's blog typography (IBM Plex Sans, blue h3s, styled links/lists)
+     and scripts.js builds the scrollspy TOC "section slider" in the sidebar. */
+  .fp-after { background: #ffffff; }
+  /* RSS-blue section titles for this announcement (site default h2 is near-black) */
+  body.fp-hide-nav #content-body > h2 { color: var(--rss-blue); }
+
+  @media (max-width: 991.98px) {
+    .fp-subtitle { display: none; } /* keep the small-screen hero uncluttered */
+  }
+
+  /* ── Hide the nav links over the hero until scrolled past it ──
+     Scoped to this page via body.fp-hide-nav (added by the script below).
+     Desktop only — on mobile the navbar is solid and the links live
+     behind the hamburger, so they must stay reachable. */
+  body.fp-hide-nav .navbar .navbar-nav { transition: opacity 0.35s ease; }
+  @media (min-width: 992px) {
+    body.fp-hide-nav .navbar.navbar-hero:not(.navbar-scrolled) .navbar-nav {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+</style>
+
+<!-- ═══════════════ HERO (scroll-fade figure) ═══════════════ -->
+<section class="hero-section fp-hero">
+
+  <div class="fp-figure hero-fade">
+    <canvas class="fp-canvas" id="fp-diffraction"></canvas>
+
+    <div class="fp-hairline"></div>
+    <div class="fp-date">June 25th 2026</div>
+
+    <div class="fp-textstack">
+      <div class="fp-textstack-inner">
+        <div class="fp-eyebrow"><span class="fp-rule"></span>RSS News</div>
+        <h1 class="fp-title">Structural Biology Has More to Teach AI Than Atomic Coordinates</h1>
+        <p class="fp-subtitle">The Reciprocal Space Station joins the Open Molecular Software Foundation to bring raw signals and frontier structural biology experiments to the next era of biomolecular AI.</p>
+      </div>
+    </div>
+
+    <div class="fp-logo">
+      <img src="{{ '/assets/posts/2026-06-25-rss-joins-omsf/rss-wordmark.png' | relative_url }}"
+           alt="Reciprocal Space Station" />
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <i class="fa-solid fa-chevron-down fa-xs"></i>
+  </div>
+</section>
+
+<!-- Soft transition from the dark hero into the white article -->
+<div class="fp-hero-to-body" aria-hidden="true"></div>
+
+<!-- ═══════════════ BODY (scaffold — drop real content here) ═══════════════
+     Mirrors the content_page layout: #content-body gets the site's blog
+     typography, and #page-toc gives the scrollspy "section slider" sidebar
+     (both wired up automatically by scripts.js). -->
+<div class="fp-after">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 mt-4 mb-5">
+
+      <!-- Scrollspy TOC sidebar (large screens only) -->
+      <div class="col-lg-3 d-none d-lg-block" id="toc-col">
+        <div class="toc-sidebar sticky-top" style="top: 80px;">
+          <nav id="page-toc" class="toc-nav" aria-label="On this page"></nav>
+        </div>
+      </div>
+
+      <!-- Main article -->
+      <div class="col-12 col-md-10 offset-md-1 col-lg-9 offset-lg-0 py-4" id="content-body">
+
+        <p class="lead reveal">Placeholder lede. The Reciprocal Space Station is joining the
+          Open Molecular Software Foundation — a short, punchy opening paragraph that sets up
+          why this matters goes here.</p>
+
+        <h2 class="reveal">Why this matters</h2>
+        <p class="reveal">Placeholder body paragraph. Replace this with the real announcement
+          copy. Each <code>.reveal</code> block fades and slides up as it scrolls into view,
+          using the site's existing IntersectionObserver.</p>
+        <p class="reveal">A second placeholder paragraph so you can see consecutive reveals
+          staggering naturally as you scroll down the page.</p>
+
+        <h3 class="reveal">A subsection</h3>
+        <p class="reveal">Subsection placeholder — note that <code>h3</code> subheadings render
+          in RSS blue, exactly like the rest of the site's posts.</p>
+
+        <h2 class="reveal">What comes next</h2>
+        <p class="reveal">Closing placeholder paragraph — links, call to action, or a quote can
+          live here once the real content is ready.</p>
+
+        <p class="reveal mt-5"><a href="{{ '/blog.html' | relative_url }}">⬅️ Back to blog posts</a></p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ Responsive diffraction figure ═══════════════ -->
+<script>
+(function () {
+  // Mark this page so the navbar links stay hidden until scrolled (see CSS above)
+  document.body.classList.add('fp-hide-nav');
+
+  var canvas = document.getElementById('fp-diffraction');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+
+  function rnd(i, j) {
+    var s = Math.sin(i * 127.1 + j * 311.7) * 43758.5453;
+    return s - Math.floor(s);
+  }
+
+  function draw() {
+    var host = canvas.parentElement;
+    var W = host.clientWidth;
+    var H = host.clientHeight;
+    if (!W || !H) return;
+    var DPR = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = W * DPR;
+    canvas.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    // Scale the whole pattern to "cover" the field (design ref: 1600×900)
+    var s = Math.max(W / 1600, H / 900);
+
+    // diffraction center — pushed right so the pattern crops off the edge
+    var cx = W * 0.77, cy = H * 0.5;
+    var intensity = 0.55;
+
+    // --- faint resolution rings ---
+    ctx.save();
+    for (var k = 1; k <= 9; k++) {
+      var r = (k * 86 + k * k * 1.4) * s;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(253,240,214,' + (0.115 - k * 0.007) * intensity + ')';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // --- reciprocal lattice of Bragg spots ---
+    var ax = 52 * s, ay = 4 * s;
+    var bx = -7 * s, by = 50 * s;
+    var envSigma = 360 * s;
+    var maxR = Math.hypot(W, H) * 0.62;
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (var i = -24; i <= 24; i++) {
+      for (var j = -24; j <= 24; j++) {
+        if (i === 0 && j === 0) continue; // beam stop
+        var px = cx + i * ax + j * bx;
+        var py = cy + i * ay + j * by;
+        var rr = Math.hypot(px - cx, py - cy);
+        if (rr > maxR) continue;
+        if (px < 0) continue; // full-bleed; envelope + left gradient keep text legible
+
+        var env = Math.exp(-(rr * rr) / (2 * envSigma * envSigma));
+        var mod = 0.45 + 0.55 * Math.abs(Math.cos(i * 1.1) * Math.cos(j * 0.9) + 0.3 * Math.cos((i + j) * 0.7));
+        var noise = 0.55 + 0.6 * rnd(i, j);
+        var I = env * mod * noise;
+        if (I < 0.014) continue;
+
+        var radius = (1.3 + I * 6.5) * s;
+        var a = Math.min(1, 0.42 + I * 2.3) * intensity;
+        var warm = I > 0.32;
+        var g = ctx.createRadialGradient(px, py, 0, px, py, radius * 2.7);
+        g.addColorStop(0, warm ? 'rgba(255,242,222,' + a + ')' : 'rgba(255,250,238,' + a + ')');
+        g.addColorStop(0.4, 'rgba(253,240,214,' + a * 0.5 + ')');
+        g.addColorStop(1, 'rgba(253,240,214,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(px, py, radius * 2.7, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (I > 0.12) {
+          ctx.fillStyle = 'rgba(255,252,245,' + Math.min(1, I * 1.5) * intensity + ')';
+          ctx.beginPath();
+          ctx.arc(px, py, Math.max(0.8, radius * 0.55), 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+    ctx.restore();
+
+    // --- low-resolution bloom around the beam center ---
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    var bloom = ctx.createRadialGradient(cx, cy, 0, cx, cy, 150 * s);
+    bloom.addColorStop(0, 'rgba(253,240,214,' + 0.20 * intensity + ')');
+    bloom.addColorStop(0.5, 'rgba(253,240,214,' + 0.07 * intensity + ')');
+    bloom.addColorStop(1, 'rgba(253,240,214,0)');
+    ctx.fillStyle = bloom;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 150 * s, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // --- direct beam / beamstop ---
+    var halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, 46 * s);
+    halo.addColorStop(0, 'rgba(209,77,87,' + 0.55 * intensity + ')');
+    halo.addColorStop(0.5, 'rgba(209,77,87,' + 0.12 * intensity + ')');
+    halo.addColorStop(1, 'rgba(209,77,87,0)');
+    ctx.fillStyle = halo;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 46 * s, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = '#002033';
+    ctx.beginPath();
+    ctx.arc(cx, cy, 12 * s, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(253,240,214,0.35)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.strokeStyle = 'rgba(0,32,51,0.85)';
+    ctx.lineWidth = 5 * s;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx - 150 * s, cy - 360 * s);
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(253,240,214,0.12)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx - 150 * s, cy - 360 * s);
+    ctx.stroke();
+
+    // --- vignette ---
+    var vg = ctx.createRadialGradient(cx, cy, 200 * s, cx, cy, Math.hypot(W, H) * 0.72);
+    vg.addColorStop(0, 'rgba(0,32,51,0)');
+    vg.addColorStop(1, 'rgba(0,18,30,0.55)');
+    ctx.fillStyle = vg;
+    ctx.fillRect(0, 0, W, H);
+
+    // --- left-side darkening so the headline stays legible ---
+    var lw = Math.max(W * 0.55, 520);
+    var lg = ctx.createLinearGradient(0, 0, lw, 0);
+    lg.addColorStop(0, 'rgba(0,32,51,0.80)');
+    lg.addColorStop(1, 'rgba(0,32,51,0)');
+    ctx.fillStyle = lg;
+    ctx.fillRect(0, 0, lw, H);
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(draw, 120);
+  }, { passive: true });
+
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(draw); }
+  window.addEventListener('load', draw);
+  draw();
+})();
+</script>
