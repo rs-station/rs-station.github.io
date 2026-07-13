@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout preview repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ssh-key: ${{ secrets.PREVIEW_DEPLOY_KEY }}
           repository: rs-station/rs-station.github.io-preview
