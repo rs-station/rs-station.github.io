@@ -218,24 +218,168 @@ fullwidth: true
       <!-- Main article -->
       <div class="col-12 col-md-10 offset-md-1 col-lg-9 offset-lg-0 py-4" id="content-body">
 
-        <p class="lead reveal">Placeholder lede. The Reciprocal Space Station is joining the
-          Open Molecular Software Foundation — a short, punchy opening paragraph that sets up
-          why this matters goes here.</p>
+        <p class="lead reveal">The first wave of biomolecular AI learned from atomic models and
+          sequencing data. That was the right place to start: deposited structures have been the
+          common language of structural biology to date, enabling decades of drug discovery,
+          simulation and protein design. It was natural that <em>structure</em> prediction was the
+          first big breakthrough in AI-powered bioscience.</p>
 
-        <h2 class="reveal">Why this matters</h2>
-        <p class="reveal">Placeholder body paragraph. Replace this with the real announcement
-          copy. Each <code>.reveal</code> block fades and slides up as it scrolls into view,
-          using the site's existing IntersectionObserver.</p>
-        <p class="reveal">A second placeholder paragraph so you can see consecutive reveals
-          staggering naturally as you scroll down the page.</p>
+        <p class="reveal">But experiments do not begin with the coordinates that make up a
+          structure. The data behind the structure — every diffraction pattern, scattering event,
+          particle image — contains more information than can be captured in a single structure.
+          These data contain information about what molecules actually <em>do</em>: how they move,
+          fluctuate, bind, and respond to perturbation. To deposit coordinates, however,
+          experimentalists need to come up with the best single structure that explains most of the
+          data — treating real variability as noise. Highlighting what is lost, current structure
+          predictors struggle with dynamics in part because they learned from this compressed
+          information. They trained on the world as it was deposited, not as it was measured.</p>
 
-        <h3 class="reveal">A subsection</h3>
-        <p class="reveal">Subsection placeholder — note that <code>h3</code> subheadings render
-          in RSS blue, exactly like the rest of the site's posts.</p>
+        <p class="reveal">Those lost dynamics hold the key to some of the most important open
+          questions in molecular biology:</p>
 
-        <h2 class="reveal">What comes next</h2>
-        <p class="reveal">Closing placeholder paragraph — links, call to action, or a quote can
-          live here once the real content is ready.</p>
+        <ul class="reveal">
+          <li><em>When is a mutation harmless, and when does it reshape a functional state?</em></li>
+          <li><em>When does a cryptic pocket open, and how can we target it?</em></li>
+          <li><em>How do proteins transmit information across distance?</em></li>
+          <li><em>How do molecular structure, dynamics, and function change with cellular context?</em></li>
+        </ul>
+
+        <p class="reveal">The answers — dynamics — appear in the data we collect today and will be
+          the central pursuit of the experiments of tomorrow. To capture them, we need to develop
+          the next generation of models, beyond single structures, by returning to the measurements
+          themselves. We need the computational infrastructure to make experimental data usable for
+          inference of dynamics today and enable training of the foundation models of tomorrow.</p>
+
+        <h2 class="reveal">RSS &times; OMSF</h2>
+
+        <p class="reveal">In pursuit of this future, we are excited to announce that the Reciprocal
+          Space Station, or RSS, is joining the Open Molecular Software Foundation
+          (<a href="https://omsf.io">OMSF</a>) to tackle that goal together: building open,
+          production-grade software that turns structural biology experiments into dynamics and
+          function. OMSF's help with governance, administration, software engineering, and
+          everything open source will enable RSS to expand our mission and tackle the frontier of
+          dynamic structural software.</p>
+
+        <p class="reveal">But what is a Reciprocal Space Station anyways? Our cheeky name riffs off
+          reciprocal space, the mathematical representation where many structural biology
+          experiments naturally live. Atomic-resolution structural biology relies on scattering:
+          X-rays, electrons, or neutrons bounce off a sample, and a detector records the information
+          imprinted on that radiation. Due to that radiation's wave-like nature, the process is
+          naturally described in reciprocal space, the Fourier-space world where crystallography,
+          cryo-EM, diffuse scattering, and small-angle methods meet. We are setting out to explore
+          this data space from our home base, the Reciprocal Space Station.</p>
+
+        <p class="reveal">RSS is part of the larger structural biology community, and is committed to
+          supporting and sustaining that community and ongoing structural software development. Stay
+          tuned, as more details about how RSS plans to operate and contribute will follow in a
+          future post!</p>
+
+        <h2 class="reveal">Building a path from measurements to function</h2>
+
+        <p class="reveal">The bottleneck RSS is tackling is not just one missing algorithm, but a
+          stack of connected problems. Experimental data needs a translation layer: from
+          facility-specific files and scientific conventions to context-aware arrays and tensors.
+          Forward models, which map conformations back to experimental observables, need to be
+          accurate, differentiable, and fast. Finally, we need the ability to go beyond single
+          structures to conformational distributions that change depending on environment,
+          composition, and time.</p>
+
+        <p class="reveal">Our projects target that stack directly:
+          <a href="https://github.com/rs-station/reciprocalspaceship">reciprocalspaceship</a> for
+          programmable crystallographic data;
+          <a href="https://github.com/rs-station/careless">Careless</a>,
+          <a href="https://github.com/rs-station/meteor">Meteor</a>, and
+          <a href="https://github.com/rs-station/laue-dials">Laue-DIALS</a> for difficult
+          diffraction and time-resolved regimes;
+          <a href="https://github.com/Hekstra-Lab/SFcalculator_torch">SFCalculator</a> for
+          differentiable forward modeling; and
+          <a href="https://github.com/rs-station/rocket">ROCKET</a> and
+          <a href="https://arxiv.org/abs/2602.05285">EmbedOpt</a> for observable-guided structure
+          and ensemble inference.</p>
+
+        <p class="reveal">Together, these efforts define the RSS roadmap: make structural biology
+          data accessible and interoperable, implement the underlying physics as differentiable
+          models, and train the next generation of biomolecular AI on data, not models.</p>
+
+        <p class="reveal">Concretely, RSS is building three connected layers.</p>
+
+        <p class="reveal">First, data libraries that make diffraction, scattering, imaging, and
+          time-resolved data easier to represent, manipulate, validate, and share. These are
+          building blocks that experimentalists, software developers, and model builders can use and
+          reuse.</p>
+
+        <p class="reveal">Second, experimental forward models that connect molecular structures and
+          ensembles to the measurements instruments actually record. These models need to be
+          physically correct, noise-aware, differentiable, performant, and usable across modalities
+          including crystallography, cryo-EM, SAXS, diffuse scattering, and beyond.</p>
+
+        <p class="reveal">Third, modeling systems that use experimental data directly: not only to
+          validate a final structure, but to guide structure determination, ensemble fitting, and
+          model training.</p>
+
+        <h2 class="reveal">Where we are going</h2>
+
+        <p class="reveal">We've already started down this path, with some exciting progress.</p>
+
+        <h3 class="reveal">Ensemble fitting from raw observables</h3>
+        <p class="reveal">In dynamic regions, building a structural model by hand is often
+          impossible. To address this challenge, we are developing engines that automatically fit
+          distributions of conformations directly to experimental data. In a first application,
+          without human intervention our system fit multiple conformers to crystallographic
+          measurements taken across a range of temperatures, yielding better models (per
+          cross-validation) than the best single-structure model. Crucially, this let us capture
+          allostery, where changes on one side of a protein propagate to another, spatially removed
+          site. Understanding allostery enables new opportunities in drug discovery and is
+          impossible to infer from a single-structure model. Next, we are extending this machinery
+          to ligands, waters, nucleic acids, and larger molecular assemblies, to understand the
+          function and dynamics of these critical cellular actors.</p>
+
+        <h3 class="reveal">Data velocity for modern instruments</h3>
+        <p class="reveal">Once interpretation no longer requires hours of manual model building per
+          dataset, scale becomes the opportunity. We are partnering with efforts such as OpenBind
+          and OpenADMET to help turn modern high-throughput structural experiments into usable data
+          streams for cofolding, binding, and ADMET modeling.</p>
+
+        <h3 class="reveal">From guiding existing models to training new ones</h3>
+        <p class="reveal">Alongside sister projects such as OpenFold, we aim to close the
+          experiment-model loop: measurements guide models, while models help design and interpret
+          experiments. We plan to build the infrastructure that will enable the next big
+          breakthroughs in biomolecular AI: cofolding, protein-protein interface prediction, and the
+          design of protein dynamics.</p>
+
+        <h2 class="reveal">Why OMSF</h2>
+
+        <p class="reveal">Infrastructure requires planning, maintenance, and resources. We'll need
+          to collaborate across structural biology, computation, simulation, drug discovery, and
+          experimental facilities. To succeed, our community will need to produce and support code
+          that is not only scientifically impactful, but available, reliable, extensible, and
+          community-driven.</p>
+
+        <p class="reveal">That is why RSS is joining the Open Molecular Software Foundation to
+          further this mission in service of the structural biology and AI communities. OMSF
+          provides a home for open molecular software projects that support entire fields. Alongside
+          consortia such as OpenFold, Open Force Field, OpenADMET, and OpenBind, RSS will help build
+          the open infrastructure needed for the next generation of structural biology.</p>
+
+        <p class="reveal">To realize the next generation of biomolecular AI, scientific excellence
+          is necessary but not sufficient. Automation, performance, usability, documentation,
+          testing, education, and long-term stewardship are first-order concerns of RSS, alongside
+          scientific insight.</p>
+
+        <h2 class="reveal">Join us</h2>
+
+        <p class="reveal">At its heart, RSS is an open community of reciprocal astronauts:
+          structural biologists, software developers, experimentalists, method builders, and
+          partners who believe experiments have more to teach us than a single static model.</p>
+
+        <p class="reveal">If you are excited about open software, experimental data, molecular
+          dynamics, and the future of structural biology, reach out at
+          <a href="mailto:crew@rs-station.org">crew@rs-station.org</a>, find us on
+          <a href="https://github.com/rs-station">GitHub</a>, or join our
+          <a href="https://discourse.rs-station.org">community forum</a>.</p>
+
+        <p class="reveal">Structural biology has more to teach AI than coordinates. Let's build the
+          tools to help it speak.</p>
 
         <p class="reveal mt-5"><a href="{{ '/blog.html' | relative_url }}">⬅️ Back to blog posts</a></p>
 
