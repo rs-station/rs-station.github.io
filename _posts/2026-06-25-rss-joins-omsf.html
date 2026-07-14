@@ -150,6 +150,10 @@ fullwidth: true
   .fp-after { background: #ffffff; }
   /* RSS-blue section titles for this announcement (site default h2 is near-black) */
   body.fp-hide-nav #content-body > h2 { color: var(--rss-blue); }
+  /* Offset anchor jumps (TOC clicks) so the section title clears the fixed
+     navbar and sits at the top of the view, rather than under it. */
+  #content-body h2,
+  #content-body h3 { scroll-margin-top: 80px; }
 
   @media (max-width: 991.98px) {
     .fp-subtitle { display: none; } /* keep the small-screen hero uncluttered */
