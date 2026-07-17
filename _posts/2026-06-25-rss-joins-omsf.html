@@ -234,9 +234,9 @@ fullwidth: true
           particle image — contains more information than can be captured in a single conformation.
           These data contain information about what molecules actually <em>do</em>: how they move,
           fluctuate, bind, and respond to perturbation. To deposit coordinates, however,
-          experimentalists need to come up with the best single snapshot that explains most of the
-          data — treating real variability as noise. Tellingly, current structure
-          predictors struggle with structural heterogeneity in part because they learned from this compressed
+          experimentalists need to come up with the best single snapshot that explains the
+          data, treating real variability as noise. Tellingly, current structure
+          predictors struggle with experimental heterogeneity in part because they learned from this compressed
           information. They trained on the world as it was deposited, not as it was measured.</p>
 
         <p class="reveal">That lost information holds the key to some of the most important open
@@ -244,36 +244,35 @@ fullwidth: true
 
         <ul class="reveal">
           <li><em>When is a mutation harmless, and when does it reshape a functional state?</em></li>
-          <li><em>When does a cryptic pocket open, and how can we target it?</em></li>
+          <li><em>Where are cryptic pockets, and how can we target them?</em></li>
           <li><em>How do proteins transmit and transform information through their structures?</em></li>
           <li><em>Can we understand the details of how water interacts with proteins — and use that to increase ligand potency?</em></li>
           <li><em>How do molecular structure, dynamics, and function change with cellular context?</em></li>
         </ul>
 
-        <p class="reveal">The answers are hidden in the data we collect today and will be
+        <p class="reveal">The answers are already hidden in the data we collect today and will be
           the central pursuit of the experiments of tomorrow. </p>
             
         <p class="reveal">To extract them, we need to develop
-          models that go beyond the static coordinates that we use to represent structure today. 
+          models that go beyond the static coordinates that we use to represent structure. 
           These models are hand-fit to experimental data, built by humans, for humans. They have been 
           incredibly successful: the Protein Data Bank (PDB) contains &gt;250k structures that produced
           9 Nobel prizes, guided &gt;80% of approved drugs, and trained AlphaFold, hailed as the first
           scientific breakthrough powered by AI. But lists of coordinates also limit the ability to
           reason about essential but complex aspects of structure: allostery, dynamics, water networks, 
-          partially ordered and disordered regions — in short, heterogeneity. When structure 
-          is compressed into a single coordinate model, this information is lost.
+          partially ordered and disordered regions — in short, heterogeneity.
           </p>
 
         <p class="reveal">We see a future in which AI models enable us to recapture this information,
           tackle the complexity of heterogeneity, and thereby fundamentally change how structure 
           impacts biology and medicine. Our vision is to ultimately bypass the coordinate models we
-          use currently and instead train AI models directly on structural experiments. In doing so, we
-          can leverage machine intelligence to do science beyond the limits of humans and coordinates.
+          use currently and instead interface AI models directly with structural experiments. In doing so, we
+          can leverage machine intelligence to do science beyond the limits of humans and the models we naturally understand.
         </p>
 
-        <p class="reveal">To see this future more concretely, take a practical problem that
-          faces drug hunters today: developing a molecular glue that creates a new
-          protein-protein interface between two proteins. This 
+        <p class="reveal">To see this future more concretely, consider one of the most challenging 
+          and exciting tasks facing drug hunters today: designing a molecular glue degrader that 
+          creates a new protein-protein interface between two proteins. This 
           task is essentially intractable for current rational, structure-based drug design. However, 
           with the assistance of a biomolecular foundation model capable of abstractly reasoning 
           about how small molecule binding induces structural changes, what drives protein-protein 
