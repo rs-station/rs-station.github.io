@@ -234,11 +234,15 @@ fullwidth: true
           particle image — contains more information than can be captured in a single conformation.
           These data contain information about what molecules actually <em>do</em>: how they move,
           fluctuate, bind, and respond to perturbation. Coordinate models, however, need to enumerate
-          all of that detail in an ever growing list of atom positions, which is possible for two or
-          three discrete conformations, but impossible for more continuous motions and disorder.
-          Further, humans, who have to build these models by hand, have a limited ability to reason 
-          about this complexity, and therefore seek the simplest, often single, conformation that
-          explains as much of the data as possible, treating any variability — including functional
+          all of that detail in an ever-growing list of atom positions, which is possible but already
+          challenging for two or three discrete conformations. At the frontier of structural science
+          are continuous motion and disorder — here, coordinate models become intractable: the number
+          of parameters explodes beyond the power of the data to determine them, and the resulting
+          models inhibit rather than aid scientific interpretation.</p> 
+          
+        <p class="reveal">As a consequence, structural biologists seek the simplest,
+          often single, conformation that explains as much of the data as possible, treating any 
+          variability — including functional
           variation — as noise. Tellingly, current structure predictors struggle with experimental 
           heterogeneity in part because they learned from this compressed information. They trained 
           on the world as it was deposited, not as it was measured.</p>
@@ -258,9 +262,8 @@ fullwidth: true
           have and collect today. Others will be the central pursuit of the experiments we invest in
           tomorrow.</p>
             
-        <p class="reveal">To extract them, we need to develop
-          models that go beyond the coordinates that we use to represent structure. 
-          These models are hand-fit to experimental data, built by humans, for humans. They have been 
+        <p class="reveal">To extract them, we need to go beyond the coordinates that we use to represent structure. 
+          Coordinate models are hand-fit to experimental data, built by humans, for humans. They have been 
           incredibly successful: the Protein Data Bank (PDB) contains &gt;250k structures that produced
           9 Nobel prizes, guided &gt;80% of approved drugs, and trained AlphaFold, hailed as the first
           scientific breakthrough powered by AI. But lists of coordinates also limit the ability to
