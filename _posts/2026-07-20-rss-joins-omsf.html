@@ -179,7 +179,7 @@ fullwidth: true
     <canvas class="fp-canvas" id="fp-diffraction"></canvas>
 
     <div class="fp-hairline"></div>
-    <div class="fp-date">June 25th 2026</div>
+    <div class="fp-date">July 20th 2026</div>
 
     <div class="fp-textstack">
       <div class="fp-textstack-inner">
@@ -190,7 +190,7 @@ fullwidth: true
     </div>
 
     <div class="fp-logo">
-      <img src="{{ '/assets/posts/2026-06-25-rss-joins-omsf/rss-wordmark.png' | relative_url }}"
+      <img src="{{ '/assets/posts/2026-07-20-rss-joins-omsf/rss-wordmark.png' | relative_url }}"
            alt="Reciprocal Space Station" />
     </div>
   </div>
@@ -233,14 +233,18 @@ fullwidth: true
         <p class="reveal">The data behind the structure — every diffraction pattern, scattering event,
           particle image — contains more information than can be captured in a single conformation.
           These data contain information about what molecules actually <em>do</em>: how they move,
-          fluctuate, bind, and respond to perturbation. To deposit coordinates, however,
-          experimentalists need to come up with the best single snapshot that explains the
-          data, treating real variability as noise. Tellingly, current structure
-          predictors struggle with experimental heterogeneity in part because they learned from this compressed
-          information. They trained on the world as it was deposited, not as it was measured.</p>
+          fluctuate, bind, and respond to perturbation. Coordinate models, however, need to enumarate
+          all of that detail in an ever growing list of atom positions, which is possible for two or 
+          there of discrete conformations, but impossible for more continous motions and disorder.
+          Further, humans, who have to build these models by hand, have a limited ability to reason 
+          about  this complexity, and therefore seek the simplest, often single, conformation that 
+          explains as much of the data as possible, treating any variability — including functional
+          variation — as noise. Tellingly, current structure predictors struggle with experimental 
+          heterogeneity in part because they learned from this compressed information. They trained 
+          on the world as it was deposited, not as it was measured.</p>
 
-        <p class="reveal">That lost information holds the key to some of the most important open
-          questions in molecular biology:</p>
+        <p class="reveal">This simplification causes us to lose information that holds the key to some
+          of the most important open questions in molecular biology:</p>
 
         <ul class="reveal">
           <li><em>When is a mutation harmless, and when does it reshape a functional state?</em></li>
@@ -250,8 +254,9 @@ fullwidth: true
           <li><em>How do molecular structure, dynamics, and function change with cellular context?</em></li>
         </ul>
 
-        <p class="reveal">The answers are already hidden in the data we collect today and will be
-          the central pursuit of the experiments of tomorrow. </p>
+        <p class="reveal">Some of the answers to these questions are hidden in the data we already
+          have and collect today. Others will be the central pursuit of the experiments we invest in
+          tomorrow.</p>
             
         <p class="reveal">To extract them, we need to develop
           models that go beyond the static coordinates that we use to represent structure. 
@@ -265,9 +270,11 @@ fullwidth: true
 
         <p class="reveal">We see a future in which AI models enable us to recapture this information,
           tackle the complexity of heterogeneity, and thereby fundamentally change how structure 
-          impacts biology and medicine. Our vision is to ultimately bypass the coordinate models we
-          use currently and instead interface AI models directly with structural experiments. In doing so, we
-          can leverage machine intelligence to do science beyond the limits of humans and the models we naturally understand.
+          impacts biology and medicine. Our vision is to eventually let AI models interface directly
+          with structural experiments, taking on the scale and complexity that current coordinate
+          models can't handle. In doing so, we can extend what's scientifically possible — uncovering
+          patterns and connections beyond what manual modeling allows — while freeing researchers to
+          focus their reasoning on the questions that matter most.
         </p>
 
         <p class="reveal">To see this future more concretely, consider one of the most challenging 
@@ -280,7 +287,7 @@ fullwidth: true
           become routine.
         </p>
           
-        <p class="reveal">Surpassing the limits of static coordinates to realize this vision will require 
+        <p class="reveal">Surpassing the limits of coordinates to realize this vision will require
           a return to the measurements themselves. We need to build the AI-structure interface,
           the computational infrastructure that will make
           experimental data usable for inference of structural heterogeneity and enable training of
@@ -305,7 +312,7 @@ fullwidth: true
           cryo-EM, diffuse scattering, and small-angle methods meet. We are setting out to explore
           this data space from our home base, the Reciprocal Space Station.</p>
 
-        <p class="reveal">RSS is part of the larger structural biology community, and is committed to
+        <p class="reveal">RSS is part of the larger structural biology community, and we are committed to
           supporting and sustaining it and ongoing structural software development. Stay
           tuned, as more details about how RSS plans to operate and contribute will follow in a
           future post!</p>
@@ -333,32 +340,17 @@ fullwidth: true
           <a href="https://github.com/rs-station/embedopt">EmbedOpt</a> for observable-guided structure
           and ensemble inference.</p>
 
-        <p class="reveal">Together, these efforts define the RSS roadmap: make structural biology
-          data accessible and interoperable, implement the underlying physics as differentiable
-          models, and train the next generation of biomolecular AI on data, not structures.</p>
-
-        <p class="reveal">Concretely, RSS is building three connected layers.</p>
-
-        <p class="reveal">First, data libraries that make diffraction, scattering, imaging, and
-          time-resolved data easier to represent, manipulate, validate, and share. These are
-          building blocks that experimentalists, software developers, and model builders can use and
-          reuse.</p>
-
-        <p class="reveal">Second, experimental forward models that connect molecular structures and
-          ensembles to the measurements instruments actually record. These models need to be
-          physically correct, noise-aware, differentiable, performant, and usable across modalities
-          including crystallography, cryo-EM, SAXS, diffuse scattering, and beyond.</p>
-
-        <p class="reveal">Third, modeling systems that use experimental data directly: not only to
-          validate a final structure, but to guide structure determination, ensemble fitting, and
-          model training.</p>
+        <p class="reveal"><strong>Together, these efforts define the RSS roadmap: make structural
+          biology data accessible and interoperable, implement the underlying physics as
+          differentiable models, and train the next generation of biomolecular AI on data, not
+          structures.</strong></p>
 
         <h2 class="reveal">Where we are going</h2>
 
         <p class="reveal">We've already started down this path, with some exciting progress.</p>
 
         <h3 class="reveal">Ensemble fitting from raw observables</h3>
-        <p class="reveal">In dynamic regions, building a structural model by hand is often impossible. To address this challenge, we are developing engines that automatically fit distributions of conformations directly to experimental data. This will enable us to capture allostery, where changes on one side of a protein propagate to another, spatially removed site. Allostery opens new opportunities in drug discovery and is impossible to infer from a single-structure model. We are therefore extending our machinery to ensembles — stay tuned for an upcoming post!</p>
+        <p class="reveal">In dynamic regions, building a structural model by hand is often impossible. To address this challenge, we are developing engines that automatically fit distributions of conformations directly to experimental data. This will enable us to capture allostery, where changes on one side of a protein propagate to another, spatially removed site. Allostery opens new opportunities in drug discovery and is hard to capture with a single structure alone. We are therefore extending our machinery to ensembles — stay tuned for an upcoming post!</p>
 
         <h3 class="reveal">Data velocity for modern instruments</h3>
         <p class="reveal">Once interpretation no longer requires hours of manual model building per
@@ -372,31 +364,27 @@ fullwidth: true
         <p class="reveal">Alongside sister projects such as
           <a href="https://openfold.io/">OpenFold</a>, we aim to close the
           experiment-model loop: measurements guide models, while models help design and interpret
-          experiments. We plan to build the infrastructure that will enable the next big
-          breakthroughs in biomolecular AI: cofolding, protein-protein interface prediction, and the
-          design of protein dynamics.</p>
+          experiments. We plan to build predictors that use experimental data directly, not only to
+          validate a final structure, but to guide structure determination, ensemble fitting, and
+          model training. We believe these will enable the next big breakthroughs in biomolecular AI:
+          cofolding, protein-protein interface prediction, and the design of protein dynamics.</p>
 
         <h2 class="reveal">Why OMSF</h2>
 
-        <p class="reveal">Infrastructure requires planning, maintenance, and resources. We'll need
-          to collaborate across structural biology, computation, simulation, drug discovery, and
-          experimental facilities. To succeed, our community will need to produce and support code
-          that is not only scientifically impactful, but available, reliable, extensible, and
-          community-driven.</p>
+        <p class="reveal">To realize our mission, scientific excellence is necessary but not
+          sufficient. Automation, performance, usability, documentation, testing, education, and
+          long-term stewardship are first-order concerns of RSS, alongside scientific insight. 
+          It will take collaboration across structural biology,
+          computation, simulation, drug discovery, and experimental facilities, and code that's not
+          just impactful, but available, reliable, extensible, and community-driven.</p>
 
-        <p class="reveal">That is why RSS is joining the Open Molecular Software Foundation to
-          further this mission in service of the structural biology and AI communities. OMSF
-          provides a home for open molecular software projects that support entire fields. Alongside
-          consortia such as <a href="https://openfold.io/">OpenFold</a>,
+        <p class="reveal">That's why RSS is joining the Open Molecular Software Foundation: a home
+          for open molecular software projects that support entire fields. Alongside consortia like
+          <a href="https://openfold.io/">OpenFold</a>,
           <a href="https://openforcefield.org/">OpenForceField</a>,
           <a href="https://openadmet.org/">OpenADMET</a>, and
-          <a href="https://openbind.uk">OpenBind</a>, RSS will help build
-          the open infrastructure needed for the next generation of structural biology.</p>
-
-        <p class="reveal">To realize this mission, scientific excellence
-          is necessary but not sufficient. Automation, performance, usability, documentation,
-          testing, education, and long-term stewardship are first-order concerns of RSS, alongside
-          scientific insight.</p>
+          <a href="https://openbind.uk">OpenBind</a>, RSS will help build the open infrastructure the
+          next generation of structural biology needs.</p>
 
         <h2 class="reveal">Join us</h2>
 
