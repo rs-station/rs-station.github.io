@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var navbar = document.querySelector('.navbar');
   var heroSection = document.querySelector('.hero-section');
   var heroOverlay = document.querySelector('.hero-overlay');
+  // .hero-fade: an element (e.g. a fancy-post hero figure) that should fade
+  // OUT as the reader scrolls past the hero. Driven by the same scroll
+  // position as the navbar/overlay logic below.
+  var heroFade = document.querySelector('.hero-fade');
   if (navbar && heroSection) {
     navbar.classList.add('navbar-hero');
     function updateOnScroll() {
@@ -23,6 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var fadeDistance = heroSection.offsetHeight * 0.6;
         var opacity = 1 - (y / fadeDistance);
         heroOverlay.style.opacity = Math.max(0, Math.min(1, opacity));
+      }
+
+      // Hero figure (fancy post): visible at top, faded out as you scroll past
+      if (heroFade) {
+        var figFade = heroSection.offsetHeight * 0.6;
+        heroFade.style.opacity = Math.max(0, Math.min(1, 1 - (y / figFade)));
       }
     }
     window.addEventListener('scroll', updateOnScroll, { passive: true });

@@ -1,5 +1,9 @@
 title: Reciprocal Space Station
 
+# Build posts with a future date (e.g. the June 25 announcement) so they
+# appear in PR previews and on the live site without waiting for the date.
+future: true
+
 plugins:
   - jekyll-font-awesome-sass
 
