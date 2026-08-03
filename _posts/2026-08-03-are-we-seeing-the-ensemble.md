@@ -7,7 +7,7 @@ contact: "{minhuanli,fthomasen,pcossio}@flatironinstitute.org"
 usemathjax: true
 ---
 
-![Two ways an experiment can encode a conformational ensemble](/assets/posts/2026-08-03-are-we-seeing-the-ensemble/measurement_types.png){: .blog-image-hero}
+![Two ways an experiment can encode a conformational ensemble]({{ '/assets/posts/2026-08-03-are-we-seeing-the-ensemble/measurement_types.png' | relative_url }}){: .blog-image-hero}
 Two ways in which an experiment can encode a conformational ensemble. Ensemble-averaged measurements combine contributions from many molecules into each observable. In single-particle or single-molecule measurements, each observation arises from an individual molecule, and the ensemble is represented statistically across many observations.
 {: .blog-caption-wide}
 
