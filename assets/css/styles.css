@@ -684,6 +684,32 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
   opacity: 0.55;
 }
 
+/* Post byline — authors, with an optional muted contact tail */
+#content-body > .post-byline {
+  color: #3d4756;
+}
+#content-body > .post-byline .post-contact {
+  color: #6b7280;
+  font-size: 0.875em;
+  white-space: nowrap;
+}
+#content-body > .post-byline .post-contact::before {
+  content: '·';
+  margin: 0 0.55em;
+  color: #b6bfcc;
+}
+
+/* Lead paragraph — a drop cap marks where the article proper begins. */
+#content-body > .post-lead::first-letter {
+  float: left;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  font-weight: 800;
+  color: var(--rss-blue);
+  padding-right: 0.06em;
+  margin-top: 0.05em;
+}
+
 /* Footnotes / small print */
 #content-body small {
   display: inline-block;
@@ -855,6 +881,15 @@ footer .container p {
   opacity: 0.7;
 }
 
+/* Figures sit as blocks with a small gap before their caption. */
+.blog-image,
+.blog-image-narrow,
+.blog-image-wide,
+.blog-image-hero {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+
 .blog-image {
   margin-right: 10%;
   margin-left: 10%;
@@ -871,15 +906,27 @@ footer .container p {
   width: 100%;
 }
 
-.blog-caption {
-  display: inline-block;
-  font-style: italic;
-  padding: 0 15%;
+/* Lead figure — centered with auto margins rather than a percentage pair,
+   so the width is measured against the full column. */
+.blog-image-hero {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Captions read as metadata, not body copy: smaller, muted, centered. */
+.blog-caption,
 .blog-caption-wide {
-  display: inline-block;
+  display: block;
   font-style: italic;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #6b7280;
+  text-align: center;
+}
+
+.blog-caption {
+  padding: 0 15%;
 }
 
 /* end custom things */

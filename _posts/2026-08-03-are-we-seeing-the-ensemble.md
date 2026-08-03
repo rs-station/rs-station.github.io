@@ -3,12 +3,16 @@ layout: post
 title: Are We Seeing the Ensemble?
 subtitle: How structural biology experiments preserve, blur, or lose molecular ensembles
 author: Minhuan Li, F. Emil Thomasen, Pilar Cossio
+contact: "{minhuanli,fthomasen,pcossio}@flatironinstitute.org"
 usemathjax: true
 ---
 
-*Contact: [minhuanli@flatironinstitute.org](mailto:minhuanli@flatironinstitute.org), [fthomasen@flatironinstitute.org](mailto:fthomasen@flatironinstitute.org), [pcossio@flatironinstitute.org](mailto:pcossio@flatironinstitute.org)*
+![Two ways an experiment can encode a conformational ensemble](/assets/posts/2026-08-03-are-we-seeing-the-ensemble/measurement_types.png){: .blog-image-hero}
+Two ways in which an experiment can encode a conformational ensemble. Ensemble-averaged measurements combine contributions from many molecules into each observable. In single-particle or single-molecule measurements, each observation arises from an individual molecule, and the ensemble is represented statistically across many observations.
+{: .blog-caption-wide}
 
 Ensemble-inference approaches are rapidly becoming a research frontier across structural biology. But asking a biophysical experiment for a distribution is different from asking it for a structure. Before reaching for a better inference method, we first have to ask how the experiment encoded the ensemble and how much of that information survived measurement and processing. Different modalities answer this question differently: some measure noisy samples from the distribution, while others compress the ensemble into a set of averaged observables.
+{: .post-lead}
 
 This distinction cuts across structural biology. Here we begin with cryo-electron microscopy (cryo-EM), where particle images and reconstructed maps provide two different observables of the same sample. Their contrast illustrates a broader principle that will apply across experimental modalities: the suitability of a target for ensemble inference depends not only on its structural detail, but also on how faithfully it retains information about the underlying distribution. To understand why, start with the object we are trying to recover.
 
@@ -31,11 +35,7 @@ But this ideal distribution might not be the one that enters the instrument. Exp
 
 ### How experiments observe the source distribution
 
-Once the immediate target is $$p_{\mathrm{src}}$$, the next question is what kind of trace the experiment leaves behind. Broadly, there are two, as illustrated in the figure below. Some experiments combine contributions from many molecules into ensemble-averaged observables. Others are molecule-resolved: individual observations arise from individual molecules, and the ensemble appears statistically across many observations.
-
-![Two ways an experiment can encode a conformational ensemble](/assets/posts/2026-08-03-are-we-seeing-the-ensemble/measurement_types.png){: .blog-image-wide}
-Two ways in which an experiment can encode a conformational ensemble. Ensemble-averaged measurements combine contributions from many molecules into each observable. In single-particle or single-molecule measurements, each observation arises from an individual molecule, and the ensemble is represented statistically across many observations.
-{: .blog-caption-wide}
+Once the immediate target is $$p_{\mathrm{src}}$$, the next question is what kind of trace the experiment leaves behind. Broadly, there are two, as illustrated in the figure at the top of this post. Some experiments combine contributions from many molecules into ensemble-averaged observables. Others are molecule-resolved: individual observations arise from individual molecules, and the ensemble appears statistically across many observations.
 
 For an ensemble-average measurement, the data take the form
 
