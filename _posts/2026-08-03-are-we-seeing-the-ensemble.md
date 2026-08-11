@@ -46,28 +46,26 @@ This gap applies to every modality, not only to cryo-EM. Ensemble inference ther
 **TJ comment.** You don't discuss the implications. What should you do if you have a different distribution from the one you care about? At least you should think through the exprimental design. It also could be possible -- in certain ideal situations -- to reweight the source to a different distribution you care more about. Elaborate.
 
 
-## Averaged data _can_ yield meaningful ensembles... but not always
+## Averaged data _can_ yield meaningful ensembles... just not always
 
-Proteins are small and radiation-sensitive: they can only produce blurry pictures. Historically, structural biology experiments have gotten around this and achieved high-resolution by averaging signals over many proteins: from all the proteins in a crystal, from many classified cryoEM particles, the plethora in an NMR tube, _etc._.
+Proteins are small and radiation-sensitive, meaning that in X-ray, cryoEM, and NMR experiments each individual molecule produces a signal that is too weak to yield an atomically resolved structure. Historically, structural biology experiments have gotten around this and achieved high resolution by averaging signals over many proteins: from all the proteins in a crystal, from many classified cryoEM particles, the ensemble in an NMR tube, _etc._.
 
-For an ensemble-average measurement, we can write a simple model of the data,
+We can write a simple model of that averaging process,
 
 $$
 y_i = \int m_i(x)\,p_{\mathrm{src}}(x)\,dx + \varepsilon_i,
 \tag{2}
 $$
 
-where $$m_i(x)$$ is the forward model for observable $$i$$ and $$\varepsilon_i$$ is measurement noise. The experiment does not hand us individual conformations; it hands us a weighted average of the observable over the source distribution. How much ensemble information survives depends on what was averaged, how many independent constraints remain, and at what spatial resolution they were measured.
+where $$m_i(x)$$ is the forward model for observable $$i$$ and $$\varepsilon_i$$ is measurement noise. In words, the experiment produces data that are a weighted average of the observable over the source distribution. How much ensemble information survives depends on (i) that source distribution, (ii) how many independent constraints remain, and (iii) at what spatial resolution they were measured.
 
-Averaging an observable is not the same as measuring the average structure. For two conformations $$A$$ and $$B$$, with source probabilities $$p^A_{\mathrm{src}}$$ and $$p^B_{\mathrm{src}}$$, respectively, what is measured is $$p^A_{\mathrm{src}}\,m(x_A) + p^B_{\mathrm{src}}\,m(x_B)$$, not $$m(p^A_{\mathrm{src}} x_A + p^B_{\mathrm{src}} x_B)$$. When the observable is close to linear in structural space, two spatially separated conformations can leave two separable traces rather than one fictitious midpoint. Averaged data can still contain ensemble information; the question is how much of it remains distinguishable.
+Importantly, the averaged experimental observable is not the same as the average coordinate structure. One way to see this clearly is to consider the simplest possible ensemble: there are only two discrete conformations $$A$$ and $$B$$, with source probabilities $$p^A_{\mathrm{src}}$$ and $$p^B_{\mathrm{src}}$$, respectively. Experimentally, one observes $$p^A_{\mathrm{src}}\,m(x_A) + p^B_{\mathrm{src}}\,m(x_B)$$, not $$m(p^A_{\mathrm{src}} x_A + p^B_{\mathrm{src}} x_B)$$. This also makes it clear that when the forward model is close to linear in structural space, two spatially distinct conformations can produce a superposition that is interpretable as two separate structures: alternative conformations of sidechains, which often show well-separated features in electron density and electrostatic potential maps, are a familiar example. On the other hand, highly overlapping structural features, such as subtle backbone motions, are often challenging to disentangle and interpret as separate, discrete coordinate models. Thus, averaged data _can_ still contain ensemble information; the question is how much of it remains distinguishable, which is a protein- and experiment-specific question.
 
-## Single-molecule experiments provide a more direct access to an ensemble
+## Single-molecule experiments provide a more direct, but still lossy, view of an ensemble
 
-**TO DO Introduction.**
+Amongst the commonly used tools in structural biology, cryoEM is unique in that the raw data provide atomically resolved images of individual, single molecules. While averaging to boost signal-to-noise is standard in cryoEM single particle analysis, that averaging is done computationally – not experimentally – each particle averaged is a sample from $$p_{\mathrm{src}}$$, which enables a much more powerful approach to recovering that source distribution.
 
-Single-molecule experiments come in more than one form. Some follow the same molecule over time. In single-molecule FRET, for example, a time trace may be divided into coarse conformational states and used to estimate transitions; under stationary conditions, the distribution of that model estimates their populations. Such trajectories contain kinetic information as well as population information.
-
-Cryo-EM preserves molecular individuality without preserving time. Each particle contributes a single noisy projection of one conformation, so the ensemble must be inferred from variation across many images rather than from transitions within a trajectory. Despite this difference, both experiments can be described as noisy observations of latent molecular states:
+Mathematically, each particle contributes a single noisy projection of one conformation:
 
 $$
 \begin{aligned}
@@ -78,24 +76,32 @@ y_n &\sim K(\,\cdot\mid x_n, z_n),
 \tag{3}
 $$
 
-where $$x_n$$ is the molecular state, $$z_n$$ collects nuisance variables, and $$K$$ is the measurement kernel relating a latent state to an observation. For a trajectory experiment, this is only the marginal observation model; a complete description must also specify how states evolve in time. In cryo-EM, the index $$n$$ instead runs over different particles, while $$z_n$$ includes projection direction, translation, and microscope effects.
+generically, for any single-particle experiment, $$x_n$$ is the molecular state, $$z_n$$ collects nuisance variables, and $$K$$ is the measurement kernel relating a latent state to an observation. In cryo-EM specifically, the index $$n$$ runs over different particles, while $$z_n$$ includes projection direction, translation, and microscope effects.
 
-For independent snapshots — or for the marginal observation at one time point — the distribution of observations is
+For independent snapshots, the distribution of observations is
 
 $$
 q(y) = \iint K(y \mid x, z)\,\pi(z)\,p_{\mathrm{src}}(x)\,dz\,dx.
 \tag{4}
 $$
 
-Unlike Equation (2), this distribution retains molecule-to-molecule variation rather than reducing it immediately to selected averages. Yet recovering $$p_{\mathrm{src}}$$ from $$q(y)$$ remains an inverse problem. In cryo-EM, low contrast, unknown poses, microscope effects, and the high dimensionality of conformational variation can make that problem extremely difficult. Molecule-resolved does not mean easily recoverable, just as ensemble-averaged does not mean devoid of ensemble information. The two measurement routes therefore lose information differently. To compare them, we need to ask how different two source distributions must be before an experiment can distinguish them.
+Unlike Equation (2), this distribution retains molecule-to-molecule variation rather than reducing it immediately to an average. Yet, unfortunately, information is lost: recovering $$p_{\mathrm{src}}$$ from $$q(y)$$ remains an inverse problem. In cryo-EM, low contrast, unknown poses, microscope effects, and the high dimensionality of conformational variation can make that problem extremely difficult. 
+
+A single-molecule experiment does not immediately yield an ensemble, just as an ensemble-averaged experiment is not devoid of ensemble information. The two measurement routes lose information through different mechanisms. That leads to a natural, pragmatic question: can we quantify the ensemble information that any one experiment might produce, so we can assess these different strategies in a clear-eyed way?
 
 ### Ensemble resolution
 
-We call this limit *ensemble resolution*. Just as spatial resolution asks when nearby features blur together, ensemble resolution asks when distinct source distributions become experimentally indistinguishable. More precisely, two distributions cannot be distinguished when, after passing through the measurement process, they produce observables that agree within the uncertainty of the data.
+One way to sharpen this question is to ask: how well can a given experiment distinguish different proposals for the source distribution, $$p_{\mathrm{src}}$$? One could imagine that a powerful experiment could validate one $$p_{\mathrm{src}}$$ while rejecting a related $$p_{\mathrm{src}}'$$, while a less informative experiment could not distinguish between the two. Alternatively, understanding – quantitatively – how "similar" two distributions have to be before an experiment cannot say the evidence for one is significantly greater than for the other provides a measure of the ensemble information captured by that experiment.
 
-An experiment can therefore contain ensemble information and still have low ensemble resolution. It may distinguish open from closed but not resolve a continuum between them, detect a rare state but not determine its occupancy, or report a broad fluctuation without identifying the correlated motions that produced it. For averaged measurements, the limit is set by the number and spatial specificity of the independent constraints. For molecule-resolved measurements, it is set by how well different latent states remain distinguishable through noise, nuisance variables, finite sampling, and the inference model. In cryo-EM, this criterion exposes a second distinction: particle images and reconstructed maps sit at different stages of information loss.
+To capture this idea, we propose the concept of an *ensemble resolution*. Just as spatial resolution asks when nearby features blur together and become indistinguishable, ensemble resolution should measure when distinct source distributions become experimentally indistinguishable. More precisely, two distributions cannot be distinguished when, after passing through the measurement process, they produce observables that agree within the uncertainty of the data.
 
-### Cryo-EM: two targets, structure or ensemble?
+An experiment can therefore contain ensemble information and still have low ensemble resolution. Consider a more concrete example: a cryo-EM experiment may distinguish open from closed states for an ion channel, but not resolve a continuum between them. Alternatively, an experiment might be able to detect a rare state but not determine its occupancy precisely, or report a broad fluctuation without the ability to quantiatively infer the correlated motions that produced it. 
+
+For averaged measurements, the ensemble resolution will be set by the number and spatial specificity of the independent constraints. For single-molecule measurements, it is set by how well different latent states remain distinguishable through noise, nuisance variables, finite sampling, and the inference model. 
+
+Cryo-EM is a particularly interesting case study, as today ensembles are being inferred from cryo-EM data in two different ways: either by analyzing single particles staistically, or by computationally averaging to a single electrostatic potential map and building an ensemble model into that averaged signal. A sharp and functional definition of ensemble resolution should let us evaluate the merits of these two strategies in an objective fashion.
+
+### Cryo-EM: structure or ensemble?
 
 The crucial change occurs during reconstruction. Particle images that began as separate molecular observations are picked, curated, aligned, classified, masked, and averaged into a three-dimensional map. This processing is essential for high-resolution structure determination, but it also changes the inferential target.
 
@@ -107,7 +113,7 @@ Cryo-EM therefore makes the central diagnostic concrete: before asking whether a
 
 ### Further reading
 
-For readers who want the technical background, the short bibliography below points to work on structural ensemble determination, the limits of averaged data, cryo-EM heterogeneity, Bayesian reconstruction, and image-level ensemble inference.
+We want to end by highlighting a few works that influenced our thinking that readers might find interesting! This is not a comperhensive review, but an intentionally biased selection that covers the limits of averaged data, cryo-EM heterogeneity, Bayesian reconstruction, and image-level ensemble inference.
 
  1. Bonomi et al. *Principles of protein structural ensemble determination*. Current Opinion in Structural Biology, 2017.
  2. Ravera et al. *A critical assessment of methods to recover information from averaged data*. Physical Chemistry Chemical Physics, 2016.
