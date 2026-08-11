@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Are We Seeing the Ensemble?
+title: Fitting ensembles from cryoEM data, an exciting – and tricky! – frontier
 subtitle: How structural biology experiments preserve, blur, or lose molecular ensembles
 author: Minhuan Li, F. Emil Thomasen, Pilar Cossio
 contact: "{minhuanli,fthomasen,pcossio}@flatironinstitute.org"
@@ -11,33 +11,46 @@ usemathjax: true
 Two ways in which an experiment can encode a conformational ensemble. Ensemble-averaged measurements combine contributions from many molecules into each observable. In single-particle or single-molecule measurements, each observation arises from an individual molecule, and the ensemble is represented statistically across many observations.
 {: .blog-caption-wide}
 
-Ensemble-inference approaches are rapidly becoming a research frontier across structural biology. But asking a biophysical experiment for a distribution is different from asking it for a structure. Before reaching for a better inference method, we first have to ask how the experiment encoded the ensemble and how much of that information survived measurement and processing. Different modalities answer this question differently: some measure noisy samples from the distribution, while others compress the ensemble into a set of averaged observables.
-{: .post-lead}
+Ensemble-inference approaches are rapidly becoming a research frontier across structural biology. The prospect of visualizing not only a single snapshot, but the structural fluctuations biomolecules make as they function, is one of the most exciting steps forward structural biology is poised to make.
 
-This distinction cuts across structural biology. Here we begin with cryo-electron microscopy (cryo-EM), where particle images and reconstructed maps provide two different observables of the same sample. Their contrast illustrates a broader principle that will apply across experimental modalities: the suitability of a target for ensemble inference depends not only on its structural detail, but also on how faithfully it retains information about the underlying distribution. To understand why, start with the object we are trying to recover.
+But asking a biophysical experiment for a distribution has some fundamental differences from asking it for a structure. Here we discuss a few of the challenges involved, and potential solutions, with single-particle cryoEM as our focus. The topics discussed, however, cut across structural biology and are not intrinsically unique to cryoEM.
+{: .post-lead}
 
 ### Biomolecules as thermodynamic ensembles
 
-Many structural models represent a biomolecule with a single set of coordinates. However, to perform their biological function, biomolecules populate a range of conformations: binding pockets must reshape to bind drugs, enzymes must deform to catalyze reactions, ion channels must transition between open and closed states to regulate ion flux, and viral spike proteins must undergo large-scale openings to infect host cells.
+Many structural models represent a biomolecule with a single set of coordinates. To perform their biological function, however, biomolecules populate a range of conformations: pockets deform to bind ligands, ion channels transition between open and closed states, and viral spike proteins  undergo large-scale openings to infect host cells. Can we image these important and interesting motions, capturing them in the form of an ensemble?
 
-An ensemble is more than the observation that molecules move. It describes both which conformations are accessible and how frequently they occur. This information is captured by a probability distribution over molecular configurations, the *thermodynamic ensemble*. At temperature $$T$$, the equilibrium ensemble follows Boltzmann's distribution,
+An ensemble is more than the observation that molecules move. It describes both which conformations are accessible and how frequently they occur – a probability distribution. In the familiar language of thermodynamics, we say that for a given temperature $$T$$, the equilibrium ensemble is given by Boltzmann's distribution,
 
 $$
 p_{\mathrm{th}}(x) = \frac{1}{Z}\exp\!\left(-\frac{E(x)}{k_B T}\right),
 \tag{1}
 $$
 
-where $$x$$ is a molecular conformation, $$E(x)$$ is its potential energy, $$k_B$$ is Boltzmann's constant and $$Z$$ is the partition function. Knowing $$p_{\mathrm{th}}(x)$$ tells us which conformations are populated and with what probabilities, including rare or transition states. Together with an appropriate forward model, it would also allow us to predict equilibrium measurements.
+where $$x$$ is a molecular conformation, $$E(x)$$ is its potential energy, $$k_B$$ is Boltzmann's constant and $$Z$$ is the partition function (a normalizing factor). Knowing $$p_{\mathrm{th}}(x)$$ is just the probability that we encouter any conformation $$x$$, including rare or transition states. Together with an appropriate forward model, it would also allow us to predict any measurement of the system when it's at equilibrium.
 
-A single deposited structure might be a useful summary of this landscape, but certain questions can only be addressed with the ensemble distribution: how populated is an alternative conformation, how often does a cryptic pocket open, which states are stabilized by a drug, and which motions disappear after a mutation? Once these are the questions — ones that bring us closer to understanding the biological role of a biomolecule — structure determination becomes ensemble inference.
+When the distribution is skewed so that one conformation is overwhelmingly more likely than the others, a single deposited structure might be a useful summary of this landscape. But questions about molecular flexibility can only be addressed with the ensemble distribution: how populated is an alternative conformation? How often does a cryptic pocket open? Which states are stabilized by a drug? Which motions disappear after a mutation? 
 
-But this ideal distribution might not be the one that enters the instrument. Experiments instead probe a *source distribution*, $$p_{\mathrm{src}}$$, present in the prepared sample under the conditions of measurement. Sample preparation, temperature, chemical environment, and the conformational timescales of the molecule can all separate this distribution from the physiological ensemble we ultimately care about. This gap applies to every modality, not only to cryo-EM. Ensemble inference therefore has two layers: recovering $$p_{\mathrm{src}}$$ from the data, and deciding how faithfully $$p_{\mathrm{src}}$$ represents $$p_{\mathrm{th}}$$. Here we focus on the first.
+For these questions, we leave structure determination behind and enter the land of ensemble inference – and a few things can go awry!
 
-### How experiments observe the source distribution
+### Experimental design dictates the ensemble
 
-Once the immediate target is $$p_{\mathrm{src}}$$, the next question is what kind of trace the experiment leaves behind. Broadly, there are two, as illustrated in the figure at the top of this post. Some experiments combine contributions from many molecules into ensemble-averaged observables. Others are molecule-resolved: individual observations arise from individual molecules, and the ensemble appears statistically across many observations.
+First, while we might care about the protein in one particular condition – perhaps a buffer that mimics the cytosol held at 37 $^{\circ}$C – experimental realities might mean the protein sample needs to be prepared under different conditions. For example, cryoEM requires the samples to be flash frozen! 
 
-For an ensemble-average measurement, the data take the form
+Accordingly, the Boltzmann distribution we want to measure might not correspond to the *source distribution*, $$p_{\mathrm{src}}$$, present in the prepared sample under the conditions of measurement. 
+
+Sample purity, temperature, chemical environment, and the fact the molecules might not be in equilibrium – but, like in cryoEM, trapped in a glass! – can all separate this distribution from an ensemble we actually wish to study.
+
+This gap applies to every modality, not only to cryo-EM. Ensemble inference therefore has two layers: recovering $$p_{\mathrm{src}}$$ from the data, and deciding how faithfully $$p_{\mathrm{src}}$$ represents $$p_{\mathrm{th}}$$. 
+
+**TJ comment.** You don't discuss the implications. What should you do if you have a different distribution from the one you care about? At least you should think through the exprimental design. It also could be possible -- in certain ideal situations -- to reweight the source to a different distribution you care more about. Elaborate.
+
+
+## Averaged data _can_ yield meaningful ensembles... but not always
+
+Proteins are small and radiation-sensitive: they can only produce blurry pictures. Historically, structural biology experiments have gotten around this and achieved high-resolution by averaging signals over many proteins: from all the proteins in a crystal, from many classified cryoEM particles, the plethora in an NMR tube, _etc._.
+
+For an ensemble-average measurement, we can write a simple model of the data,
 
 $$
 y_i = \int m_i(x)\,p_{\mathrm{src}}(x)\,dx + \varepsilon_i,
@@ -47,6 +60,10 @@ $$
 where $$m_i(x)$$ is the forward model for observable $$i$$ and $$\varepsilon_i$$ is measurement noise. The experiment does not hand us individual conformations; it hands us a weighted average of the observable over the source distribution. How much ensemble information survives depends on what was averaged, how many independent constraints remain, and at what spatial resolution they were measured.
 
 Averaging an observable is not the same as measuring the average structure. For two conformations $$A$$ and $$B$$, with source probabilities $$p^A_{\mathrm{src}}$$ and $$p^B_{\mathrm{src}}$$, respectively, what is measured is $$p^A_{\mathrm{src}}\,m(x_A) + p^B_{\mathrm{src}}\,m(x_B)$$, not $$m(p^A_{\mathrm{src}} x_A + p^B_{\mathrm{src}} x_B)$$. When the observable is close to linear in structural space, two spatially separated conformations can leave two separable traces rather than one fictitious midpoint. Averaged data can still contain ensemble information; the question is how much of it remains distinguishable.
+
+## Single-molecule experiments provide a more direct access to an ensemble
+
+**TO DO Introduction.**
 
 Single-molecule experiments come in more than one form. Some follow the same molecule over time. In single-molecule FRET, for example, a time trace may be divided into coarse conformational states and used to estimate transitions; under stationary conditions, the distribution of that model estimates their populations. Such trajectories contain kinetic information as well as population information.
 
