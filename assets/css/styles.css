@@ -631,6 +631,25 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
   font-style: italic;
 }
 
+/* Key term at the point it is defined — italic, in the site blue. */
+#content-body .key-term {
+  color: var(--rss-blue);
+  font-style: italic;
+}
+
+/* Acknowledgments — a closing aside, set off by a hairline and quieter
+   than body copy rather than louder. */
+#content-body > .post-ack {
+  margin-top: 2.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid #e3e8f0;
+  color: #6b7280;
+  font-size: 0.925rem;
+}
+#content-body > .post-ack em {
+  color: inherit;
+}
+
 /* Markdown links — blue with an underline that grows on hover */
 #content-body a:not([class]) {
   color: var(--rss-blue);

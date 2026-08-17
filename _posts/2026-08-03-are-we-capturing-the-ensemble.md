@@ -74,7 +74,7 @@ The important point is therefore not that one class of experiment "measures ense
 
 ### The question of ensemble resolution
 
-Just as spatial resolution asks when nearby features blur together, we can ask when two source distributions become experimentally indistinguishable. We use *ensemble resolution* to refer to this question: which differences between molecular distributions remain distinguishable after passing through the measurement process, given the uncertainty of the data?
+Just as spatial resolution asks when nearby features blur together, we can ask when two source distributions become experimentally indistinguishable. We use *ensemble resolution*{: .key-term} to refer to this question: which differences between molecular distributions remain distinguishable after passing through the measurement process, given the uncertainty of the data?
 
 The analogy to spatial resolution is useful, but it only goes so far. Ensembles can differ in more than one way, so there is no reason to expect a single number to summarize their resolution. Two distributions might contain the same major conformations but assign them different populations; one might contain a rare state absent from the other; or they might show similar fluctuations individually but differ in how those motions are correlated. An experiment may distinguish one of these differences while being nearly blind to another. What can be resolved therefore depends not only on the experiment, but also on what aspect of the distribution we are asking it to distinguish.
 
@@ -101,6 +101,7 @@ Before arguing for an ensemble-inference method, ask how the data were generated
 Thinking in terms of ensemble resolution shifts the question from whether an experiment "contains an ensemble" to a more useful one: what aspects of the molecular distribution can this dataset actually distinguish?
 
 *Thanks to TJ Lane and Alisia Fadini for reading earlier drafts and for their thoughtful feedback.*
+{: .post-ack}
 
 ### Further reading
 
