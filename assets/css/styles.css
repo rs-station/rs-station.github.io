@@ -631,10 +631,11 @@ body.hero-page .navbar.navbar-scrolled .navbar-brand {
   font-style: italic;
 }
 
-/* Key term at the point it is defined — italic, in the site blue. */
+/* Key term at the point it is defined — bold italic, in the site blue. */
 #content-body .key-term {
   color: var(--rss-blue);
   font-style: italic;
+  font-weight: 600;
 }
 
 /* Acknowledgments — a closing aside, set off by a hairline and quieter
