@@ -41,12 +41,12 @@ Different experiments encode $$p_{\mathrm{src}}$$ in different ways. Broadly, th
 For an ensemble-average measurement, in its simplest form, the observable can be written as
 
 $$
-\int m(x)\,p_{\mathrm{src}}(x)\,dx + \varepsilon,
+y = \int m(x, z)\,\pi(z)\,p_{\mathrm{src}}(x)\,dx\,dz + \varepsilon,
 $$
 
-where $$m(x)$$ is the forward model for the observable and $$\varepsilon$$ represents measurement uncertainty. The experiment doesn't measure the observable for any individual molecule. Instead, it reports the expectation value of that observable over the source distribution.
+where $$m(\cdot)$$ is the forward model for the observable, $$z$$ collects experimental nuisance variables with distribution $$\pi(z)$$, and $$\varepsilon$$ represents measurement uncertainty. The experiment doesn't measure the observable for any individual molecule. Instead, it reports the expectation value of that observable over the source distribution and the nuisance variables.
 
-Importantly, averaging in **observable space** is not the same as averaging in **conformational space**. Suppose two conformations, $$x_A$$ and $$x_B$$, occur with probabilities $$p_A$$ and $$p_B$$. The measured signal is $$p_A m(x_A)+p_B m(x_B)$$ not, in general, $$m\left(p_A x_A+p_B x_B\right)$$. This distinction matters. If the observable responds differently to the two conformations, their contributions can remain separately constrained even though the measurement averages over many molecules. X-ray diffraction intensities, for example, need not correspond to a fictitious structure halfway between two populated conformations. Spatially distinct states can leave distinct contributions to the measured density. "Averaged" therefore does not mean "only informative about an average structure."
+Importantly, averaging in **observable space** is not the same as averaging in **conformational space**. Suppose two conformations, $$x_A$$ and $$x_B$$, occur with probabilities $$p_A$$ and $$p_B$$. Suppressing the nuisance variables, the measured signal is $$p_A m(x_A)+p_B m(x_B)$$, not, in general, $$m\left(p_A x_A+p_B x_B\right)$$. This distinction matters. If the observable responds differently to the two conformations, their contributions can remain separately constrained even though the measurement averages over many molecules. X-ray diffraction intensities, for example, need not correspond to a fictitious structure halfway between two populated conformations. Spatially distinct states can leave distinct contributions to the measured density. "Averaged" therefore does not mean "only informative about an average structure."
 
 Single-particle experiments preserve a different kind of information. We can describe an individual observation as arising from a latent molecular state,
 
@@ -54,7 +54,7 @@ $$
 x_n \sim p_{\mathrm{src}}(x),
 $$
 
-together with experimental nuisance variables $$z_n$$, followed by a measurement process $$K$$,
+together with experimental nuisance variables $$z_n$$, followed by a measurement process described by the distribution $$K$$,
 
 $$
 y_n \sim K(\cdot \mid x_n,z_n)\,.
@@ -65,10 +65,10 @@ In single-molecule FRET, time traces of the same molecule can reveal transitions
 For independent observations, their marginal distribution is
 
 $$
-\int K(y\mid x,z)\cdot\pi(z)\cdot p_{\mathrm{src}}(x)\,dz\,dx.
+p(y) = \int K(y\mid x,z)\,\pi(z)\,p_{\mathrm{src}}(x)\,dz\,dx.
 $$
 
-Because molecule-to-molecule variation has not been collapsed immediately into a small set of ensemble averages, such data can in principle retain rich information about heterogeneity. But molecule-resolved does not mean that the underlying distribution is directly observed. Noise, unknown nuisance variables, limited sampling, and the magnitude and diversity of conformational variation can make distinct molecular states difficult—or impossible—to distinguish.
+The two integrals return different kinds of object. The ensemble-averaged expression gives a value, one observable per measurement; this one gives a distribution over possible observations. Because molecule-to-molecule variation has not been collapsed immediately into a small set of ensemble averages, such data can in principle retain rich information about heterogeneity. But molecule-resolved does not mean that the underlying distribution is directly observed. Noise, unknown nuisance variables, limited sampling, and the magnitude and diversity of conformational variation can make distinct molecular states difficult—or impossible—to distinguish.
 
 The important point is therefore not that one class of experiment "measures ensembles" while the other does not. Both impose constraints on $$p_{\mathrm{src}}$$, but they preserve different types and levels of distinctions within it.
 
