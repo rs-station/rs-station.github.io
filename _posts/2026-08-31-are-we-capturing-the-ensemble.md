@@ -36,7 +36,7 @@ Which distinctions within $$p_{\mathrm{src}}$$ survive this chain?
 
 ### How experiments constrain the source distribution
 
-Different experiments encode $$p_{\mathrm{src}}$$ in different ways. Broadly, there are two cases. In an ensemble-averaged measurement, each observable combines contributions from many molecules. In a single-molecule measurement, individual observations arise from individual molecules, and the distribution appears statistically across many observations. These are not rankings of how much "ensemble information" an experiment contains. They are different ways of constraining the same underlying distribution.
+Different experiments encode $$p_{\mathrm{src}}$$ in different ways. Broadly, there are two cases. In an ensemble-averaged measurement, each observable combines contributions from many molecules. In a single-molecule measurement, individual observations arise from individual molecules, and the distribution appears statistically across many observations. These are not rankings of how much "ensemble information" an experiment contains. They are different ways of gaining information about the underlying distribution.
 
 For an ensemble-average measurement, in its simplest form, the observable can be written as
 
