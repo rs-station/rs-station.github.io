@@ -41,3 +41,7 @@
   link: https://github.com/rs-station/rocket
   docs: https://rocket-9.gitbook.io/rocket-docs
   desc: "**R**efining **O**penfold predictions with **C**rystallographic/Cryo-EM Li**KE**lihood **T**argets (ROCKET) is a tool that uses neural nets for protein structure refinement."
+- name: embedopt
+  type: development
+  link: https://github.com/rs-station/embedopt
+  desc: "Reward-guided steering of protein structure diffusion models at inference time, by optimizing trunk embeddings rather than coordinates — no retraining required."
