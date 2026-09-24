@@ -69,6 +69,12 @@
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S160057672100755X
   info: Journal of Applied Crystallography, 2021
+- nickname: torchref
+  section: applications
+  title: "TorchRef: An open-source PyTorch Framework for Crystallographic Refinement"
+  authors: "**Hans-Peter Seidel**, Jörg Standfuss, Tobias Weinert"
+  url: https://doi.org/10.64898/2026.05.13.724821
+  info: bioRxiv (preprint), 2026
 - nickname: crystalboltz
   section: applications
   title: "CrystalBoltz: End-to-End Protein Structure Determination via Experiment-Guided Diffusion for X-Ray Crystallography"
