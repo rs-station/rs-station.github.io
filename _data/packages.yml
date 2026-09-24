@@ -45,3 +45,7 @@
   type: development
   link: https://github.com/rs-station/embedopt
   desc: "Reward-guided steering of protein structure diffusion models at inference time, by optimizing trunk embeddings rather than coordinates — no retraining required."
+- name: VALDO
+  type: development
+  link: https://github.com/Hekstra-Lab/valdo
+  desc: "**V**AE **A**ssisted **L**igand **D**isc**O**very uses variational autoencoders to improve the signal-to-noise ratio of crystallographic drug fragment screens."
