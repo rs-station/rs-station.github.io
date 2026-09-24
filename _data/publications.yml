@@ -1,3 +1,10 @@
+- nickname: embedopt
+  section: cite
+  package: "EmbedOpt"
+  title: "Robust Inference-Time Steering of Protein Diffusion Models via Embedding Optimization"
+  authors: "**Minhuan Li**, Jiequn Han, Pilar Cossio, Luhuan Wu"
+  url: https://doi.org/10.48550/arXiv.2602.05285
+  info: arXiv (preprint), 2026
 - nickname: rocket
   section: cite
   package: "ROCKET"
@@ -34,6 +41,13 @@
   authors: "**Doris Mai**, Doeke R Hekstra, Frédéric Poitevin, Kevin M Dalton"
   url: https://doi.org/10.1063/4.0000945
   info: Structural Dynamics, 2025
+- nickname: valdo
+  section: cite
+  package: "VALDO"
+  title: "Improving Signal-to-Noise Ratio of Drug Fragment Screening with Variational Autoencoder"
+  authors: "**Phyllis Zhang**, Minhuan Li, Daniel Keedy, Tamar Skaist Mehlman, Doeke Hekstra"
+  url: https://doi.org/10.1063/4.0001064
+  info: Structural Dynamics (meeting abstract), 2025
 - nickname: matchmaps
   section: cite
   package: "MatchMaps"
@@ -62,6 +76,24 @@
   authors: "**Jack B. Greisman**, Kevin M. Dalton, Doeke R. Hekstra"
   url: https://doi.org/10.1107/S160057672100755X
   info: Journal of Applied Crystallography, 2021
+- nickname: torchref
+  section: applications
+  title: "TorchRef: An open-source PyTorch Framework for Crystallographic Refinement"
+  authors: "**Hans-Peter Seidel**, Jörg Standfuss, Tobias Weinert"
+  url: https://doi.org/10.64898/2026.05.13.724821
+  info: bioRxiv (preprint), 2026
+- nickname: crystalboltz
+  section: applications
+  title: "CrystalBoltz: End-to-End Protein Structure Determination via Experiment-Guided Diffusion for X-Ray Crystallography"
+  authors: "**Minseo Kim**, Huanghao Mai, Jay Shenoy, Alec Follmer, Gordon Wetzstein, Frédéric Poitevin"
+  url: https://doi.org/10.48550/arXiv.2605.15564
+  info: arXiv (preprint), 2026
+- nickname: excitedstates
+  section: applications
+  title: "Inferring structure factors of weakly populated excited states in perturbative crystallography experiments"
+  authors: "**Andrew K. Choe**, Harrison K. Wang, Doeke R. Hekstra"
+  url: https://doi.org/10.64898/2026.04.16.719053
+  info: bioRxiv (preprint), 2026
 - nickname: carelessED
   section: applications
   title: "Assessing the applicability of Bayesian inference for merging small molecule microED data"
